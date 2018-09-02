@@ -1,0 +1,156 @@
+2015-9-19
+-------------------------------------------
+innerHTML 完全替换 html标签
+
+appedChild 只是在原本基础之上添加，不会影响原来的元素！
+
+offsetLeft 元素的相对定位父级的位置
+
+原则：不要让css影响你的js代码！
+
+
+parentNode 获取元素的结构父级
+
+offsetParent 获取元素定位父级
+
+getPos(); 获取元素绝对位置
+ 
+
+css
+绝对定位：参照物 
+是加了定位的父级，如果父级没定位以body为参照物！
+
+==========================================================
+js 改变了元素 position:fixed;
+
+当滚动条的滚动距离 到 搜索栏的位置 改变它的定位
+
+input的事件：
+	onfocus 获取焦点时
+
+	onblur  失去焦点时
+
+
+	oInp.focus(); 使input标签获取焦点
+
+	oInp.blur(); 使input标签失去焦点
+
+--------------------------------------------------------
+img当中
+
+	var oImg=new Image(); 创建img
+
+	onload  加载成功时
+
+	onerror 加载失败时
+========================================================
+<form> 提交数据
+	 action="http://www.baidu.com"  提交地址
+	 method="get"                   提交方式
+			get   地址栏提交  不是很安全 
+				get -查询 - 大小限制 - 32KB左右
+
+				分享-提供便利
+
+					互联网精神 - 分享
+
+			post  隐形提交    相对安全
+				post - 登录 - 后台会限制1G 左右
+
+	http: 超文本协议
+	https: 安全超文本协议 - 费钱
+
+		绝对安全 - 不上传 不上网 不用电脑;
+
+	必须有：
+		name
+		value
+
+	通过name属性获取元素，只有表单元素可用
+		document.getElementsByName('username');
+			获取的是一组对象
+=================================================
+
+window.getSelection() 获取选中文字 
+						
+					  IE8+ chorme  ff
+
+var range=document.selection.createRange();
+ 					  IE 
+ 	range.text  选中文字
+
+==========================================
+事件：
+
+	onclick
+	onmoouseover
+	...
+	onmousedown 鼠标按下时
+	onmouseup   鼠标抬起时
+	onmousemove 鼠标移动时
+
+
+body默认高度是0；
+
+		document 不等于 html标签
+
+		document.documentElement = HTML标签
+
+包含关系：
+ window >  document	> html	> body > ul
+
+事件对象：
+ 		event  							  IE chrome
+
+ 		function(ev){                     ff
+ 			ev.clientX 鼠标坐标 
+ 		}
+
+ 	兼容写法：
+ 		var oEvent=ev || event;
+
+ 	oEvent.clientX 鼠标横轴的坐标
+
+ 	oEvent.clientY 鼠标纵轴的坐标
+
+ 			建议都加上滚动条的滚动距离！
+
+----------------------------------------------------------
+放大镜核心：
+	比例相等
+ 跟随span距离/小div宽度-跟随span宽度 = ?/大图宽度-大div宽度 
+
+l / (div1.offsetWidth - ospan.offsetWidth) 
+= 
+?(l2) /(oImg.offsetWidth-div2.offsetWidth)
+
+l2 = (oImg.offsetWidth-div2.offsetWidth)*l / (div1.offsetWidth - ospan.offsetWidth) 
+
+=============================================================
+事件冒泡 js特性
+
+人为 - 阻止冒泡 
+	    var oEvent=ev||event;
+		oEvent.cancelBubble=true;
+
+=============================================================
+浏览器会给咱们一些 默认动作
+
+	return false; 取消浏览器默认事件
+
+document.oncontextmenu 点击右键事件
+
+
+window.location.reload() 页面刷新
+
+window.open('http://www.zhinengshe.com')  跳转页面
+
+----------------------------------------------------------
+
+键盘事件 ？？？？？？ 预习
+ 
+-------------------------------------------------------
+
+练习： 把之前所有讲过的例子 自己敲一遍
+	
+

@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<meta name="description" content="智能社是一家专注于web前端开发技术的公司，目前主要提供JavaScript培训和HTML5培训两项服务，同时还推出了大量javascript基础知识教程，智能课堂为你带来全新的学习方法和快乐的学习体验。" />
+<title>智能社— http://www.zhinengshe.com</title>
+<style>
+</style>
+<script>
+function show(){
+	alert(this);
+}
+//show(); 				//window
+//new show(); 			//object
+
+
+var arr = [1,2,3];
+arr.show=function(){
+	alert(this);
+};
+//arr.show(); 			//1,2,3
+//new arr.show(); 		//object
+document.onclick=function(){
+	alert(this);
+};
+//document.onclick(); 	//document
+//new document.onclick(); 	//object
+
+
+arr.show2 = document.onclick;
+//arr.show2(); 			//1,2,3
+//new arr.show2(); 		//object
+//setInterval(function(){
+	//alert(this);
+//},10); 				//window
+//setInterval(function(){
+	//arr.show(); 			//1,2,3
+	//new arr.show(); 		//object
+//});
+//setInterval(arr.show,10); 	//window
+//setInterval(document.onclick,10);	//window
+/*setInterval(function(){
+	//document.onclick(); 			//document
+	new document.onclick(); 		//object
+},10);*/
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

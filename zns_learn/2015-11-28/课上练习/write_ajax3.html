@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>write_ajax</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBtn = document.body.children[0];
+			oBtn.onclick = function(){
+				//创建ajax
+				if(window.XMLHttpRequest){
+					var oAjax = new XMLHttpRequest();
+				}else{
+					var oAjax = new ActiveXObject('Microsoft.XHLHTTP');
+				}
+				//打开连接
+				oAjax.open('GET','a.txt',true);
+				//发送
+				oAjax.send();
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="按钮" />
+</body>
+</html>

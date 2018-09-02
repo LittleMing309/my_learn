@@ -1,0 +1,308 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>智能课堂 —— 微博ajax接口测试 - www.zhinengshe.com</title>
+<link href="style/weibo.css" rel="stylesheet" type="text/css" />
+<script src="ajax.js"></script>
+<script src="cookie.js"></script><script>
+window.onload=function()
+{
+	var oBtn = document.getElementById('btn1');
+	var oText = document.getElementById('tijiaoText');
+	var oBox = document.getElementById('msgBox');
+	var oPageBox = document.getElementById('pageBox');
+	
+	var URL = 'weibo.php';
+	
+	oBtn.onclick=function()
+	{
+		if(oText.value=='')
+		{
+			 return alert('请输入内容');
+		}
+		
+		ajax(
+				{	
+					url:URL,
+					data:{
+							act:'add',
+							content:oText.value
+						 },
+					succ:function(str)
+					{
+						var json = eval('('+str+')');
+						if(json.error)
+						{
+							alert('发布失败')
+						}
+						else
+						{
+							var oNewDiv=createMsg(oText.value,json.time,0,0,json.id);
+							if(oBox.children.length)
+							{
+								oBox.insertBefore(oNewDiv,oBox.children[0])
+							}
+							else
+							{
+								oBox.appendChild(oNewDiv)
+							}
+							
+							oText.value='';
+							
+							//为了看起来是6个
+							if(oBox.children.length>6)
+							{
+								oBox.removeChild(oBox.children[6]);
+							}
+							//更新页数
+							getCount();
+						}
+					}
+				}
+			)
+	};
+	
+	//补0
+	function toDuo(num)
+	{
+		if(num<10)
+		{
+			return '0'+num
+		}
+		else
+		{
+			return ' '+num
+		}
+	}
+	
+	function createMsg(content,time,acc,ref,id)
+	{
+		var oDate = new Date();
+		oDate.setTime(time*1000)
+		var sDate = oDate.getFullYear()+'-'+(oDate.getMonth()+1)+'-'+oDate.getDate()+' '+toDuo(oDate.getHours())+':'+toDuo(oDate.getMinutes())+':'+toDuo(oDate.getSeconds());		
+		var oNewDiv = document.createElement('div');
+		oNewDiv.className = 'reply';
+		
+		oNewDiv.innerHTML= '<p class="replyContent">'+content+' </p>  '
+		+'<p class="operation">                               '
+		+'<span class="replyTime">'+sDate+'</span> 			  '
+		+'<span class="handle">                               '
+		+'<a href="javascript:;" class="top">'+acc+'</a>            '
+		+'<a href="javascript:;" class="down_icon">'+ref+'</a>      '
+		+'<a href="javascript:;" class="cut">删除</a>        '
+		'</span>'
+		'</p>'
+		
+		//删除
+		var oCut = oNewDiv.getElementsByClassName('cut')[0];
+		oCut.onclick=function()
+		{
+			var t = confirm('确定删除这条评论？');
+			if(t){
+				ajax({
+					url:URL,
+					data:{act:'del',id:id},
+					succ:function(str){
+						var json=eval('('+str+')');
+						if(json.error){
+							alert('删除失败')
+						}
+						else{
+							oNewDiv.parentNode.removeChild(oNewDiv);	
+							//更新
+							if(n)
+							{
+								getPage(n);
+							}else{
+								getPage(1);
+							}
+							getCount();
+						}	
+					}
+				})
+			}
+		}
+		
+		//顶
+		var oTop=oNewDiv.getElementsByClassName('top')[0];
+		oTop.onclick=function()
+		{
+			if(!getCookie('acc'+id))
+			{	
+				ajax({
+					url:URL,
+					data:{
+						act:'acc',
+						id:id
+					},
+					succ:function(str)
+					{
+						var json=eval('('+str+')');
+						if(json.error)
+						{
+							alert('失败了')
+						}
+						else
+						{
+							oTop.innerHTML=parseInt(oTop.innerHTML)+1;	
+						}
+					}
+				})
+				addCookie('acc'+id,'1',1)
+			}
+			else
+			{
+				alert('亲，每人只能顶一次');
+			}
+		}
+		
+		// 踩死你
+		var oDown=oNewDiv.getElementsByClassName('down_icon')[0];
+		
+		oDown.onclick=function()
+		{
+			if(!getCookie('ref'+id))
+			{
+				ajax({
+					url:URL,
+					data:{act:'ref',id:id},
+					succ:function(str)
+					{
+						var json=eval('('+str+')');
+						if(json.error)
+						{
+							alert('失败了')
+						}
+						else
+						{
+							oDown.innerHTML=parseInt(oDown.innerHTML)+1;
+						}
+					}
+				})
+				addCookie('ref'+id,'1',1)
+			}
+			else
+			{
+				alert('亲，每人只能踩一次')
+			}
+		};
+		
+		return oNewDiv;
+		
+	}
+	
+	// 获取一页数据
+	getPage(1);
+	function getPage(n)
+	{
+		oBox.innerHTML='';
+		ajax({
+			url:URL,
+			data:{
+				act:'get',
+				page:n
+			},
+			succ:function(str)
+			{
+				var arr=eval('('+str+')');
+				
+				for(var i=0; i<arr.length; i++)
+				{
+					var oNewDiv=createMsg(arr[i].content,arr[i].time,arr[i].acc,arr[i].ref,arr[i].id);
+					oBox.appendChild(oNewDiv)
+				}
+			}
+		})
+	}
+
+	//创建总页数
+	getCount();
+	function getCount(){
+		oPageBox.innerHTML='';
+		ajax({
+			url:URL,
+			data:{
+				act:'get_page_count'	
+			},
+			succ:function(str){
+				var json=eval('('+str+')');
+				var n=json.count;
+				
+				
+				for(var i=0; i<n; i++){
+					var oA=document.createElement('a');
+					oA.href='javascript:;';
+					oA.innerHTML=i+1;
+					oPageBox.appendChild(oA);
+					if(i==0){
+						oA.className='active';	
+					}
+					
+					oA.onclick=function(){
+						for(var i=0; i<oPageBox.children.length; i++){
+							oPageBox.children[i].className='';		
+						}
+						this.className='active';
+						getPage(this.innerHTML);	
+						window.location.hash='#'+this.innerHTML;
+					}
+				}
+				
+				//判断当前页码
+				var n =window.location.hash.substring(1);
+				if(n)
+				{
+					for(var i=0; i<oPageBox.children.length; i++)
+					{
+						oPageBox.children[i].className='';
+					}
+					oPageBox.children[n-1].className='active';
+				}
+				else
+				{
+					oPageBox.children[0].className='active';
+				}
+			}	
+		});	
+	}
+	
+	
+};
+</script>
+</head>
+
+<body>
+<div class="znsArea">
+<!--留言-->
+     <div class="takeComment">
+        <textarea name="textarea" class="takeTextField" id="tijiaoText"></textarea>
+        <div class="takeSbmComment">
+            <input type="button" class="inputs" value="" id="btn1" />
+            <span>(可按 Enter 回复)</span>
+        </div>
+    </div>
+<!--已留-->
+    <div class="commentOn">
+        <div class="messList" id="msgBox">
+        	<!--<div class="reply">
+                <p class="replyContent">卫士，新款卫士将推出总共14种车身式样。其中， XS旅行款车型售价为32295英镑(约33.6万元)。</p>
+                <p class="operation">
+                    <span class="replyTime">2011-09-08 16:37:60</span>
+                    <span class="handle">
+                    	<a href="javascript:;" class="top">0</a>
+                        <a href="javascript:;" class="down_icon">0</a>
+                        <a href="javascript:;" class="cut">删除</a>
+                    </span>
+                </p>
+            </div>-->
+        </div>
+        <div class="page" id="pageBox">
+        	<!--<a href="javascript:;" class="active">1</a>
+        	<a href="javascript:;">2</a>
+        	<a href="javascript:;">3</a>-->
+        </div>
+    </div>
+</div>
+</body>
+</html>

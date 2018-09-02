@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简易计算器</title>
+	<script src="jquery-1.7.2.js"></script>
+	<script>
+		$(function(){
+			$('#btn').click(function(){
+				var Txt1 = parseInt($('#txt1').val());
+				var Txt2 = parseInt($('#txt2').val());
+				switch($('#sel').val()){
+					case '+':
+					alert(Txt1+Txt2);
+					break;
+					case '-':
+					alert(Txt1-Txt2);
+					break;
+					case '*':
+					alert(Txt1*Txt2);
+					break;
+					case '/':
+					alert(Txt1/Txt2);
+					break;
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<input type="text" value="" id="txt1" />
+	<select id="sel">
+		<option>+</option>
+		<option>-</option>
+		<option>*</option>
+		<option>/</option>
+	</select>
+	<input type="text" value="" id="txt2">
+	<input type="button" value="结果" id="btn">
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>分享-侧边栏</title>
+	<style type="text/css">
+		div{ height: 300px; width: 0px; position: absolute; top: 50%; right: 0; margin-top: -150px; background: #CCC;}
+		h3{ width:1em; position: absolute; top: 50%; margin-top: -1em; background: yellow; left: -1em;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			oBox.onmouseover = function(){
+				move(this,'width',200,1000);
+			}
+			oBox.onmouseout = function(){
+				move(this,'width',0,1000);
+			}
+
+		};
+		var timer = null;
+		function move(obj,name,target,time){
+			var start = parseInt(getStyle(obj,name));
+			var dis = target - start;
+			var count = Math.floor(time/30);
+			var n = 0;
+			clearInterval(timer);
+			timer = setInterval(function(){
+				n++;
+				obj.style[name] = start + dis*n/count + 'px';
+				if(n == count){
+					clearInterval(timer);
+				}
+			},30);
+		}
+
+		function getStyle(obj,name){
+			return obj.currentStyle?obj.currentStyle[name]:getComputedStyle(obj,false)[name];
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<h3>分享到</h3>
+	</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+window.onload = function(){
+	var oBtn= document.getElementsByTagName('input')[0];
+	var oSpan = document.getElementsByTagName('span')[0];
+	oBtn.onclick=function(){
+		oSpan.innerHTML = 	this.value;
+	}
+}
+</script>
+</head>
+
+<body>
+	<input type="button" value="哈哈哈" />
+	<p>距今天还有<span>10</span>天放假</p>
+	
+</body>
+</html>

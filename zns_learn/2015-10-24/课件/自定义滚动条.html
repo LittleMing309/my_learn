@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	.box{ width:600px; margin:0 auto; border:1px solid red; height:300px; overflow:hidden;}
+	.conbox{ width:580px; float:left;}
+	.scrollbox{ width:20px; float:right; background:yellow; height:100%; position:relative; cursor:pointer;}
+	.scrollbox span{ width:20px; height:20px; background:red; position:absolute; top:0; left:0;}
+</style>
+<script>
+	window.onload=function(){
+		var oBtn=document.getElementById('btn');
+		var scrollBox=document.getElementById('scrollbox');
+		var conBox=document.getElementById('conbox');
+		var oBox=document.getElementById('box');
+		
+		oBtn.onmousedown=function(ev){
+			var oEvent=ev||event;
+			var disY=oEvent.clientY-oBtn.offsetTop;
+			document.onmousemove=function(ev){
+				var oEvent=ev||event;
+				var t=oEvent.clientY-disY;   // 距离上边的距离
+				t<0&&(t=0);
+				t>scrollBox.offsetHeight-oBtn.offsetHeight&&(t=scrollBox.offsetHeight-oBtn.offsetHeight);
+				var scale=t/(scrollBox.offsetHeight-oBtn.offsetHeight);
+				var oT=-(conBox.offsetHeight-oBox.offsetHeight)*scale;
+				conBox.style.marginTop=oT+'px';
+				oBtn.style.top=t+'px';
+			}
+			document.onmouseup=function(){
+				document.onmousemove=null;
+				document.onmouseup=null;
+				oBtn.releaseCapture&&oBtn.releaseCapture();
+			}
+			oBtn.setCapture&&oBtn.setCapture();
+			return false;
+		}
+	};
+</script>
+</head>
+
+<body>
+	<div class="box" id="box">
+		<div class="conbox" id="conbox">我有朋友在那学习过，课程方面还不错，深度广度都有。各方面的实用性也可以，但是学习难度也不低，需要专心。
+学完后就业是个问题，好工作只有好技术是不够的，学历也挺重要。没学历，进不了大公司，小公司薪资就一般了我有朋友在那学习过，课程方面还不错，深度广度都有。各方面的实用性也可以，但是学习难度也不低，需要专心。
+学完后就业是个问题，好工作只有好技术是不够的，学历也挺重要。没学历，进不了大公司，小公司薪资就一般了我有朋友在那学习过，课程方面还不错，深度广度都有。各方面的实用性也可以，但是学习难度也不低，需要专心。
+学完后就业是个问题，好工作只有好技术是不够的，学历也挺重要。没学历，进不了大公司，小公司薪资就一般了我有朋友在那学习过，课程方面还不错，深度广度都有。各方面的实用性也可以，但是学习难度也不低，需要专心。
+学完后就业是个问题，好工作只有好技术是不够的，学历也挺重要。没学历，进不了大公司，小公司薪资就一般了我有朋友在那学习过，课程方面还不错，深度广度都有。各方面的实用性也可以，但是学习难度也不低，需要专心。
+学完后就业是个问题，好工作只有好技术是不够的，学历也挺重要。没学历，进不了大公司，小公司薪资就一般了我有朋友在那学习过，课程方面还不错，深度广度都有。各方面的实用性也可以，但是学习难度也不低，需要专心。
+学完后就业是个问题，好工作只有好技术是不够的，学历也挺重要。没学历，进不了大公司，小公司薪资就一般了我有朋友在那学习过，课程方面还不错，深度广度都有。各方面的实用性也可以，但是学习难度也不低，需要专心。
+学完后就业是个问题，好工作只有好技术是不够的，学历也挺重要。没学历，进不了大公司，小公司薪资就一般了我有朋友在那学习过，课程方面还不错，深度广度都有。各方面的实用性也可以，但是学习难度也不低，需要专心。
+学完后就业是个问题，好工作只有好技术是不够的，学历也挺重要。没学历，进不了大公司，小公司薪资就一般了我有朋友在那学习过，课程方面还不错，深度广度都有。各方面的实用性也可以，但是学习难度也不低，需要专心。
+学完后就业是个问题，好工作只有好技术是不够的，学历也挺重要。没学历，进不了大公司，小公司薪资就一般了</div>
+		<div class="scrollbox" id="scrollbox">
+			<span id="btn"></span>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

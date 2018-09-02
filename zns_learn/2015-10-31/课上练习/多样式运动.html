@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多样式运动</title>
+	<style type="text/css">
+		#box{ height: 100px; width: 100px; opacity: 0; fliter:alpha(opacity:0); background: red;}
+	</style>
+	<script type="text/javascript" src="move4.js"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			oBox.onclick = function(){
+				move(oBox,{'height':300,'width':300,'opacity':1},1000);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

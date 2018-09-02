@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	*{ padding:0; margin:0;}
+	ul{ list-style:none;}
+	li{ width:300px; height:300px; background:#CCC; font-size:100px; text-align:center; line-height:300px; display:none;}
+	#box{ width:300px; border:1px solid red; margin:0 auto;}
+	.active{ color:red; background:yellow;}
+	#lBtn{ float:left;}
+	#rBtn{ float:right;}
+</style>
+<script>
+	window.onload = function(){
+			var oBox= document.getElementById('box');
+			var aInp = oBox.getElementsByTagName('input');
+			var aBox = oBox.getElementsByTagName('li');
+			var lBtn= document.getElementById('lBtn');
+			var rBtn= document.getElementById('rBtn');
+			var iNow=0;
+			var time=null;
+			
+			oBox.onmouseover= function(){
+				clearInterval(time);	
+			}
+			
+			oBox.onmouseout=function(){
+					time = setInterval(function(){
+						iNow++;
+						if(iNow==3){
+							iNow=0;
+						}
+						tab(iNow);
+				},2000)
+			}
+			
+			time = setInterval(function(){
+					iNow++;
+					if(iNow==3){
+						iNow=0;
+					}
+					tab(iNow);
+			},2000)
+			
+			rBtn.onclick=function(){
+				iNow++;
+				if(iNow==3){
+					iNow=0;
+				}
+				tab(iNow);
+			}
+			
+			lBtn.onclick=function(){
+				iNow--;
+				if(iNow==-1){
+					iNow=2;
+				}
+				tab(iNow);	
+			}
+			
+			for(var i=0; i<aInp.length;i++){
+				aInp[i].index=i;
+				aInp[i].onclick=function(){
+					iNow=this.index;
+					tab(iNow);
+				}
+			}
+			
+			function tab(num){
+				for(var i=0; i<aInp.length;i++){
+					aInp[i].className='';
+					aBox[i].style.display ='';
+				}
+				aBox[num].style.display='block';
+				aInp[num].className='active';		
+			}
+	}
+</script>
+</head>
+
+<body>
+	<div id="box">
+		<a href="javascript:;" id="lBtn">&lt;</a>
+		<input type="button" value="电影" class="active" />
+		<input type="button" value="电视剧" />
+		<input type="button" value="动漫" />
+		<a href="javascript:;" id="rBtn">&gt;</a>
+		<ul>
+			<li style="display:block;">电影</li>
+			<li>电视剧</li>
+			<li>动漫</li>
+		</ul>
+	</div>
+	
+</body>
+</html>
+
+
+
+
+
+
+

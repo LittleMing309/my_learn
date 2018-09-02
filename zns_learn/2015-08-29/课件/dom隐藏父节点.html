@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	window.onload =function(){
+			var list = document.getElementById('list');
+			var aBtn=list.getElementsByTagName('a');
+			for(var i=0; i<aBtn.length;i++){
+				aBtn[i].onclick=function(){
+					this.parentNode.style.display='none';
+				}	
+			}
+	}
+</script>
+</head>
+
+<body>
+	<ul id="list">
+		<li>1<a href="#">隐藏</a></li>
+		<li>2<a href="#">隐藏</a></li>
+		<li>3<a href="#">隐藏</a></li>
+		<li>4<a href="#">隐藏</a></li>
+	</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

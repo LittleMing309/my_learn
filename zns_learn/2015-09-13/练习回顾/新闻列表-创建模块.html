@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	li{ border:1px solid red;}
+</style>
+<script>
+	var data=[
+		{
+			title:'1习近平主持政治局会议 审议通过繁荣文艺意见',
+			href:'http://news.cnr.cn/native/gd/20150911/t20150911_519849069.shtml',
+			child:[
+				{
+					title:'李克强会见各国政要'	,
+					href:' http://news.cntv.cn/2015/09/11/VIDE1441970281101175.shtml',
+					
+				},
+				{
+					title:'俞正声率代表团回到北京  中阿博览会看点',
+					href:'http://news.cntv.cn/2015/09/11/VIDE1441970279359101.shtml'
+				}
+			]
+		},
+		{
+			title:'2习近平主持政治局会议 审议通过繁荣文艺意见',
+			href:'http://news.cnr.cn/native/gd/20150911/t20150911_519849069.shtml',
+			child:[
+				{
+					title:'李克强会见各国政要'	,
+					href:' http://news.cntv.cn/2015/09/11/VIDE1441970281101175.shtml',
+					
+				},
+				{
+					title:'俞正声率代表团回到北京  中阿博览会看点',
+					href:'http://news.cntv.cn/2015/09/11/VIDE1441970279359101.shtml'
+				}
+			]
+		},
+		{
+			title:'3习近平主持政治局会议 审议通过繁荣文艺意见',
+			href:'http://news.cnr.cn/native/gd/20150911/t20150911_519849069.shtml',
+			child:[
+				{
+					title:'李克强会见各国政要'	,
+					href:' http://news.cntv.cn/2015/09/11/VIDE1441970281101175.shtml',
+					
+				},
+				{
+					title:'俞正声率代表团回到北京  中阿博览会看点',
+					href:'http://news.cntv.cn/2015/09/11/VIDE1441970279359101.shtml'
+				}
+			]
+		},
+		{
+			title:'4习近平主持政治局会议 审议通过繁荣文艺意见',
+			href:'http://news.cnr.cn/native/gd/20150911/t20150911_519849069.shtml',
+			child:[
+				{
+					title:'李克强会见各国政要'	,
+					href:' http://news.cntv.cn/2015/09/11/VIDE1441970281101175.shtml',
+					
+				},
+				{
+					title:'俞正声率代表团回到北京  中阿博览会看点',
+					href:'http://news.cntv.cn/2015/09/11/VIDE1441970279359101.shtml'
+				}
+			]
+		},
+		{
+			title:'5习近平主持政治局会议 审议通过繁荣文艺意见',
+			href:'http://news.cnr.cn/native/gd/20150911/t20150911_519849069.shtml',
+			child:[
+				{
+					title:'李克强会见各国政要'	,
+					href:' http://news.cntv.cn/2015/09/11/VIDE1441970281101175.shtml',
+					
+				},
+				{
+					title:'俞正声率代表团回到北京  中阿博览会看点',
+					href:'http://news.cntv.cn/2015/09/11/VIDE1441970279359101.shtml'
+				}
+			]
+		}
+	];
+	window.onload=function(){
+		var oUl=document.getElementById('newList');
+		for(var i=0; i<data.length;i++){
+			var oLi=document.createElement('li');
+			oUl.appendChild(oLi);
+			var oH3=document.createElement('h3');
+			oLi.appendChild(oH3);
+			var aH=document.createElement('a');
+			aH.href=data[i].href;
+			aH.innerHTML=data[i].title;
+			oH3.appendChild(aH);
+			var oP=document.createElement('p');
+			oLi.appendChild(oP);
+			var aChild=data[i].child;
+			for(var j=0; j<aChild.length;j++){
+				var aH=document.createElement('a');
+				oP.appendChild(aH);
+				aH.href= aChild[j].href;
+				aH.innerHTML= aChild[j].title;
+			}
+		}
+	}
+	
+</script>
+</head>
+
+<body>
+	<ul id="newList"></ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

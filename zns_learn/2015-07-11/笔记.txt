@@ -1,0 +1,155 @@
+张志宝
+	志宝
+	联系方式：
+		13910561096
+		QQ:627492500
+
+	qq群：57276794
+	
+	http://bbs.zhinengshe.com/
+
+	提交作业格式：
+		魏继业-2015-03-08 attachment
+
+	自己的ID 给到咱们的课程顾问
+
+-------------------------
+交作业！！！
+	规矩：三次不交作业！ 跟下个班！
+
+-------------------------
+css
+	浮动特点：
+		1.脱离文档流 - 
+		2.
+
+
+		ie下
+			zoom:1; 兼容
+
+			有俩种渲染模式
+					layout
+清除浮动：
+
+.clearfix:after{ display:block; content:''; clear:both;}
+	.clearfix{ zoom:1;}
+
+css选择器优先级：
+	div p, h3 div{}
+	2			2
+	
+	div .div #div p .p{}
+	1   10    100  1  10 = 122
+	
+	#div #p{}
+	100 100  200
+
+语义化：浏览器看得懂 - SEO 网络推广
+	用适合标签包适合的东西！
+
+-----------------------------
+js是用来干嘛的？
+
+	修改css的！	
+		js玩css的
+
+JavaScript 雷峰塔
+
+Java  雷锋
+
+---------------------------
+标签的属性：
+
+事件：用户的操作
+ onclick="" 点击时干事
+ onmouseover=""鼠标移入时干的事
+ onmouseout=""鼠标移出时干的事
+ onload="" 加载完毕事件
+
+获取元素方式：
+	document.get ElementById('box')
+	当前页面.获取，元素，通过，ID('id名')
+	document.getElementsByTagName()[0]第几个
+	当前页面.获取一组元素通过标签名
+
+	document.body - 获取当前页面的body
+
+	[0]第几个 咱叫它 下标 索引值
+
+
+弹出：
+ 	alert('写弹出的内容')
+
+点击让box显示
+onclick="box.style.display='block'"
+
+-----------------------------
+结构 样式 行为 注定分离
+HTML  CSS  JS
+
+选中对象 加事件 干什么事！
+
+函数写法：
+
+	匿名函数：
+		function (){}
+
+
+定义函数！
+	是为了调用函数！
+
+function box(){
+		document.getElementById('box').style.background='yellow';	
+	}
+调用函数：
+<input type="button" value="变黄" onclick="box()" />
+
+命名规定：
+	js中的关键字
+	别用中文或者特殊符号
+	最好是有意义的英文单词或者是单词缩写
+
+---------------------------------------------
+js中的点 是用来操作属性的！
+
+window.onload=function (){}
+页面加载完毕时
+
+修改元素的class
+document.getElementsByTagName('div')[0].className = 'active';
+
+if语句：
+	if(条件 == 条件){
+		满足条件的语句
+	}else{
+		否则就执行语句	
+	}
+
+= 是用来赋值
+
+== 是用来比较
+
+=== 是用来绝对比较
+
+js不光可以修改样式 还可以修改属性！
+
+innerHTML 修改元素中html
+
+oDiv.innerHTML=oBtn.value;
+
+var 定义变量
+
+循环：重复干一件事
+for(var i=0; i<10;i++ ){
+	alert(1)
+}
+
+
+transition:all 1s;
+
+transform:translate(0,-150px);
+
+
+
+
+

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多级右键菜单</title>
+	<style type="text/css">
+		*{ margin:0; padding: 0;}
+		#div1{ width: 230px; border:1px solid #a0a0a0; display: none; position: absolute;}
+		ul{ list-style: none;}
+		ul h3{ line-height: 20px; font-size: 12px; font-weight: normal; text-indent: 32px;}
+		.parli{ position: relative;}
+		.onh3{ width: 220px; margin:0 auto; }
+		.sonul{ position: absolute; left: 220px; top: -1px; width: 200px; border:1px solid #a0a0a0; background: #FFF; display: none;}
+		.sparli{ position: relative;}
+		.sonsonul{ position: absolute; top: -1px; left: 190px; width: 170px; border:1px solid #a0a0a0; background: #FFF; display: none;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oDiv = document.getElementById('div1');
+			var aLi = oDiv.getElementsByTagName('li');
+			for(var i = 0 ; i<aLi.length; i++){
+				aLi[i].onmouseover = function(){
+					var oUl = this.getElementsByTagName('ul')[0];
+					var oH3 = this.getElementsByTagName('h3')[0];
+					oH3.style.background = '#f3edeb';
+					if(oUl){
+						oUl.style.display = 'block';
+					}
+				}
+				aLi[i].onmouseout = function(){
+					var oUl = this.getElementsByTagName('ul')[0];
+					var oH3 = this.getElementsByTagName('h3')[0];
+					oH3.style.background = '';
+					if(oUl){
+						oUl.style.display = 'none';
+					}
+				}
+			}
+			document.oncontextmenu = function(ev){
+				var oEvent = ev || event;
+				oDiv.style.display = 'block';
+				oDiv.style.left = oEvent.clientX + 'px';
+				oDiv.style.top = oEvent.clientY + 'px';
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<ul>
+			<li class="parli">
+				<h3 class="onh3">查看</h3>
+				<ul class="sonul">
+					<li><h3>大图标</h3></li>
+					<li><h3>中等图标</h3></li>
+					<li><h3>小图标</h3></li>
+					<li><h3>自动排列图标</h3></li>
+				</ul>
+			</li>
+			<li class="parli">
+				<h3 class="onh3">排序方式</h3>
+				<ul class="sonul">
+					<li><h3>名称</h3></li>
+					<li><h3>大小</h3></li>
+					<li><h3>项目类型</h3></li>
+					<li><h3>修改信息</h3></li>
+				</ul>
+			</li>
+			<li><h3 class="onh3">刷新</h3></li>
+			<li><h3 class="onh3">图形属性</h3></li>
+			<li class="parli">
+				<h3 class="onh3">图形选项</h3>
+				<ul class="sonul" >
+					<li class="sparli">
+						<h3>快捷键</h3>
+						<ul class="sonsonul">
+							<li><h3>禁用</h3></li>
+							<li><h3>启用</h3></li>
+						</ul>
+					</li>
+					<li class="sparli">
+						<h3>旋转</h3>
+						<ul class="sonsonul">
+							<li><h3>旋转至0度</h3></li>
+							<li><h3>旋转至90度</h3></li>
+							<li><h3>旋转至180度</h3></li>
+							<li><h3>旋转至270度</h3></li>
+						</ul>
+					</li>
+					<li class="sparli">
+						<h3>配置式</h3>
+						<ul class="sonsonul">
+							<li><h3>提高视频亮度</h3></li>
+							<li><h3>降低视频亮度</h3></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li class="parli">
+				<h3 class="onh3">新建</h3>
+				<ul class="sonul">
+					<li><h3>文件夹</h3></li>
+					<li><h3>快捷方式</h3></li>
+				</ul>
+			</li>
+			<li><h3 class="onh3">显示设置</h3></li>
+			<li><h3 class="onh3">个性化</h3></li>
+		</ul>
+	</div>
+</body>
+</html>

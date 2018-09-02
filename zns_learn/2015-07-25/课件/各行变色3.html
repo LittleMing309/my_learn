@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<script>
+		var aLi = document.getElementsByTagName('li');
+		for(var i=0; i<aLi.length;i++){
+			switch(i%4){
+				case 0:
+					aLi[i].style.backgroundColor = 'red';
+					break;
+				case 1:
+					aLi[i].style.backgroundColor = 'yellow';
+					break;
+				case 2:
+					aLi[i].style.backgroundColor = 'blue';
+					break;
+				default:
+					aLi[i].style.backgroundColor = 'green';
+					break;
+			}
+		}
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

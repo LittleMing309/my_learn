@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQ选项卡</title>
+	<style type="text/css">
+		*{ margin:0; padding: 0}
+		#box{ height: 350px; width: 300px; margin:100px auto; border:1px solid black;}
+		#box div{ height: 300px; width: 300px; background: #CCC; line-height: 300px; font-size: 50px; text-align: center; display: none}
+		.active{ background: pink;}
+	</style>
+	<script src="jquery-1.10.1.min.js"></script>
+	<script>
+		/*window.onload = function(){
+			var oBox = document.getElementById('box');
+			var aBtn = oBox.getElementsByTagName('input');
+			var aDiv = oBox.getElementsByTagName('div');
+			for(var i = 0; i<aBtn.length;i++){
+				aBtn[i].index = i;
+				aBtn[i].onclick = function(){
+					for(var i =0; i<aBtn.length;i++){
+						aBtn[i].className = '';
+						aDiv[i].style.display = 'none';
+					}
+					this.className = 'active';
+					aDiv[this.index].style.display = 'block';
+				}
+			}
+		}*/
+		$(function(){
+			var oBox = $('#box');
+			var aBtn = oBox.find('input');
+			var aDiv = oBox.find('div');
+			aBtn.click(function(){
+				aBtn.attr('class','');
+				aDiv.css('display','none');
+				$(this).attr('class','active');
+				aDiv.eq($(this).index()).css('display','block');
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="box">
+		<input type="button" class="active" value="电影" />
+		<input type="button" value="电视剧" />
+		<input type="button" value="动漫" />
+		<div style="display:block;">电影</div>
+		<div>电视剧</div>
+		<div>动漫</div>
+	</div>
+</body>
+</html>

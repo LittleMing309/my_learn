@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQ定时器</title>
+	<style>
+		div{ width: 400px; height: 200px; background: #f90; position: absolute; left: 50%; top:50%; margin-left: -200px; margin-top: -100px; display: none;}
+	</style>
+	<script src="jquery-1.7.2.js"></script>
+	<script>
+		$(function(){
+			setTimeout(function(){
+				$('div').show();
+			},2000);
+			setTimeout(function(){
+				$('div').hide();
+			}, 5000);
+		});
+	</script>
+</head>
+<body>
+	<div>
+		<span>X</span>
+	</div>
+</body>
+</html>

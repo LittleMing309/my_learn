@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	window.onload=function(){
+		var oInp=document.getElementsByTagName('input')[0]	;
+		oInp.onfocus=function(){
+			this.style.color='#000';
+			if(this.value=='请输入用户名'){
+				this.value='';
+			}
+		}
+		oInp.onblur=function(){
+			if(this.value==''){
+				this.value='请输入用户名';
+				this.style.color='#ccc';
+			}
+		};
+	}
+</script>
+</head>
+
+<body>
+	<input type="text" value="请输入用户名" style="color:#CCC;"  />
+	<input type="button" value="提交" />
+</body>
+</html>
+
+

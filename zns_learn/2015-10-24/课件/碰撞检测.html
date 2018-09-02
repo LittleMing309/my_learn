@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	.div1{ width:100px; height:100px; background:red; position:absolute; top:0; left:0;}
+</style>
+<script>
+	window.onload=function(){
+		var oDiv=document.getElementById('box');
+		var oDiv2=document.getElementById('div2');
+		oDiv.onmousedown=function(ev){
+			var oEvent=ev || event;
+			var disX=oEvent.clientX-oDiv.offsetLeft;
+			var disY=oEvent.clientY-oDiv.offsetTop;
+			//move
+			document.onmousemove=function(ev){
+				var oEvent=ev || event;
+				oDiv.style.left=oEvent.clientX-disX+'px';
+				oDiv.style.top=oEvent.clientY-disY+'px';
+				
+				var l1=oEvent.clientX-disX;
+				var r1=oEvent.clientX-disX+oDiv.offsetWidth;
+				var t1=oEvent.clientY-disY;
+				var b1=oEvent.clientY-disY+oDiv.offsetHeight;
+				
+				var l2=oDiv2.offsetLeft;
+				var r2=oDiv2.offsetLeft+oDiv2.offsetWidth;
+				var t2=oDiv2.offsetTop;
+				var b2=oDiv2.offsetTop+oDiv2.offsetHeight;
+				if(r1>l2 && t1<b2 && b1>t2 && l1<r2){
+					oDiv2.style.background='blue';	
+				}else{
+					oDiv2.style.background='yellow';	
+				}
+				
+			};
+			//up
+			document.onmouseup=function(){
+				document.onmousemove=null;	
+				document.onmouseup=null;
+				
+				oDiv.releaseCapture && oDiv.releaseCapture();
+			};
+			oDiv.setCapture && oDiv.setCapture();
+			return false;
+		};		
+	};
+</script>
+</head>
+
+<body>
+	<div class="div1" id="box"></div>
+	<div id="div2" style="width:100px; height:100px; background:yellow; margin:200px;"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+

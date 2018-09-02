@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度下拉</title>
+	<script type="text/javascript" src="jsonp.js"></script>
+	<script type="text/javascript">
+		//MVC	C最后写
+		//M
+		function getBDDate(word,fn){
+			jsonp({
+				url:'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+				data:{
+					wd:word
+				},success:function(json){
+					fn(json);
+				}
+			});
+		}
+		//V
+		function showDate(arr){
+			var oUl = document.getElementById('ul1');
+			oUl.innerHTML = '';
+			for(var i = 0; i<arr.length; i++){
+				var oLi = document.createElement('li');
+				oLi.innerHTML = arr[i];
+				oUl.appendChild(oLi);
+			}
+		}
+		//C
+		window.onload = function(){
+			var oTxt = document.getElementById('txt');
+			oTxt.onkeyup = function(){
+				getBDDate(this.value,function(reg){
+					showDate(reg.s);
+				});
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="txt" />
+	<ul id="ul1">
+		
+	</ul>
+</body>
+</html>

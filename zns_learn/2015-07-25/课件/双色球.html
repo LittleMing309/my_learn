@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	p{ color:red;}
+</style>
+<script>
+	function rnd(n,m){
+		return parseInt(Math.random()*(m-n)+n);
+	}
+
+
+	window.onload = function(){
+		var oBox = document.getElementById('redBox');
+		
+		for(var i=0; i<6; i++){
+			oBox.innerHTML += rnd(1,34)+',';	
+		}
+	}
+</script>
+</head>
+
+<body>
+	<p id="redBox"></p>
+</body>
+</html>

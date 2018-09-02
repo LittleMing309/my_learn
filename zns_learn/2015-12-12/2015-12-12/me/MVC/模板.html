@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模板</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oName = document.getElementsByTagName('input')[0];
+			var oAge = document.getElementsByTagName('input')[1];
+			var oBtn = document.getElementsByTagName('input')[2];
+			var oDiv = document.getElementsByTagName('div')[0];
+			oBtn.onclick = function(){
+				var data = {name:oName.value,age:oAge.value};
+				var re = /\{\$\w+\}/g;
+				oDiv.innerHTML = oDiv.innerHTML.replace(re,function(s){
+					//{$name}
+					//{$age}
+					s=s.substring(2,s.length-1);
+					return data[s];
+				})
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" name="name" />
+	<input type="text" name="age" />
+	<input type="button" value="按钮" />
+	<div id="box"></div>我叫{$name},今年{$age}岁。
+</body>
+</html>

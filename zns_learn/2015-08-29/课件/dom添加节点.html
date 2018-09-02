@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	window.onload=function(){
+		var oTxt=document.getElementById('txt');
+		var oBtn=document.getElementById('btn');
+		var oList=document.getElementById('list');
+		oBtn.onclick=function(){
+			var val = oTxt.value;
+			var oLi = document.createElement('li');
+				oLi.innerHTML=val;
+				oList.appendChild(oLi);
+		}
+	}
+</script>
+</head>
+
+<body>
+	<input type="text" id="txt" /><input type="button" value="添加" id="btn" />
+	<ul id="list">
+		<li>这是一个默认显示的节点</li>
+	</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+

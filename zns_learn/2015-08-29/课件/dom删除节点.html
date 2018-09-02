@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	window.onload= function(){
+		var oBtn=document.getElementsByTagName('a')[0];
+		oBtn.onclick=function(){
+			document.body.removeChild(this.parentNode);
+		}	
+	}
+</script>
+</head>
+
+<body> 
+	<div>
+		这是一个节点
+		<a href="#">删除</a>
+	</div>
+</body>
+</html>

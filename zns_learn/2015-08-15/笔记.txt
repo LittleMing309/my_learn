@@ -1,0 +1,193 @@
+2015-8-15
+-----------------------------
+封闭空间
+	好处：省函数名
+		  避免重名
+	
+定时器：
+var time=setInterval(函数,时间)(毫秒)
+	setTimeout(函数,时间)
+
+	clearInterval(time);
+
+-------------------------------------
+函数中 参数 是有length的
+	arguments.length
+函数中的参数数组：
+	arguments = ([1,2,3])
+
+	arguments - 传值的参数！
+
+-------------------------------------
+getStyle() 有缺陷
+		
+		不能获取复合样式！
+
+写成具体的样式
+getStyle(this,'backgroundColor')
+
+backgroundColor 这样写复合样式
+
+------------------------------------
+批量设置样式：
+	obj.style.cssText 
+	缺点：彻底干掉之前的行间样式！
+
+不要用：影响作用域
+with(公用语句){
+		
+	}
+
+	with(oDiv.style){
+		width='300px';
+		height='300px';
+		background='yellow';
+	}
+
+----------------------------------
+字符串操作：
+	字符串有length
+
+	字符串 尽量别用[]  IE6-7 不兼容
+
+获取字符串当中的第3个字符
+	str.charAt(3) 
+
+获取字符d在当前字符串下的下标
+	str.indexOf('d')
+		如果没有找到对应的字符串，会返回-1！
+
+获取最后一个字符d在当前字符串下的下标
+	str.lastIndexOf('d')
+
+截取字符串 从第2个开始到第四个结束
+	str.substring(2,5) 不包含结束位置！
+
+	str.substring(开始位置,结束位置)
+
+从起始位置到最后截取
+	str.substring(开始位置)
+
+分割字符串：分割成数组
+ 	str.split(' ');
+ 	参数内可写入-分别条件
+------------------------------------
+字符串转换大小写：
+	str.toUpperCase(); 转成大写
+
+	str.toLowerCase(); 转成小写
+
+--------------------------------------
+计算机比较字符的顺序是按字典序来的！
+	
+	字典序 a-z 顺序
+
+中文是乱来的！
+
+	计算机输入中文的顺序来的！
+=====================================
+数组操作：
+	arr.length 可以读取
+
+	arr.length = 0;设置长度
+		可以删除数组中的元素
+			-> 快速清除数组
+
+	在数组最后添加
+	arr.push();
+
+	在数组最前添加
+	arr.unshift(5);
+
+	从最后面删除
+	arr.pop();  返回值是删除的那个值！
+
+	从最前面删除
+	arr.shift(); 返回值是删除的那个值！
+
+
+	数组当中删除、替换、添加
+	arr.splice(3,2,'a','b');
+	arr.splice(起始位置,删除个数,多个添加元素);
+
+数组连接：
+	var arr = [1,2,3];
+	var arr2 = [4,5,6];
+	var newArr = arr.concat(arr2);
+	alert(newArr);
+
+
+数组转字符串：
+	var arr = [1,2,3];
+	var str = arr.join('');
+	alert(str)
+
+数组翻转：
+	var arr = [1,2,3];
+	var arr2 = arr.reverse();
+	alert(arr2)
+======================================
+数组排序 默认是按字典序排的！ 
+	arr.sort();
+
+	arr.sort(function(a,b){
+		return a-b;
+	});
+
+-------------------------------------
+json - 打包好了的数组
+	var json = {a:1,b:2,c:3,d:4}
+	1. json没有length
+	2. 属性名必须加双引！
+
+	for( var i in 小明){
+		alert('小明的'+i+'是'+小明[i]);
+	}
+
+	
+数组 - 存数据
+	var arr = [1,2,3,4]
+	1. 数组有length
+	
+	for( var i=0; i<arr.length;i++){
+		alert(i);
+	}
+
+周末练习 - 把小明的姐姐都打印出来！
+
+console.log() 打印到console.log
+
+====================================
+批量设置样式的json写法：
+
+function setStyle(obj,json){
+	for(var i in json){
+		obj.style[i]=	json[i];
+	}
+}
+
+--------------------------------------
+通过class获取元素：
+	 document.getElementsByClassName('active');
+
+
+获取浏览器的信息：
+	window.navigator.userAgent
+
+
+
+
+
+
+
+
+
+
+
+					
+
+
+
+
+
+

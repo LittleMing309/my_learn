@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>双色球</title>
+	<script type="text/javascript">
+		var arr = [];
+		for(var i = 1; i<34; i++){
+			arr.push(i);
+		}
+		arr.sort(function(){
+			return 0.5-Math.random();
+		});
+		document.write(arr.splice(0,6));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

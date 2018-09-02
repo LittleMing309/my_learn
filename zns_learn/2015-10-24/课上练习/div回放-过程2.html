@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>div回放-过程2</title>
+	<style type="text/css">
+		#div1{ height: 100px; width: 100px; background: red; position: absolute;}
+		#btn{ position: absolute; top: 20px; right: 20px;}
+		.oD{ height:5px; width: 5px; background: black; position: absolute;}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oBox=document.getElementById('div1');
+			var oBtn=document.getElementById('btn');
+			var arr=[]; //arr[{x:10,y:20},{x:10,y:20}]
+			
+			oBtn.onclick=function(){
+					
+			};
+			
+			oBox.onmousedown=function(ev){
+				var oE=ev||event;
+				var disX=	oE.clientX-oBox.offsetLeft;
+				var disY=	oE.clientY-oBox.offsetTop;
+				document.onmousemove=function(ev){
+					var oE=ev||event;
+					var l = oE.clientX-disX;
+					var t = oE.clientY-disY;
+					oBox.style.left=l+'px';
+					oBox.style.top=t+'px';
+
+					var oDiv = document.createElement('div');
+					oDiv.className = 'oD';
+					oDiv.style.left = oE.clientX  + 'px';
+					oDiv.style.top = oE.clientY  + 'px';
+					document.body.appendChild(oDiv);
+					arr.push({x:oE.clientX,y:oE.clientY});
+
+				};
+				document.onmouseup=function(){
+						document.onmousemove=null;
+						document.onmouseup=null;
+						oBox.releaseCapture&&oBox.releaseCapture();
+				};
+				oBox.setCapture&&oBox.setCapture();
+				return false;
+			}
+			
+			
+		};
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+	<input type="button" value="回放" id="btn" />
+</body>
+</html>

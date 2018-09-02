@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>index.html</title>
+	<script type="text/javascript" src="ajax.js"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oUl = document.getElementsByTagName('ul')[0];
+			ajax('shuju.txt?t='+Math.random(),function(str){
+				var arr = eval('('+str+')');
+				for(var i = 0; i<arr.length; i++){
+					var oLi = document.createElement('li');
+					var oH = document.createElement('h2');
+					oH.innerHTML = '<a href="'+arr[i].href+'">'+arr[i].title+'</a>'
+					oLi.appendChild(oH);
+					for(var j =0; j<arr[i].child.length; j++){
+						var oDiv = document.createElement('div');
+						oDiv.innerHTML =  '<a href=" '+ arr[i].child[j].href +' ">'+ arr[i].child[j].title+'</a>'
+						oLi.appendChild(oDiv);
+					}
+				}
+				oUl.appendChild(oLi);
+			},function(){
+				alert('失败了');
+			});
+		}
+	</script>
+</head>
+<body>
+	<ul>
+		
+	</ul>
+</body>
+</html>

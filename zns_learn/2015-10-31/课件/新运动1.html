@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	div{ width:100px; height:100px; background:red; position:absolute; top:50px; left:0;}
+</style>
+<script>
+	window.onload=function(){
+		var oBtn=document.getElementById('btn');
+		var oDiv=document.getElementsByTagName('div')[0];
+		var timer=null;
+		oBtn.onclick=function(){
+			move(oDiv,500,3000);
+		}
+		
+		function move(obj,target,time){
+				var start=obj.offsetLeft;   // 起始位置 距离左边的距离
+				var dis = target-start;     // 运动距离
+		
+				var count=Math.floor(time/30);   //运动总次数
+				var n=0;
+			
+				clearInterval(timer);
+				timer=setInterval(function(){
+					n++;
+					//start+dis*n/count+'px';
+					//起始位置+改变距离*(运动次数/运动总数)
+					obj.style.left=start+dis*n/count+'px';
+					//console.log(count);
+					if(n==count){
+						clearInterval(timer);
+					}
+				},30);
+		}
+		
+	};
+</script>
+</head>
+
+<body>
+	<input type="button" value="运动" id="btn" />
+	<div style="left:100px;"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

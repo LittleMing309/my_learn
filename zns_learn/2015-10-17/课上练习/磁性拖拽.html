@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>磁性拖拽</title>
+	<style type="text/css">
+		#div1{ height: 300px; width: 300px; background: red; position: absolute;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oDiv = document.getElementById('div1');
+			oDiv.onmousedown = function(ev){
+				var oEvent = ev || event;
+				var disX = oEvent.clientX - oDiv.offsetLeft;
+				var disY = oEvent.clientY - oDiv.offsetTop;
+				document.onmousemove = function(ev){
+					var oEvent = ev || event;
+					var l = oEvent.clientX - disX;
+					var t = oEvent.clientY - disY;
+					if(l<=40){l=0}
+					if(l>=document.documentElement.clientWidth - oDiv.offsetWidth -40){
+						l = document.documentElement.clientWidth - oDiv.offsetWidth;
+					};
+					if(t<=40){t=0}
+					if(t>=document.documentElement.clientHeight - oDiv.offsetHeight -40){
+						t = document.documentElement.clientHeight - oDiv.offsetHeight;
+					};
+					oDiv.style.left = l + 'px';
+					oDiv.style.top = t + 'px';
+				};
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					document.onmouseup = null;
+					oDiv.releaseCapture&&oDiv.releaseCapture();
+				};
+				oDiv.setCapture&&oDiv.setCapture();
+				return false;
+			};
+		};
+	</script>
+</head>
+<body>
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	<div id="div1"></div>
+</body>
+</html>

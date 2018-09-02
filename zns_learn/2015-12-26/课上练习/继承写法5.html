@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>继承写法5</title>
+	<script type="text/javascript">
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		Person.prototype.showName = function(){
+			return this.name;
+		};
+		Person.prototype.showAge = function(){
+			return this.age;
+		};
+		function Worker(name,age,job){
+			Person.call(this,name,age);
+			this.job = job;
+		};
+		var p1 = new Person('小红',18);
+		var w1 = new Worker('小明',19,'前端');
+		alert(w1.name);
+		alert(w1.job);
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

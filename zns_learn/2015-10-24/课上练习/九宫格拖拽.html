@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>九宫格拖拽</title>
+	<style type="text/css">
+		#box{ height:300px; width: 300px; background: #CCC; position: absolute; left: 400px; top: 100px; }
+		.l,.r { height: 100%; width: 20px; background: blue; position: absolute;}
+		.t,.b{ height: 20px; width:100%; background: blue; position: absolute;}
+		.lt,.lb,.rt,.rb{ height: 20px; width: 20px; background: red; position: absolute;}
+		.l,.lt{ top: 0; left: 0;}
+		.r,.rt{ top: 0; right: 0;}
+		.t{ top: 0; left: 0;}
+		.rb{ right: 0; bottom: 0;}
+		.b,.lb{ bottom: 0; left: 0;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			var r = oBox.children[2];
+			var l = oBox.children[0];
+			var b = oBox.children[3];
+			var t = oBox.children[1];
+			var lt = oBox.children[4];
+			var lb = oBox.children[5];
+			var rt = oBox.children[6];
+			var rb = oBox.children[7];
+			r.onmousedown = function(ev){
+				var oEvent = ev || event;
+				var downX = oEvent.clientX;
+				var downW = oBox.offsetWidth;
+				document.onmousemove = function(ev){
+					var oEvent = ev || event;
+					var newW = oEvent.clientX - downX + downW ;
+					oBox.style.width = newW+ 'px';
+				};
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					document.onmouseup = null;
+				};
+				return false;
+			};
+			l.onmousedown = function(ev){
+				var oEvent = ev || event;
+				var downX = oEvent.clientX;
+				var downW = oBox.offsetWidth;
+				var downL = oBox.offsetLeft;
+				document.onmousemove = function(ev){
+					var oEvent = ev || event;
+					var target = oEvent.clientX - downX;
+					var newW = downW - target;
+					var newL = downL + target;
+					if(newL > downL + downW){
+						newL = downL + downW;
+					}
+					oBox.style.width = newW+ 'px';
+					oBox.style.left = newL + 'px';
+				};
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					document.onmouseup = null;
+				};
+				return false;
+			};
+			b.onmousedown = function(ev){
+				var oEvent = ev || event;
+				var downT = oEvent.clientY;
+				var downH = oBox.offsetHeight;
+				document.onmousemove = function(ev){
+					var oEvent = ev || event;
+					var newH = oEvent.clientY - downT + downH;
+					oBox.style.height = newH+ 'px';
+				};
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					document.onmouseup = null;
+				};
+				return false;
+			};
+			t.onmousedown = function(ev){
+				var oEvent = ev || event;
+				var downY = oEvent.clientY;
+				var downH = oBox.offsetHeight;
+				var downT = oBox.offsetTop;
+				document.onmousemove = function(ev){
+					var oEvent = ev || event;
+					var target = oEvent.clientY - downY;
+					var newH = downH - target;
+					var newT = downT + target;
+					if(newT > downT + downH){
+						newT = downT + downH;
+					}
+					oBox.style.height = newH+ 'px';
+					oBox.style.top = newT + 'px';
+				};
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					document.onmouseup = null;
+				};
+				return false;
+			};
+			lt.onmousedown = function(ev){
+				var oEvent = ev || event;
+				var downY = oEvent.clientY;
+				var downH = oBox.offsetHeight;
+				var downT = oBox.offsetTop;
+				var downX = oEvent.clientX;
+				var downW = oBox.offsetWidth;
+				var downL = oBox.offsetLeft;
+				document.onmousemove = function(ev){
+					var oEvent = ev || event;
+					var target = oEvent.clientY - downY;
+					var newH = downH - target;
+					var newT = downT + target;
+					var newW = downW - target;
+					var newL = downL + target;
+					if(newL > downL + downW){
+						newL = downL + downW;
+					};
+					if(newT > downT + downH){
+						newT = downT + downH;
+					};
+					oBox.style.width = newW+ 'px';
+					oBox.style.left = newL + 'px';
+					oBox.style.height = newH+ 'px';
+					oBox.style.top = newT + 'px';
+				};
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					document.onmouseup = null;
+				};
+				return false;
+			};
+			lb.onmousedown = function(ev){
+				var oEvent = ev || event;
+				var downX = oEvent.clientX;
+				var downW = oBox.offsetWidth;
+				var downL = oBox.offsetLeft;
+				var downT = oEvent.clientY;
+				var downH = oBox.offsetHeight;
+				document.onmousemove = function(ev){
+					var oEvent = ev || event;
+					var target = oEvent.clientX - downX;
+					var newH = oEvent.clientY - downT + downH;
+					var newW = downW - target;
+					var newL = downL + target;
+					if(newL > downL + downW){
+						newL = downL + downW;
+					}
+					oBox.style.width = newW+ 'px';
+					oBox.style.left = newL + 'px';
+					oBox.style.height = newH+ 'px';
+				};
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					document.onmouseup = null;
+				};
+				return false;
+			};
+			rt.onmousedown = function(ev){
+				var oEvent = ev || event;
+				var downX = oEvent.clientX;
+				var downW = oBox.offsetWidth;
+				var downY = oEvent.clientY;
+				var downH = oBox.offsetHeight;
+				var downT = oBox.offsetTop;
+				document.onmousemove = function(ev){
+					var oEvent = ev || event;
+					var target = oEvent.clientY - downY;
+					var newH = downH - target;
+					var newT = downT + target;
+					var newW = oEvent.clientX - downX + downW ;
+					if(newT > downT + downH){
+						newT = downT + downH;
+					}
+					oBox.style.height = newH+ 'px';
+					oBox.style.top = newT + 'px';
+					oBox.style.width = newW+ 'px';
+				};
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					document.onmouseup = null;
+				};
+				return false;
+			};
+			rb.onmousedown = function(ev){
+				var oEvent = ev || event;
+				var downX = oEvent.clientX;
+				var downW = oBox.offsetWidth;
+				var downT = oEvent.clientY;
+				var downH = oBox.offsetHeight;
+				document.onmousemove = function(ev){
+					var oEvent = ev || event;
+					var newW = oEvent.clientX - downX + downW ;
+					var newH = oEvent.clientY - downT + downH;
+					oBox.style.height = newH+ 'px';
+					oBox.style.width = newW+ 'px';
+				};
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					document.onmouseup = null;
+				};
+				return false;
+			};
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<div class="l"></div>
+		<div class="t"></div>
+		<div class="r"></div>
+		<div class="b"></div>
+		<div class="lt"></div>
+		<div class="lb"></div>
+		<div class="rt"></div>
+		<div class="rb"></div>
+	</div>
+</body>
+</html>

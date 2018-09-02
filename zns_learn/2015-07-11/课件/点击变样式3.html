@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	div{ width:200px; height:200px; border:1px solid #CCC;}
+	.active{ width:300px; height:300px; background:blue; border:20px solid black;}
+</style>
+<script>
+		function change(){
+			document.getElementsByTagName('div')[0].className = 'active';
+		};
+		
+		function removeClass(){
+			document.getElementsByTagName('div')[0].className = '';
+		}
+</script>
+</head>
+
+<body>
+	<input type="button" value="变样式" id="btn" onclick="change()" />
+	<input type="button" value="取消样式" onclick="removeClass()" />
+	<div></div>
+	
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽div</title>
+	<style>
+		#div1{ height: 300px; width: 300px; background: red; position: absolute;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oDiv = document.getElementById('div1');
+			oDiv.onmousedown = function(ev){
+				var oEvent = ev || event;
+				var sX = oEvent.clientX - oDiv.offsetLeft ;
+				var sY = oEvent.clientY - oDiv.offsetTop ;
+				document.onmousemove = function(ev){
+					var oEvent = ev || event;
+					oDiv.style.left = oEvent.clientX - sX + 'px';
+					oDiv.style.top = oEvent.clientY - sY + 'px';
+				};
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					document.onmouseup = null;
+					oDiv.releaseCapture&&oDiv.releaseCapture();
+				};
+				oDiv.setCapture&&oDiv.setCapture();
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+sjdkflssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssjlasjfdklajsdfkljak
+	<div id="div1"></div>
+	sjdkflssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssjlasjfdklajsdfkljak
+</body>
+</html>

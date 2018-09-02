@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>继承写法7</title>
+	<script type="text/javascript">
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+		};
+		Person.prototype.showName = function(){
+			return this.name;
+		};
+		Person.prototype.showAge = function(){
+			return this.age
+		};
+		function Worker(name,age,job){
+			Person.apply(this,arguments);
+			this.job = job;
+		}
+		Worker.prototype = Person.prototype;
+		Worker.prototype.showJob = function(){
+			return this.job;
+		};
+		var p1 = new Person('小明',18);
+		var w1 = new Worker('小红',19,'前端');
+		alert(w1.showName());
+		alert(w1.showAge());
+		alert(w1.showJob());
+		alert(p1.showName());
+		alert(p1.showAge());
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

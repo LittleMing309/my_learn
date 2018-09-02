@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新浪微博换一换</title>
+	<style type="text/css">
+		*{ padding: 0; margin:0;}
+		ul{width:200px; margin:40px auto;}
+		li{height:30px; line-height:30px; overflow:hidden; border-bottom:1px dashed #666; list-style: none;}
+		li a{float:left;}
+		li span{float:right;}
+	</style>
+	<script type="text/javascript" src="ajax.js"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBtn = document.body.children[0];
+			var oUl = document.body.children[1];
+			oBtn.onclick = function(){
+				ajax('weibo.txt?t='+Math.random(),function(str){
+					var arr = eval('('+str+')');
+					for(var i =0; i<arr.length; i++){
+						var oLi = document.createElement('li');
+						oLi.innerHTML='<a href="'+arr[i].href+'">'+arr[i].title+'</a><span>'+arr[i].count+'</span>';
+						oUl.appendChild(oLi);
+					}
+				},function(){
+					alert('失败了');
+				});
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="换一换" />
+	<ul>
+		<!--<li><a href="#">xxx</a><span>2万</span></li>-->
+	</ul>
+</body>
+</html>

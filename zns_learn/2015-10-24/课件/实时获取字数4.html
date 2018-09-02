@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	window.onload=function(){
+		var oInp=document.getElementById('txt');
+		oInp.oninput=function(){
+			document.title=	oInp.value.length;
+		};
+		oInp.onpropertychange=function(){
+			document.title=	oInp.value.length;
+		};
+	};
+</script>
+</head>
+
+<body>
+	<input type="text" value="" id="txt"  />
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

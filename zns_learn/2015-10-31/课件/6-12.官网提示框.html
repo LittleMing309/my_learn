@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+* {margin:0; padding:0; list-style:none; font-size:12px; font-style:normal; font-weight:normal;}
+
+#ul1 {width:948px; margin:10px auto;}
+#ul1 li {float:left; width:296px; height:204px; box-shadow:0 0 5px #999; margin:10px; position:relative; overflow:hidden;}
+
+#ul1 li img {width:296px; height:204px;}
+#ul1 li div {height:80px; width:100%; position:absolute; left:0; bottom:-80px; opacity:0; filter:alpha(opacity:0);}
+#ul1 li div .bg {height:80px; border-top:1px solid white; width:100%; background:black; position:absolute; left:0; top:0; opacity:0.6; filter:alpha(opacity:60); z-index:1;}
+#ul1 li div em {position:absolute; left:0; top:0; color:white; z-index:2;}
+#ul1 li h2 {padding:4px; font-family:'\65B0\5B8B\4F53', '\5B8B\4F53', Verdana; font-weight:bold;}
+#ul1 li p {padding:4px; line-height:22px;}
+</style>
+<script src="move8.js"></script>
+<script>
+window.onload=function ()
+{
+	var oUl=document.getElementById('ul1');
+	var aLi=oUl.children;
+	
+	for(var i=0;i<aLi.length;i++)
+	{
+		aLi[i].onmouseover=function ()
+		{
+			var oDiv=this.children[1];
+			
+			move(oDiv, {bottom: 0, opacity: 1}, 400);
+		};
+		aLi[i].onmouseout=function ()
+		{
+			var oDiv=this.children[1];
+			
+			move(oDiv, {bottom: -80, opacity: 0}, 400);
+		};
+	}
+};
+</script>
+</head>
+
+<body>
+<ul id="ul1">
+	<li>
+    	<img src="http://www.zhinengshe.com/images/product_pic/1585694089514eb70f10622.jpg" />
+        <div>
+        	<em>
+            	<h2>CSS3的IOS6密码解锁界面</h2>
+            	<p>随手写的一个css3的IOS解锁界面</p>
+			</em>
+            <span class="bg"></span>
+        </div>
+    </li>
+	<li>
+    	<img src="http://www.zhinengshe.com/images/product_pic/13976230595143f37d393b0.jpg" />
+        <div>
+        	<em>
+            	<h2>CSS3的IOS6密码解锁界面</h2>
+            	<p>随手写的一个css3的IOS解锁界面</p>
+			</em>
+            <span class="bg"></span>
+        </div>
+    </li>
+	<li>
+    	<img src="http://www.zhinengshe.com/images/product_pic/1401570516513a10525dca5.jpg" />
+        <div>
+        	<em>
+            	<h2>CSS3的IOS6密码解锁界面</h2>
+            	<p>随手写的一个css3的IOS解锁界面</p>
+			</em>
+            <span class="bg"></span>
+        </div>
+    </li>
+	<li>
+    	<img src="http://www.zhinengshe.com/images/product_pic/1598020238511210cf5537c.jpg" />
+        <div>
+        	<em>
+            	<h2>CSS3的IOS6密码解锁界面</h2>
+            	<p>随手写的一个css3的IOS解锁界面</p>
+			</em>
+            <span class="bg"></span>
+        </div>
+    </li>
+	<li>
+    	<img src="http://www.zhinengshe.com/images/product_pic/8134259755112092a3f649.jpg" />
+        <div>
+        	<em>
+            	<h2>CSS3的IOS6密码解锁界面</h2>
+            	<p>随手写的一个css3的IOS解锁界面</p>
+			</em>
+            <span class="bg"></span>
+        </div>
+    </li>
+	<li>
+    	<img src="http://www.zhinengshe.com/images/product_pic/488247430508baf8ca3794.jpg" />
+        <div>
+        	<em>
+            	<h2>CSS3的IOS6密码解锁界面</h2>
+            	<p>随手写的一个css3的IOS解锁界面</p>
+			</em>
+            <span class="bg"></span>
+        </div>
+    </li>
+	<li>
+    	<img src="http://www.zhinengshe.com/images/product_pic/495066053500e0dd65d8e9.jpg" />
+        <div>
+        	<em>
+            	<h2>CSS3的IOS6密码解锁界面</h2>
+            	<p>随手写的一个css3的IOS解锁界面</p>
+			</em>
+            <span class="bg"></span>
+        </div>
+    </li>
+	<li>
+    	<img src="http://www.zhinengshe.com/images/product_pic/461032892500d6ca1a8da3.jpg" />
+        <div>
+        	<em>
+            	<h2>CSS3的IOS6密码解锁界面</h2>
+            	<p>随手写的一个css3的IOS解锁界面</p>
+			</em>
+            <span class="bg"></span>
+        </div>
+    </li>
+	<li>
+    	<img src="http://www.zhinengshe.com/images/product_pic/935671004ff6bb6011c5c.jpg" />
+        <div>
+        	<em>
+            	<h2>CSS3的IOS6密码解锁界面</h2>
+            	<p>随手写的一个css3的IOS解锁界面</p>
+			</em>
+            <span class="bg"></span>
+        </div>
+    </li>
+</ul>
+</body>
+</html>

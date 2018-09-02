@@ -1,0 +1,102 @@
+﻿2015年8月22日
+--------------------------------
+做一个会跑的div
+	如果跑到300px，就让他回来，
+	如果跑到起点，就让他在跑300px;
+--------------------------------
+json书写规范：
+	var 小明 = {'age':16,'job':'前端开发','family':[
+			{'name':'小花','age':18,'type':'姐姐'},
+			{'name':'小朵','age':20,'type':'姐姐'}
+		]}
+
+只要是加了引号的就是字符串！
+
+-----------------------------------
+获取非行间样式：
+	缺点：不能直接获取复合样式！
+	function getStyle(obj,name){
+		if(obj.currentStyle){
+			//IE8-
+			return obj.currentStyle[name];
+		}else{
+			//firefox chrome
+			return getComputedStyle(obj,false)[name];	
+		}
+	}
+
+获取随机数：不包括最后的值
+	function rad(n,m){
+	 return parseInt(Math.random()*(m-n)+n);
+	}
+
+补零：
+	function toDo(num){
+		if(num<10){
+			return '0'+num;	
+		}else{
+			return ''+ num;	
+		}
+	}	
+
+判断重复：
+	function findArr(arr,name){
+		for(var i=0; i<arr.length;i++){
+			if(arr[i]==name){
+				return true;	
+			}
+		}
+		return false;
+	}
+
+---------------------------------------
+通过class获取元素：课件内
+
+========================================
+只要有括号 就执行！
+
+函数都有返回值：
+	 如果返回值为空，会返回undefined
+	
+cssText 缺点：干掉原本的行间样式
+
+with(公用语句){
+	//缺点： 影响作用域
+}
+
+eval可以把字符串转成js
+
+SyntaxError 语法错误
+
+
+selectedIndex 选中对象的下标
+
+alert(aOp[oSel.selectedIndex].value)
+alert(aOp[oSel.selectedIndex].text)
+
+添加一个option
+var op1 = new Option('杭州',4);
+oSel.add(op1);
+
+oSel.remove(2) 删除第几个
+
+先设置时间 再获取时间！
+-------------------------------------
+Math.ceil()  向上取整
+
+Math.floor() 向下取整
+
+Math.round() 四舍五入
+
+Math.abs()   取绝对值
+
+Math.sqrt() 开平方
+
+Math.pow() n次方
+
+Math.max/.min 最大值 最小值
+
+
+
+
+

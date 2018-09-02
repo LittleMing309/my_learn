@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件绑定兼容写法</title>
+	<style type="text/css">
+		#div1{ width: 200px; height: 200px; background:yellow;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oDiv = document.getElementById('div1');
+			function ToRed(){
+				oDiv.style.background = 'red';
+			}
+			function ToWidth(){
+				oDiv.style.width = 300+ 'px';
+			}
+			function addEvent(obj,sEv,fn){
+				if(obj.addEventListener){
+					obj.addEventListener(sEv,fn,false);
+				}else{
+					obj.attachEvent('on'+sEv,fn);
+				}
+			}
+			addEvent(oDiv,'click',ToRed);
+			addEvent(oDiv,'click',ToWidth);
+		}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

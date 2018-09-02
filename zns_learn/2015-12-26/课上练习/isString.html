@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>isString</title>
+	<script type="text/javascript">
+		function isString(obj){
+			return obj.constructor==String || obj.typeof == 'string';
+		}
+
+		var arr = [1,2,3];
+		var str = 'hello word';
+		alert(isString(str));
+	</script>
+</head>
+<body>
+	
+</body>

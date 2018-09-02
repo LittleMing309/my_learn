@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件委托</title>
+	<style>
+		ul{ list-style: none;}
+		li{ float:left; margin:10px; background: red; width:100px; height: 100px;}
+	</style>
+	<script>
+		window.onload = function(){
+			document.onclick = function(ev){
+				var oEvent = ev || event;
+				var obj = oEvent.srcElement || oEvent.target;
+				if(obj.tagName == 'LI'){
+					obj.style.background = 'blue';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

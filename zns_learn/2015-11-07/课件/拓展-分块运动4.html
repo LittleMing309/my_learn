@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	.box{ width:700px; height:400px; background:url(img3/1.jpg); margin:100px auto; position:relative;}
+</style>
+<script src="move10.js"></script>
+<script>
+	window.onload=function(){
+		var oBox=document.getElementById('box');
+		
+		var R=4;
+		var C=7;
+		for(var r=0;r<R;r++){
+			for(var c=0;c<C;c++){
+				var oSpan=document.createElement('span');
+					oBox.appendChild(oSpan);
+					oSpan.style.width=oBox.offsetWidth/C+'px';
+					oSpan.style.height=oBox.offsetHeight/R+'px';
+					oSpan.style.position='absolute';
+					oSpan.style.left=oBox.offsetWidth/C*c+'px';
+					oSpan.style.top=oBox.offsetHeight/R*r+'px';
+					oSpan.style.backgroundImage='url(img3/0.jpg)';
+					oSpan.style.backgroundPosition=-oBox.offsetWidth/C*c+'px -'+oBox.offsetHeight/R*r+'px';
+					
+					oSpan.r=r;
+					oSpan.c=c;
+			}
+		}
+		var aSpan=document.getElementsByTagName('span');
+		oBox.onclick=function(){
+			for(var i=0;i<aSpan.length;i++){
+				(function(index){
+					setTimeout(function(){
+						move(aSpan[index],{opacity:0});
+					},300*Math.random());
+				})(i);
+			}
+		}
+	};
+</script>
+</head>
+
+<body>
+	<div class="box" id="box">
+		
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+

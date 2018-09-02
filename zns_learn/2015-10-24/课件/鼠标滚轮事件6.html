@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+
+window.onload=function(){
+	var oDiv=document.getElementById('div1');
+	mouseWheel(oDiv,function(bDown){
+		if(bDown){
+			oDiv.style.height=oDiv.offsetHeight+10+'px';
+		}else{
+			oDiv.style.height=oDiv.offsetHeight-10+'px';	
+		}
+	});
+};
+	function mouseWheel(obj,fn){
+		function wheel(ev){
+			var bDown=true;
+			var oEvent=ev||event;
+			if(oEvent.detail){
+				if(oEvent.detail>0){
+					bDown=true;
+				}else{
+					bDown=false;
+				}
+			}else{
+				if(oEvent.wheelDelta>0){
+					bDown=false;
+				}else{
+					bDown=true;
+				}
+			}
+			fn(bDown);
+		};	
+		
+		if(window.navigator.userAgent.toLowerCase().indexOf('firefox')!=-1){	
+			document.addEventListener('DOMMouseScroll',wheel,false);
+		}
+		document.onmousewheel=wheel;	
+	}
+	
+	
+</script>
+<style>
+	#div1{ width:100px; height:100px; background:red;}
+</style>
+</head>
+
+<body>
+	<div id="div1"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

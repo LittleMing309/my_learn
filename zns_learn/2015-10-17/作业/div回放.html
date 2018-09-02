@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>div回放</title>
+	<style type="text/css">
+		div{ height: 100px; width: 100px; background: red; position: absolute;}
+		input{ position: absolute; right: 20px; top: 20px;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oDiv = document.getElementById('box');
+			var oInp = document.getElementById('btn');
+			var arr = [];
+			oBtn.onclick = function(){
+				var time = setInterval(function(){
+					var pos = arr.pop();
+					if(!pop){
+						clearInterval(time);
+						return;
+					}
+					oBox.style.left = pos.x + 'px';
+					oBox.style.top = pos.y + 'px';
+				},30);
+			};
+			oDiv.onmousedown = function(ev){
+				var oEvent = ev || event;
+				var disX = oEvent.clientX - oDiv.offsetLeft;
+				var disY = oEvent.clientY - oDiv.offsetTop;
+				document.onmousemove = function(ev){
+					var oEvent = ev || event;
+					var l = oEvent.clientX - disX;
+					var t = oEvent.clientY - disY;
+					oDiv.style.left = l + 'px';
+					oDiv.style.top = t + 'px';
+				};
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					document.onmouseup = null;
+					oDiv.releaseCapture&&oDiv.releaseCapture();
+				};
+				oDiv.setCapture&&oDiv.setCapture();
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="回放" id="btn" />
+	<div id="box"></div>
+</body>
+</html>

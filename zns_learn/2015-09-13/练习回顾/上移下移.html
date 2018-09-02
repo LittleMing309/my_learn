@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function(){
+		var oUl =document.getElementById('box');
+		var aLi=document.getElementsByTagName('li');
+		for(var i=0; i<aLi.length; i++){
+			var aBtn=aLi[i].getElementsByTagName('a')[0];
+			var aBtn2=aLi[i].getElementsByTagName('a')[1];
+			aBtn.onclick=function(){
+				var oPar=this.parentNode;
+				if(oPar == aLi[0]){ alert('已经是第一个了'); return false;}
+				var prve=oPar.previousElementSibling || oPar.previousSibling;
+				oUl.insertBefore(oPar,prve)
+			};
+			aBtn2.onclick=function(){
+				var oPar=this.parentNode;
+				if(oPar == aLi[aLi.length-1]){ alert('已经是最后一个了'); return false;}
+				var next=oPar.nextElementSibling || oPar.nextSibling;
+				var next2=next.nextElementSibling || next.nextSibling;
+				alert(next2)
+				oUl.insertBefore(oPar,next2)
+			}
+		}
+};
+</script>
+</head>
+
+<body>
+	<ul id="box">
+		<li>1习近平主持政治局会议 审议通过繁荣文艺意见
+			<a href="#">上移</a>
+			<a href="#">下移</a>
+		</li>
+		<li>2习近平主持政治局会议 审议通过繁荣文艺意见
+			<a href="#">上移</a>
+			<a href="#">下移</a>
+		</li>
+		<li>3习近平主持政治局会议 审议通过繁荣文艺意见
+			<a href="#">上移</a>
+			<a href="#">下移</a>
+		</li>
+		<li>4习近平主持政治局会议 审议通过繁荣文艺意见
+			<a href="#">上移</a>
+			<a href="#">下移</a>
+		</li>
+		<li>5习近平主持政治局会议 审议通过繁荣文艺意见
+			<a href="#">上移</a>
+			<a href="#">下移</a>
+		</li>
+	</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

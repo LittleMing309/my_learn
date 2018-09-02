@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mouseover和mouseout的bug</title>
+	<style type="text/css">
+		div{ height: 200px; width: 200px; margin:100px auto; background: red;}
+		h1{ height: 50px; background: yellow;}
+	</style>
+	<script type="text/javascript" src="jquery-1.7.2.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('div').mouseover(function(){
+				alert('移入了');
+			});
+			$('div').mouseout(function(){
+				alert('移出了');
+			});
+		});
+	</script>
+</head>
+<body>
+	<div>
+		<h1></h1>
+	</div>
+</body>
+</html>

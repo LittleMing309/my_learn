@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	function findArr(arr,name){
+		for(var i = 0; i<arr.length;i++){
+			if(arr[i] == name){
+				return true
+			}
+		}
+		return false;
+	}
+	
+	function getClass(oPar,iClass){
+		if(oPar.getElementsByClassName){
+			return oPar.getElementsByClassName(iClass);
+		}else{
+			var newArr = [];
+			var aObj = oPar.getElementsByTagName('*');
+			for(var i=0; i<aObj.length;i++){
+				var arr = aObj[i].className.split(' ');
+				if(findArr(arr,iClass)){
+					newArr.push(aObj[i])
+				}
+			}
+			return newArr;
+		}
+	}
+	window.onload =function(){
+		getClass(document,'abc')[0].style.background='red';
+	}
+</script>
+</head>
+
+<body>
+	<div class="abc def abcd" style="height:100px;"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+	<script>
+		function show(a){
+			alert(a);
+			var s=a();
+			return function(){
+				alert(s);
+		}
+		}
+		function a(){
+			alert('a')
+		}
+
+		alert(show(a)());
+	</script>
+</body>
+</html>

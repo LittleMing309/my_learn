@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	#loadbar{ width:500px; height:30px; border:1px solid red; margin:0  auto;}
+	#loadbar div{ background:blue; height:30px; width:0%;}
+</style>
+<script>
+	window.onload=function(){
+		var oDiv=document.getElementById('loadbar').children[0];
+		var count=0;
+		for(var i=0; i<77;i++){
+			var oImg=new Image(); //<img />
+			oImg.src='http://www.zhinengshe.com/works/3525/img/'+i+'.jpg';
+			oImg.onload=function(){
+				count++;
+				oDiv.style.width=count/77*100+'%';
+			}
+			oImg.onerror=function(){
+				alert('加载失败');
+			}
+		}
+	}
+		
+</script>
+</head>
+
+<body>
+	<div id="loadbar">
+		<div></div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

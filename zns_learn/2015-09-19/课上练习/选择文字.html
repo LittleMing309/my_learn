@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择文字</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oP = document.getElementById('op');
+			oP.onmouseup = function(){
+				if(window.getSelection){
+					alert(window.getSelection());
+				}else{
+					var range = document.selection.createRange();
+					alert(range.text);
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<p id="op">孔帕尼在与尤文的比赛中第75分钟被换下，另一位大将纳斯里也有伤病的问题。不过曼城也有好消息，上周末受伤的阿圭罗已经成功复出。
+
+　　佩莱格里尼谈到了阿圭罗和孔帕尼："他恢复的很好，状态100%。保持球队的状态很重要，我们有完整的阵容，现在我们需要轮换队长。我从不抱怨伤病，也不会对受伤的球员抱怨。"
+
+　　接着佩莱格里尼谈到了其他几位伤员："我认为萨巴莱塔还需要和理疗师一起一个星期，我希望这个月末他能复出，纳斯里上一场比赛踢了，他不在最佳状态。"
+
+　　在谈到周末的对手西汉姆时，佩莱格里尼表示："他们有出色的球员，踢得也韩浩。西汉姆表现特别棒，特别是客场比赛。赢下阿森纳和利物浦而且不失球可不容易。"
+
+　　曼城目前在联赛中保持全胜，而且不失一球。</p>
+</body>
+</html>

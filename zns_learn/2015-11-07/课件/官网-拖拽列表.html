@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+ 	*{ padding:0; margin:0; list-style:none}
+	#box{ width:800px; border:1px solid red; margin:100px auto; height:358px; position:relative;}
+	#box ul{ position:absolute; top:50%; left:0; margin-top:-90px;}
+	#box li{ width:260px; height:179px; float:left; padding:0 10px;}
+	#box img{ width:260px; height:179px;}
+</style>
+<script>
+	window.onload=function(){
+		var oBox=document.getElementById('box');
+		var oUl=oBox.children[0];
+		var aLi=oUl.children;
+		oUl.style.width=aLi[0].offsetWidth*aLi.length+'px';
+		oUl.onmousedown=function(ev){
+			var ev=ev||event;
+			var dis=ev.clientX-oUl.offsetLeft;
+			document.onmousemove=function(ev){
+				var ev=ev||event;
+				oUl.style.left=ev.clientX-dis+'px';
+			};
+			document.onmouseup=function(){
+				document.onmousemove=null;
+				document.onmouseup=null;
+			};
+			return false;
+		}
+	};
+</script>
+</head>
+
+<body>
+	<div id="box">
+		<ul>
+			<li><img src="img5/1.jpg" /></li>
+			<li><img src="img5/2.jpg" /></li>
+			<li><img src="img5/3.jpg" /></li>
+			<li><img src="img5/4.jpg" /></li>
+			<li><img src="img5/5.jpg" /></li>
+			<li><img src="img5/6.jpg" /></li>
+			<li><img src="img5/7.jpg" /></li>
+			<li><img src="img5/8.jpg" /></li>
+		</ul>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

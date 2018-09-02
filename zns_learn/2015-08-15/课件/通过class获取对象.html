@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	.active{ background:red;}
+</style>
+<script>
+	window.onload = function(){
+		var aLi = document.getElementsByClassName('active');
+		for(var i=0; i<aLi.length;i++){
+			aLi[i].style.background='green';	
+		}
+	}
+</script>
+</head>
+
+<body>
+	<ul>
+		<li class="active">1</li>
+		<li>2</li>
+		<li class="active">3</li>
+		<li>4</li>
+	</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

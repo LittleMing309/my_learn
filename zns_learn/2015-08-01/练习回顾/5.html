@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	window.onload = function(){
+		var aInp = document.getElementsByTagName('input');
+			aInp[1].onclick = function(){
+					var val1 = parseInt(aInp[0].value);
+					if(val1 >9 && val1 < 100){
+						alert('是俩位数')
+					}
+			}
+	}
+</script>
+</head>
+
+<body>
+	<input type="text" />
+	<input type="button" value="弹一下" />
+</body>
+</html>

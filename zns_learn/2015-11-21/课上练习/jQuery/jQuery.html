@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery</title>
+	<style>
+		#box{ height: 100px; width: 100px; background: red; }
+	</style>
+	<script src="jquery-1.10.1.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#btn').click(function(){
+				$('#box').hide();
+			})
+		})
+	</script>
+</head>
+<body>
+	<input type="button" value="按钮" id="btn" />
+	<div id="box"></div>
+</body>
+</html>

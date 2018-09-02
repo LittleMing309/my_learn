@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>document加onclick获取鼠标位置</title>
+	<script type="text/javascript">
+		window.onclick = function(){
+			document.onclick = function(ev){
+				var oEvent = ev || event;
+				alert(oEvent.clientX);
+			}
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新运动</title>
+	<style type="text/css">
+		#div1{ height: 100px; width: 100px; background: red; position: absolute; left: 0; top: 50px;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oDiv = document.getElementById('div1');
+			var oBtn = document.getElementById('btn');
+			var timer = null;
+			oBtn.onclick = function(){
+				move(oDiv,400,1000);
+			};
+			function move(obj,target,time){
+				var start = obj.offsetLeft;
+				var dis = target - start;
+				var count = Math.floor(time/30);
+				var n = 0;
+				clearInterval(timer);
+				timer = setInterval(function(){
+					n++;
+					obj.style.left = start + dis*n/count + 'px';
+					if(n == count){
+						clearInterval(timer);
+					}
+				},30);
+			};
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn" value="动" />
+	<div id="div1"></div>
+</body>
+</html>

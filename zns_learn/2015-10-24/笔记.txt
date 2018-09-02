@@ -1,0 +1,166 @@
+拖拽
+	onmousedown
+		获取按下时的鼠标位置
+
+		disX保存 鼠标相对于对象的左边距离
+	document.onmousemove
+		计算出：鼠标当前位置-disX;
+		obj.style.left=计算结果
+
+	document.onmouseup
+		清除事件
+			onmousemove=null
+			onmouseup=null;
+			obj.releaseCapture&&obj.releaseCapture();
+
+	obj.setCapture&&obj.setCapture();
+	return false;
+
+键盘事件
+	onkeydown=function(ev){
+		ev.keyCode
+	}
+	oEvent.ctrlKey
+	oEvent.altKey
+	oEvent.shiftKey
+	
+事件绑定
+	事件捕获
+	obj.addEventListener(ev,fn,false);
+	false 不捕获
+	true   捕获
+
+事件冒泡：从子级往父级冒
+事件捕获：从父级往子级捕获
+
+
+事件解绑定
+	removeEventListener();
+	detachEvent();
+
+阻止默认事件
+	return false;
+
+阻止事件冒泡
+	ev.cancelBubble=true;
+
+克隆
+	obj.cloneNode(); 浅度克隆
+				true 深度克隆
+
+IE下捕获 obj.setCapture && obj.setCapture();
+
+-----------------------------------------------
+div回放
+
+
+九宫格拖拽
+	
+==============================================
+自定义滚动条：
+
+	比例：滚动时 
+	scale=	滚动按钮的top高度/(滚动条范围高度-滚动按钮高度);
+
+	内容区top=-scale*(内容区高度-可视区高度);
+
+----------------------------------------------
+鼠标滚动时：
+ 	onmousewheel 兼容 chrome ie
+ 		oEvent.wheelDelta
+ 		//120 上
+ 		//-120 下
+
+ 	凡是dom事件 
+ 		DOMMouseScroll 必须得加到事件绑定上！
+ 				兼容firefox
+ 		oEvent.detail
+ 		//-3 上
+ 		//3  下
+
+封装
+ mouseWheel(对象,函数(dDown){...});
+
+ 如果事件是绑定事件，那return false 就失效了！
+
+给绑定事件清除默认事件！
+ oEvent.preventDefault&&oEvent.preventDefault();
+
+===============================================
+实时获取文字个数：
+	oInp.onkeydown=oInp.onkeyup 不是很好
+
+
+	onchange 失去焦点时才触发！
+
+	oninput   当内容改变时 兼容高级浏览器
+			获取改变之后的字数
+	
+	onpropertychange 当内容改变时
+			整个IE系列
+
+		IE9 有问题 ！ 删除无效！
+
+=============================================
+ready   DOMready 结构标签 加载完成
+
+onload  img css 标签 加载完毕
+
+高版本浏览器：
+document.addEventListener('DOMContentLoaded',function(){
+		alert('ready')
+	},false);
+
+低版本IE 只能模拟：
+	document.onpropertychange=function(){
+		if(document.readyState=='complete'){
+			alert('ready');
+		}
+	}
+
+封装：domReady(fn);
+----------------------------------------------
+事件委托：把事件加给别的元素，可以替代它执行！
+
+	事件源：oEvent.srcElement  chrome IE
+			oEvent.target       FF
+
+	var obj=oEvent.srcElement || oEvent.target;
+
+	obj.tagName=='DIV' 判断是否是需要改变的元素
+
+好处：1.提高性能 节省for的使用
+	  2.可以给未来元素加事件！
+
+=============================================
+onmouseover/out 的问题
+
+	oEvent.toElement  chrome IE 去向元素
+
+	oEvent.relatedTarget FF 相关元素
+
+	this.contains(toO) 是否为this的子级元素
+
+============================================
+碰撞检测：
+	if(r1<l2 || t1>b2 || b1<t2 || l1>r2)
+
+	if(r1>l2 && t1<b2 && b1>t2 && l1<r2)
+
+
+============================================
+练习：
+	1.div回放
+	2.九宫格拖拽
+	3.自定义滚动条 完美（兼容滚轮）
+	4.滚轮事件
+	5.获取实时文字个数 兼容
+	6.ready封装
+	7.事件委托 - 做100个div可以拖拽
+	8.onmouseover onmouseout bug解决
+	9.碰撞检测 俩个div都能拖拽的碰撞
+
+
+
+
+

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多个样式运动</title>
+	<style type="text/css">
+		div{ height: 100px; width: 100px; background: red;}
+	</style>
+	<script src="move2.js"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			oBox.onmouseover = function(){
+				move(oBox,{'width':300,'height':300},1000)
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

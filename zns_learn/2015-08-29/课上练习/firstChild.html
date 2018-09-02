@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+	function firstChild(obj){
+		return obj.firstElementChild || obj.firstChild;
+	}
+	window.onload = function(){
+		var oBody = document.body;
+		alert(firstChild(oBody).length);	
+	}
+</script>
+</head>
+
+<body>
+<ul id="ul">
+	<li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+</body>
+</html>

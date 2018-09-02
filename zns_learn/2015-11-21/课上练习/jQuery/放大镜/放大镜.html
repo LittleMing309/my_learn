@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜</title>
+	<style type="text/css">
+		*{ margin:0; padding: 0;}
+		div{width:350px; height:350px; float:left; margin-right:20px; border:1px solid #000;  overflow:hidden; position:relative; top:0; left:0;}
+		#s{background:url(s.jpg) no-repeat;}
+		#m{position:absolute; top:0; left:0; width:100px; height:100px; background:yellow; opacity:0.5; filter:alpha(opacity:50); display:none;}
+		#b{display:none;}
+		#b img{position:absolute; top:0; left:0;}
+	</style>
+	<script type="text/javascript" src="jquery-1.7.2.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#s').hover(function(){
+				$('#m').show();
+				$('#b').show();
+			},function(){
+				$('#m').hide();
+				$('#b').hide();
+			});
+			$('#s').mousemove(function(ev){
+				var l = ev.clientX-$(this).offset().left-$('#m').width()/2;
+				var t = ev.clientY-$(this).offset().top-$('#m').height()/2;
+				if(l<=0){
+					l=0;
+				}else if(l>$(this).width()-$('#m').width()){
+					l=$(this).width()-$('#m').width()
+				};
+				if(t<=0){
+					t=0;
+				}else if(t>$(this).height()-$('#m').height()){
+					t=$(this).height()-$('#m').height()
+				};
+
+				$('#b img').css({left:l/($(this).width()-$('#m').width())*($('#b').width()-$('#b img').width()),top:t/($(this).height()-$('#m').height())*($('#b').height()-$('#b img').height())});
+				$('#m').css({left:l,top:t});
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="s">
+		<span id="m"></span>
+	</div>
+	<div id="b">
+		<img src="b.jpg" />
+	</div>
+</body>
+</html>

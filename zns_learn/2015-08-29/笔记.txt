@@ -1,0 +1,260 @@
+﻿Math
+	Math.random
+	Math.ceil
+	Math.floor
+	Math.abs
+	Math.max
+	Math.min
+	Math.sqrt
+	Math.pow
+	Math.round
+==============================================
+js语言基础	预解析
+
+	如果不加var 声明出来的变量是全局的！
+
+	预解析
+		预先去声明变量 （把var的变量提到上面~）
+		把函数也提到了上面
+
+	为了节省性能
+
+	作用范围：
+			函数之内
+			script标签内
+
+----------------------------------------------
+js特性：
+	引用：
+		基本类型没有引用
+			string number undefined boolean
+
+		复合类型 可以引用
+			object function
+
+		用for自己去复制对象
+	考虑性能 - 
+
+	比较：
+		基本类型比较 是相等的
+			string number undefined boolean
+		复合类型比较 是不相等的
+			object function
+
+---------------------------------------------
+字符串：
+	substring
+	charAt
+	indexOf
+	lastIndexOf
+	split
+	toUpperCase
+	toLowerCase
+
+字符编码：数字
+
+	var i=0X4e00; i<0x9fa5;i++ 输出所有汉字
+
+	0X4e00  16进制的数
+
+		0X 4e00
+
+	有可能会见到：
+		utf-8
+			 unicode
+			 	\u4e00
+
+	str.charCodeAt(1) 获取字符串中第二个字符的编码
+
+	String.fromCharCode(0X4E00) 获取第0e4e00的字符
+
+	toString(16) 转换数字的进制
+
+	1MB= 1024KB
+	1KB= 1024字节
+	字节
+
+	1,b  1字节
+	中文 
+		gb2312 2字节
+		utf-8  3字节
+
+练习：获取字符串的字节数 getByLen()
+		并且兼容 各种字符集
+	  把汉字转成unicode
+-------------------------------------------------
+全局函数以及变量声明 都是在window下的！
+
+in 是检测一个属性是否在对象内存在！
+
+
+==================================================
+异常：
+	报错
+
+	异常捕获：
+		try{}catch(e){ alert(e)}finally{始终执行}
+
+	1. 屏蔽错误
+	2. 当if来使  不建议去替换
+
+-----------------------------------------------
+表达式
+
+	=   赋值
+		只要有等号 就是赋值
+	==  比较
+	=== 完全比较
+
+	a++ 先赋值 再运算
+
+	var a=b=c=12;
+		b 全局变量
+		c 全局变量
+		a 局部变量
+
+	var a=12,b=12;
+		a 局部变量
+		b 局部变量
+
+逗号表达式：
+	只听最后面的
+	if(1,0,undefined){
+		alert('真')	
+	}else{
+		alert('假')	
+	}
+
+	alert((1,2,3,4,5)) 弹出5
+
+	赋值：是可以并列的
+	var a=12,b=12;
+		a++,b++;
+
+============================================
+js
+	本身有许多缺陷，bug
+
+	函数中的this始终是window
+
+
+给js当中加这样一段字符，就可以触发js当中的严格模式
+
+	'use strict'; 建议大家都加上
+
+
+	1.解决了this的指向问题
+	2.声明变量必须加var
+	3.不能再if for 中定义函数
+	4.把with干掉了
+
+==================================================
+js组成：
+	1.ECMAscript js解释器
+		兼容性：完全兼容
+
+	2.DOM   操作节点=元素=标签
+		兼容性：基本兼容(不兼容的部分可以补救)
+		document.getElementById('')
+
+		getByClass()
+
+	3.BOM  浏览器端
+		window.navigator.userAgent
+
+		兼容性：完全不兼容（没救了）
+================================================
+dom
+	直接子级：
+		obj.children 获取obj下的直接一组子元素
+
+		高版本浏览器 解释有差异
+		obj.firstChild  给IE8- 浏览器准备的 
+
+		obj.firstElementChild 给高级浏览器准备的
+
+		获取第一个子节点兼容写法
+		var a= obj.firstElementChild || obj.firstChild;
+		获取最后一个子节点兼容写法
+		var a= obj.lastElementChild  || obj.lastChild
+	直接父级
+		obj.parentNode 获取父节点
+
+
+	兄弟节点：
+		返回上一个兄弟节点：
+		aDiv.previousElementSibling 高版本浏览器
+
+		aDiv.previousSibling IE8-
+
+		返回下一个兄弟节点：
+		aDiv.nextElementSibling 高版本浏览器
+
+		aDiv.nextSibling IE8-
+
+写一个
+	firstChild(obj)
+	{
+		return obj.firstElementChild || obj.firstChild;
+	}
+
+------------------------------------------------
+创建节点 
+		
+		var obj = document.createElement('');
+
+添加节点
+		bigObj.appendChild(obj) 往后添加
+		bigObj.insertBefore(obj,位置) 往前添加
+
+删除节点：
+		bigObj.removeChild(obj)
+
+------------------------------------------------
+练习：
+
+	1. 简易留言板
+	2. 上移下移
+练习：获取字符串的字节数 getByLen()
+		并且兼容 各种字符集
+	  把汉字转成unicode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

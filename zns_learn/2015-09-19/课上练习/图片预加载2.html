@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片预加载2</title>
+	<style>
+		*{ margin:0; padding: 0;}
+		#loadbar{ width: 500px; height: 30px; border: 1px solid red; margin: 20px auto; }
+		#loadbar p{ height: 30px;  background: blue;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oDiv = document.getElementById('loadbar').children[0];
+			var count = 0;
+			for( var i = 0 ; i<77; i++){
+				var oImg = new Image();
+				oImg.src = 'http://www.zhinengshe.com/works/3525/img/'+ i + '.jpg'; 
+				oImg.onload = function(){
+					count++;
+					oDiv.style.width = count/77*100 + '%';
+				}
+				oImg.onerror = function(){
+					alert('加载失败');
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="loadbar">
+		<p></p>
+	</div>
+</body>
+</html>

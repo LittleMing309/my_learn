@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+	<input type="text" id="txt" /><input id="btn" type="button" value="判断是不是俩位数" />
+	<script>
+		var oTxt = document.getElementById('txt');
+		var oBtn = document.getElementById('btn');
+		oBtn.onclick = function(){
+				var val = parseInt(oTxt.value);
+				if(val >=10 && val <100){
+					alert('是俩位数');
+				}else{
+					alert('不是俩位数');
+				}
+		}
+	</script>
+</body>
+</html>

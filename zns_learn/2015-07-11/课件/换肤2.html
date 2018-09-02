@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	div{ width:200px; height:200px; background:red;}
+	
+	.f_body div{ background:blue;}
+	.l_body div{ background:green;}
+</style>
+<script>
+	function hf(){
+		document.body.className='f_body';
+	}
+	function hf2(){
+		document.body.className='l_body';
+	}
+</script>
+</head>
+
+<body>
+	<input type="button" value="换肤" onclick = "hf()" />
+	<input type="button" value="换肤2" onclick = "hf2()" />
+	<div></div>
+</body>
+</html>

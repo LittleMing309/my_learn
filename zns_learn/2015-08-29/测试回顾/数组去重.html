@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	function findArr(arr,name){
+		for(var i=0; i<arr.length;i++){
+			if(arr[i] == name){
+				return true;
+			}
+		}
+		return false;
+	}
+	var arr = [1,2,3,4,2,3,2,1,2,3,5];
+	var arr2 = [];
+	for(var i=0;i<arr.length;i++){
+		if(!findArr(arr2,arr[i])){
+			arr2.push(arr[i]);	
+		}
+	}
+	alert(arr2)
+	
+</script>
+</head>
+
+<body>
+</body>
+</html>
+
+
+
+
+

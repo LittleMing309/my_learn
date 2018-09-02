@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	*{ padding:0; margin:0; list-style:none;}
+	#box{ width:600px; margin:0 auto; position:relative; height:300px; overflow:hidden;}
+	#box ul{ position:absolute; left:0; top:0; width:2400px;}
+	#box ul li{ float:left; width:600px; height:300px; font-size:200px; text-align:center; line-height:300px; color:#FFF;}
+	#box ol{ position:absolute; bottom:20px; left:50%; width:400px; margin-left:-200px; z-index:1; }
+	#box ol li{ width:80px; height:10px; background:#FFF; float:left; margin:0 10px;}
+	#box span{ width:0px; background:blue; height:100%; display:block;}
+</style>
+<script src="move10.js"></script>
+<script>
+	window.onload=function(){
+		var oBox=document.getElementById('box');
+		var 	oUl=oBox.getElementsByTagName('ul')[0];
+		var 	aUl_li=oUl.getElementsByTagName('li');
+		var 	oOl=oBox.getElementsByTagName('ol')[0];
+		var 	aOl_span=oOl.getElementsByTagName('span');
+		
+		var iNow=0;
+		function next(){
+			for(var i=0; i<aOl_span.length;i++){
+				aOl_span[i].style.width=0;
+			}
+			move(aOl_span[iNow],{width:80},{complete:function(){
+				iNow++;
+				if(iNow==aUl_li.length)iNow=0;
+				move(oUl,{left:-aUl_li[0].offsetWidth*iNow},{complete:next})	;
+			}});	
+		}
+		 next();
+		/*move(aOl_span[0],{width:80},{complete:function(){
+			move(oUl,{left:-aUl_li[0].offsetWidth},{complete:function(){
+				move(aOl_span[1],{width:80},{complete:function(){
+						move(oUl,{left:-aUl_li[0].offsetWidth*2},{complete:function(){		
+						}});
+				}});
+			}})	;
+		}});*/
+		
+	};
+</script>
+</head>
+
+<body>
+	<div id="box">
+		<ul>
+			<li style="background:#0FC;">0</li>
+			<li style="background:#F0C;">1</li>
+			<li style="background:#FC0;">2</li>
+			<li style="background:#CF0;">3</li>
+		</ul>
+		<ol>
+			<li><span></span></li>
+			<li><span></span></li>
+			<li><span></span></li>
+			<li><span></span></li>
+		</ol>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	div{ width:100px; height:100px; background:red; border-radius:50%; position:absolute; top:0; left:0;}
+</style>
+<script src="move10.js"></script>
+<script>
+	window.onload=function(){
+		var aPos=[
+			{top:400,left:100},
+			{top:100,left:400},
+			{top:200,left:200},
+			{top:0,left:0}	
+		];
+		var oDiv=document.getElementById('div1');	
+		
+		var iNow=0;
+		function next(){
+			move(oDiv,aPos[iNow],{complete:function(){
+				iNow++;
+				if(iNow==aPos.length)iNow=0;
+				next();
+			}});
+		}
+		 next();
+		/*move(oDiv,aPos[0],{complete:function(){
+			move(oDiv,aPos[1],{complete:function(){
+				move(oDiv,aPos[2]...)
+			}});	
+		}});*/
+	};
+</script>
+</head>
+
+<body>
+	<div id="div1"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

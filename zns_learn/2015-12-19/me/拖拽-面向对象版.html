@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽-面向对象版</title>
+	<style type="text/css">
+		*{ margin:0; padding: 0;}
+		#box{ width: 100px; height: 100px; background-color: red; position: absolute; left: 0; top: 0;}
+	</style>
+	<script type="text/javascript">
+		function Drag(id){
+			this.oBox = document.getElementById(id);
+			this.disX = 0;
+			this.disY = 0;
+			var _this = this;
+			this.oBox.onmousedown = function(ev){
+				_this.fnDown(ev);
+			};
+		}
+		Drag.prototype.fnDown = function(ev){
+			var _this = this;
+			var oEvent = ev || event;
+			this.disX = oEvent.clientX-this.oBox.offsetLeft;
+			this.disY = oEvent.clientY-this.oBox.offsetTop;
+			document.onmousemove = function(ev){
+				_this.fnMove(ev);
+			};
+			document.onmouseup = function(){
+				_this.fnUp();
+			};
+			this.oBox.setCapture&&this.oBox.setCapture();
+			return false;
+		};
+		Drag.prototype.fnMove = function(ev){
+			var oEvent = ev || event;
+			this.oBox.style.left = oEvent.clientX - this.disX + 'px';
+			this.oBox.style.top = oEvent.clientY - this.disY + 'px';
+		};
+		Drag.prototype.fnUp = function(){
+			document.onmouseup = null;
+			document.onmousemove = null;
+			this.oBox.releaseCapture&&this.oBox.releaseCapture();
+		}
+		window.onload = function(){
+			new Drag('box');
+		}
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

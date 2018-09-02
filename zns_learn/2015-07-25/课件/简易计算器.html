@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	window.onload = function(){
+		var aInp= document.getElementsByTagName('input');
+		var oPer=document.getElementById('sel');
+		aInp[2].onclick = function(){
+			var val1= parseInt(aInp[0].value);
+			var val2= parseInt(aInp[1].value);
+			switch(oPer.value){
+					case '+' :
+					alert(val1+val2);
+					break;
+					case '-' :
+					alert(val1-val2);
+					break;
+					case '*' :
+					alert(val1*val2);
+					break;
+					case '/' :
+					alert(val1/val2);
+					break;	
+			}
+			
+		}
+	}
+</script>
+</head>
+
+<body>
+	<input type="text" />
+	<select id="sel">
+		<option>+</option>
+		<option>-</option>
+		<option>*</option>
+		<option>/</option>
+	</select>
+	<input type="text" />
+	<input type="button" value="结果" />
+</body>
+</html>
+
+
+
+
+
+

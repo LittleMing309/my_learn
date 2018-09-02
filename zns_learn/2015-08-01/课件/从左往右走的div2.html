@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+	<div style="width:100px; height:100px; background:red;"></div>
+	<input type="button" value="停止" />
+	<script>
+		var oDiv = document.getElementsByTagName('div')[0];
+		var oBtn = document.getElementsByTagName('input')[0];
+		var time=null;
+		var i=0;
+		oDiv.onclick = function(){
+			clearInterval(time);
+			time = setInterval(function(){
+				i++;
+				oDiv.style.marginLeft = i+'px';	
+			},10);
+		}
+		
+		oBtn.onclick = function(){
+			clearInterval(time);
+		}
+	</script>
+</body>
+</html>

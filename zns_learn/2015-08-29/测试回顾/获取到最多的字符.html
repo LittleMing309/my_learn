@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	var str='aaaaaaaaaabcsdsddsfkljsldfk';
+	var json={};
+	for(var i=0;i<str.length;i++){
+		if(json[str.charAt(i)]){
+			json[str.charAt(i)]++;	
+		}else{
+			json[str.charAt(i)]=1;	
+		}
+	}
+	console.log(json);
+	var iMax=0;
+	var nMax = '';
+	for(var n in json){
+		if(json[n] > iMax){
+			iMax =json[n];
+			nMax=n;
+		}
+	}
+	alert(nMax)
+</script>
+</head>
+
+<body>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

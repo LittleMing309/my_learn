@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>跟着鼠标跑的div</title>
+	<style type="text/css">
+		body{ height: 3000px;}
+		div{ height: 100px; width: 100px; position: absolute; background: red;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			document.onmousemove = function(ev){
+				var oEvent = ev || oEvent;
+				var sT = document.documentElement.scrollTop || document.body.scrollTop;
+				oBox.style.top = oEvent.clientY + sT + 'px';
+				oBox.style.left = oEvent.clientX + 'px';
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

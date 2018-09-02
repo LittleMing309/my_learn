@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com">
+<meta name="copyright" content="智能社 - zhinengshe.com">
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+*{margin:0; padding:0; list-style:none;}
+.tab{width:840px; height:305px; margin:100px auto; position:relative; top:0; left:0; overflow:hidden;}
+.tab ul{ position:absolute; top:0; left:0;}
+.tab ul li{float:left; width:840px; height:305px;}
+.tab ol{position:absolute; bottom:20px; left:50%; width:200px; margin-left:-100px; }
+.tab ol li{float:left; width:30px; height:30px; background:#ccc; border-radius:50%; text-indent:-999px; margin:10px; cursor:pointer;}
+.tab ol li.on{background:#f90;}
+</style>
+<script src="jquery-1.7.2.js"></script>
+<script src="slider.js"></script>
+<script>
+$(function(){
+	$('#box').slider();
+	$('#box2').slider();
+});
+</script>
+</head>
+
+<body>
+<div id="box" class="tab">
+	<ul>
+    	<li><img src="img/0.jpg" /></li>
+    	<li><img src="img/1.jpg" /></li>
+    	<li><img src="img/2.jpg" /></li>
+    	<li><img src="img/3.jpg" /></li>
+    </ul>
+    <ol>
+    	<li class="on">0</li>
+    	<li>1</li>
+    	<li>2</li>
+    	<li>3</li>
+    </ol>
+</div>
+<div id="box2" class="tab">
+	<ul>
+    	<li><img src="img/0.jpg" /></li>
+    	<li><img src="img/1.jpg" /></li>
+    	<li><img src="img/2.jpg" /></li>
+    	<li><img src="img/3.jpg" /></li>
+    </ul>
+    <ol>
+    	<li class="on">0</li>
+    	<li>1</li>
+    	<li>2</li>
+    	<li>3</li>
+    </ol>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+

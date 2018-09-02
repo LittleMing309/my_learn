@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	window.onload=function(){
+		var oTxt=document.getElementById('txt');
+		var oBtn=document.getElementById('btn');
+		var oList=document.getElementById('list');
+		oBtn.onclick=function(){
+			if(!oTxt.value)return;
+			var val = oTxt.value;
+			var oLi = document.createElement('li');
+				oLi.innerHTML=val+'<a href="javascript:;">删除</a>';
+				if(oList.children.length){
+					oList.insertBefore(oLi,oList.children[0]);
+				}else{
+					oList.appendChild(oLi);
+				}
+				oLi.children[0].onclick=function(){
+					oList.removeChild(this.parentNode);
+				}
+				oTxt.value='';
+		}
+	}
+</script>
+</head>
+
+<body><strong></strong>
+	<input type="text" id="txt" /><input type="button" value="添加" id="btn" />
+	<ul id="list"></ul>
+</body>
+</html>
+
+
+
+
+
+
+
+

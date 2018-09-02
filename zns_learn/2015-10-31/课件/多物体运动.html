@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	div{ width:300px; height:300px; background:#CCC;}
+</style>
+<script src="move3.js"></script>
+<script>
+	window.onload=function(){
+		var oBox=document.getElementsByTagName('div');
+		oBox[0].onmouseover=function(){
+			move(this,'width',500,1000);	
+		};	
+		oBox[1].onmouseover=function(){
+			move(this,'width',500,1000);	
+		};	
+	};
+</script>
+</head>
+
+<body>
+	<div></div>
+	<div></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

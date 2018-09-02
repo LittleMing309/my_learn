@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<meta name="description" content="智能社是一家专注于web前端开发技术的公司，目前主要提供JavaScript培训和HTML5培训两项服务，同时还推出了大量javascript基础知识教程，智能课堂为你带来全新的学习方法和快乐的学习体验。" />
+<title>智能社— http://www.zhinengshe.com</title>
+<style>
+</style>
+<script>
+var myWeb = {
+	utili:{},
+	effect:{}
+};
+myWeb.utili = {
+	getById:function(id){
+		return document.getElementById(id);
+	},
+	getByTagName:function(obj,tagName){
+		return obj.getElementsByTagName(tagName);
+	},
+	bind:function(obj,sEv,fn){
+		if(obj.addEventListener){
+			obj.addEventListener(sEv,fn,false);
+		}else{
+			obj.attachEvent('on'+sEv,fn);
+		}
+	}
+};
+myWeb.effect={
+	click2red:function(id){
+		var obj = myWeb.utili.getById(id);
+		myWeb.utili.bind(obj,'click',function(){
+			this.style.background='red';
+		});
+	}
+};
+</script>
+</head>
+
+<body>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

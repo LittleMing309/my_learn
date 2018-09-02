@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>实时获取文字字数兼容版</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oTxt = document.getElementById('txt');
+			if(window.navigator.userAgent.indexOf('MS IE9.0') !=-1){
+				var time = null;
+				oTxt.onfocus = function(){
+					time = setInterval(function(){
+						document.title = oTxt.value.length;
+					},100);
+				};
+				oTxt.onblur = function(){
+					clearInterval(time);
+				};
+			}else{
+				oTxt.oninput =oTxt.onpropertychange = function(){
+					document.title = oTxt.value.length;
+				}
+			};
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="txt" />
+</body>
+</html>

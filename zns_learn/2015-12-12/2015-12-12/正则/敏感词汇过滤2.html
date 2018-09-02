@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<meta name="description" content="智能社是一家专注于web前端开发技术的公司，目前主要提供JavaScript培训和HTML5培训两项服务，同时还推出了大量javascript基础知识教程，智能课堂为你带来全新的学习方法和快乐的学习体验。" />
+<title>智能社— http://www.zhinengshe.com</title>
+<style>
+textarea{width:400px; height:250px; font-size:20px;}
+</style>
+<script>
+window.onload=function(){
+	var oTxt1 = document.getElementById('txt1');
+	var oTxt2 = document.getElementById('txt2');
+	var oBtn = document.getElementsByTagName('input')[0];
+	oBtn.onclick=function(){
+		oTxt2.value = oTxt1.value.replace(/e|谣言|大动干戈/g,'*');
+	};
+};
+</script>
+</head>
+
+<body>
+<textarea id="txt1">至少在江湖上看，e租宝在毫无征兆的情况下出事了，先是在“假新闻”开道，随后就变成了真消息，再次证明了所谓谣言往往就是“遥遥领先的预言”的历史断言。e租宝到底存在什么问题，至今还是一个谜，也许需要等待有关部门在调查取证完成后用法律说话，但从目前的情况来看，e租宝翻身的可能性几乎为零。如此大动干戈，肯定是掌握了相当准确的消息和证据。</textarea><br />
+<input type="button" value="过滤" /><br />
+<textarea id="txt2"></textarea>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	window.onload=function(){
+		var oDiv=document.getElementById('div1');
+		var tr=false;
+		var tl=false;
+		var tb=false;
+		var tt=false;
+		
+		document.onkeydown=function(ev){
+			var oEvent=ev||event;
+			if(oEvent.keyCode ==  39){
+				tr=true;
+			}
+			if(oEvent.keyCode ==  37){
+				tl=true;
+			}
+			if(oEvent.keyCode ==  38){
+				tt=true;
+			}
+			if(oEvent.keyCode ==  40){
+				tb=true;
+			}
+		}
+		document.onkeyup=function(ev){
+				var oEvent=ev||event;
+				if(oEvent.keyCode ==  39){
+					tr=false;
+				}
+				if(oEvent.keyCode ==  37){
+					tl=false;
+				}
+				if(oEvent.keyCode ==  38){
+					tt=false;
+				}
+				if(oEvent.keyCode ==  40){
+					tb=false;
+				}
+		}
+		
+		setInterval(function(){
+			if(tr){
+				oDiv.style.left=oDiv.offsetLeft+10+'px';
+			}	
+			if(tl){
+				oDiv.style.left=oDiv.offsetLeft-10+'px';
+			}
+			if(tt){
+				oDiv.style.top=oDiv.offsetTop-10+'px';
+			}
+			if(tb){
+				oDiv.style.top=oDiv.offsetTop+10+'px';
+			}
+		},30)
+	}
+</script>
+</head>
+
+<body>
+	<div id="div1" style="width:100px; height:100px; background:red; position:absolute;"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+

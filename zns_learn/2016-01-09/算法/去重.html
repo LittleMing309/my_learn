@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<meta name="description" content="智能社是一家专注于web前端开发技术的公司，目前主要提供JavaScript培训和HTML5培训两项服务，同时还推出了大量javascript基础知识教程，智能课堂为你带来全新的学习方法和快乐的学习体验。" />
+<title>智能社— http://www.zhinengshe.com</title>
+<style>
+</style>
+<script>
+var arr = [1,2,3,3,3,4,4,4,5,5,5,6,6,6,6,6,7,7,7,10,25];
+function find(arr,n){
+	for(var i=0;i<arr.length;i++){
+		if(arr[i]==n){
+			return true;
+		}
+	}
+	return false;
+}
+function removeDup(s,e){
+	if(s>e){
+		return null;
+	}else if(s==e){
+		return [arr[s]];
+	}
+	var c = Math.floor((s+e)/2);
+	var left = removeDup(s,c);
+	var right = removeDup(c+1,e);
+	for(var i=0;i<right.length;i++){
+		if(!find(left,right[i])){
+			left.push(right[i]);
+		}
+	}
+	return left;
+}
+document.write(removeDup(0,arr.length-1));
+</script>
+</head>
+
+<body>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

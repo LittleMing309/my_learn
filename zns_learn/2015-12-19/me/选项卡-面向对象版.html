@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡</title>
+	<style type="text/css">
+		*{ margin:0; padding:0;}
+		#box{ height: 350px; width: 300px; border:1px solid black; margin:50px auto;}
+		#box input { background-color: #CCC;}
+		#box div{ width: 300px; height: 300px; background-color: #CCC; font-style: 50px; color: black; line-height: 300px; text-align: center; display: none;}
+		#box .on{ background-color: red;}
+	</style>
+	<script type="text/javascript">
+		function Tab(id){
+			this.oBox = document.getElementById(id);
+			this.aBtn = this.oBox.getElementsByTagName('input');
+			this.aDiv = this.oBox.getElementsByTagName('div');
+			var _this = this;
+			for(var i = 0; i<this.aBtn.length;i++){
+				this.aBtn[i].index = i;
+				this.aBtn[i].onclick = function(){
+					_this.fnClick(this);
+				}
+			}
+		}
+		Tab.prototype.fnClick = function(oBtn){
+			for(var i = 0 ; i<this.aBtn.length; i++){
+				this.aBtn[i].className = '';
+				this.aDiv[i].style.display = '';
+			}
+			oBtn.className='on';
+			this.aDiv[oBtn.index].style.display = 'block';
+		}
+		window.onload = function(){
+			new Tab('box');
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<input class="on" type="button" value="电影" />
+		<input type="button" value="电视剧" />
+		<input type="button" value="动漫" />
+		<div style="display:block;">电影</div>
+		<div>电视剧</div>
+		<div>动漫</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	div{ width:100px; height:100px; background:red; position:absolute;}
+		input{ position:absolute; right:20px; top:20px;}
+		.d{ width:5px; height:5px; background:#000;}
+</style>
+<script>
+	window.onload=function(){
+		var oBox=document.getElementById('box');
+		var oBtn=document.getElementById('btn');
+		var arr=[]; //arr[{x:10,y:20},{x:10,y:20}]
+		
+		oBtn.onclick=function(){
+			var time=setInterval(function(){
+						var pos=arr.pop();
+						if(!pos){
+							clearInterval(time);	
+							return;
+						}
+						//pos.x
+						//pos.y
+						oBox.style.left=pos.x+'px';
+						oBox.style.top=pos.y+'px';
+				},30);
+		};
+		
+		oBox.onmousedown=function(ev){
+			var oE=ev||event;
+			var disX=	oE.clientX-oBox.offsetLeft;
+			var disY=	oE.clientY-oBox.offsetTop;
+			arr.push({x:oBox.offsetLeft,y:oBox.offsetTop});
+			document.onmousemove=function(ev){
+				var oE=ev||event;
+				var l = oE.clientX-disX;
+				var t = oE.clientY-disY;
+				oBox.style.left=l+'px';
+				oBox.style.top=t+'px';
+				arr.push({x:l,y:t})
+			};
+			document.onmouseup=function(){
+					document.onmousemove=null;
+					document.onmouseup=null;
+					oBox.releaseCapture&&oBox.releaseCapture();
+			};
+			oBox.setCapture&&oBox.setCapture();
+			return false;
+		}
+		
+		
+	};
+</script>
+</head>
+
+<body>
+	<input type="button" value="回放" id="btn" />
+	<div id="box"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	function toDou(num){
+		if(num < 10){
+			return '0'+num;
+		}else{
+			return ''+num;	
+		}
+	}
+	var val = '00:00';
+	var i = 0;
+	window.onload = function(){
+		var aInp = document.getElementsByTagName('input');
+			aInp[1].onclick = function(){
+					setInterval(function(){
+						i++;
+					val = toDou(parseInt(i/60))+':'+toDou(i%60);
+					aInp[0].value = val;
+				},100)
+			}	
+	}
+</script>
+</head>
+
+<body>
+	<input type="text" value="00:00" />
+	<input type="button" value="开始" />
+</body>
+</html>

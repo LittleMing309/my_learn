@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原型扩展系统方法date2</title>
+	<script type="text/javascript">
+		Date.prototype.getcnDay= function(){
+			return '星期'+('日一二三四五六'.charAt(this.getDay()));
+		}
+		var oDate = new Date();
+		alert(oDate.getcnDay());
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

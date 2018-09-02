@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件委托</title>
+	<style type="text/css">
+		div{ height: 100px; width: 100px; background: red; float: left; margin:10px;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oDiv = document.getElementsByTagName('div');
+			document.onclick = function(ev){
+				var oEvent = ev || event;
+				var oSe = oEvent.srcElement || oEvent.target;
+				if(oSe.tagName == 'DIV'){ 
+					oSe.style.background = 'yellow';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>碰撞检测封装</title>
+	<style type="text/css">
+		#div1{ height: 100px; width: 100px; background: #CCC; position: absolute; top: 0; left: 0;}
+		#div2{ height: 100px; width: 100px; background: red; margin:300px;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oDiv=document.getElementById('div1');
+			var oDiv1=document.getElementById('div2');	
+			oDiv.onmousedown=function(ev){
+				var oEvent=ev||event;
+				var disX=	oEvent.clientX-oDiv.offsetLeft;
+				var disY=oEvent.clientY-oDiv.offsetTop;
+				document.onmousemove=function(ev){
+					var oEvent=ev||event;
+					var l=oEvent.clientX-disX;
+					var t=oEvent.clientY-disY;
+					oDiv.style.left=l+'px';
+					oDiv.style.top=t+'px';
+					if(collTest(oDiv,oDiv1)){
+						oDiv1.style.background = 'yellow';
+					}else{	
+						oDiv1.style.background = 'red';
+					}
+				};
+				document.onmouseup=function(){
+					document.onmousemove=null;
+					document.onmouseup=null;
+					oDiv.releaseCapture&&oDiv.releaseCapture();
+				};
+				oDiv.setCapture&&oDiv.setCapture();
+				return false;
+			};
+			function collTest(obj,obj2){
+				var l1 = obj.offsetLeft;
+				var r1 = obj.offsetLeft + obj.offsetWidth;
+				var t1 = obj.offsetTop;
+				var b1 = obj.offsetTop + obj.offsetHeight;
+
+				var l2 = obj2.offsetLeft;
+				var r2 = obj2.offsetLeft + obj2.offsetWidth;
+				var t2 = obj2.offsetTop;
+				var b2 = obj2.offsetTop + obj2.offsetHeight;
+
+				if(r1>l2 && b1 >t2 && l1 < r2 && t1 < b2){
+					return true;
+				}else{
+					return false;
+				}
+			};
+		}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+</body>
+</html>

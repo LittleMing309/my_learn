@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	*{ padding:0; margin:0;}
+	ul{ list-style:none;}
+	li{ float:left; width:200px; border:1px solid red; position:relative;}
+	.son{display:none;}
+	.sonson{ position:absolute; left:200px; top:0; display:none;}
+</style>
+<script>
+	window.onload = function(){
+			var aLi = document.getElementsByTagName('li');
+			for(var i=0; i<aLi.length; i++){
+				aLi[i].onmouseover=function(){
+					var oUl = this.getElementsByTagName('ul')[0];
+					var oH3 =  this.getElementsByTagName('h3')[0];
+					oH3.style.background='pink';
+					if(oUl){
+						oUl.style.display ='block';	
+					}
+				}
+				aLi[i].onmouseout=function(){
+					var oUl = this.getElementsByTagName('ul')[0];
+					var oH3 =  this.getElementsByTagName('h3')[0];
+					oH3.style.background='';
+					if(oUl){
+						oUl.style.display ='none';
+					}
+				}
+			}
+	}
+</script>
+</head>
+
+<body>
+	<ul>
+		<li>
+			<h3>首页</h3>
+		</li>
+		<li>
+			<h3>公司动态</h3>
+			<ul class="son">
+				<li><h3>公司新闻</h3></li>
+				<li><h3>公司新闻</h3></li>
+				<li><h3>公司新闻</h3></li>
+				<li><h3>公司新闻</h3></li>
+			</ul>
+		</li>
+		<li>
+			<h3>公司简介</h3>
+			<ul class="son">
+				<li>
+					<h3>产品列表</h3>
+					<ul class="sonson">
+						<li><h3>印度阿三</h3></li>
+						<li><h3>韩国棒子</h3></li>
+						<li><h3>美国警察</h3></li>
+					</ul>
+					
+				</li>
+				<li>公司新闻</li>
+				<li>公司新闻</li>
+				<li>公司新闻</li>
+			</ul>
+		</li>
+		<li>
+			<h3>公司动态</h3>
+			<ul class="son">
+				<li>公司新闻</li>
+				<li>公司新闻</li>
+				<li>公司新闻</li>
+				<li>公司新闻</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

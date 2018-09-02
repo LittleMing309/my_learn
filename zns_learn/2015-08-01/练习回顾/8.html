@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	.p1{ width:300px; border:1px solid red; margin:0 auto; color:red; font-size:20px;}
+</style>
+<script>
+	function rad(n,m){
+		return parseInt(Math.random()*(m-n)+n);
+	}
+	
+	function findArr(arr,n){
+		for(var i=0; i<arr.length;i++){
+			if(arr[i] == n){
+				return true;
+			}
+		}
+		return false;
+	}
+	window.onload = function(){
+		var oP = document.getElementsByTagName('p')[0];
+		var arr = [];
+		for(var i=0; i<6;i++){	
+			var num = rad(1,36);
+			if(findArr(arr,num)){
+				i--	;
+			}else{
+				arr.push(num);
+			}
+		}
+		oP.innerHTML = arr;
+	}
+</script>
+</head>
+
+<body>
+	<p class="p1"></p>
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+define(function(require,exports,module){
+	module.exports={
+		a:function(){
+			alert(1);
+		},
+		b:function(){
+			alert(2);
+		}
+	};
+});

@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+	var date = [
+		{
+			title:'aaaaaaaaaaaaaaaaaaaa',
+			href:'fjsalkdfjalksdfsafj',
+			child:[
+				{
+					title:'aaaaaaaaaaaaaaaaaaaa',
+					href:'fjsalkdfjalksdfsafj',	
+				},
+				{
+					title:'aaaGGGGGGGGGGGGGGGaaaaa',
+					href:'fjsalkdfjalksdfsafj',	
+				}
+			]	
+		},
+		{
+			title:'2aaaaaaaaaaaaaaaaaaaa',
+			href:'fjsalkdfjalksdfsafj',
+			child:[
+				{
+					title:'aaaaaaaaaaaaaaaaaaaa',
+					href:'fjsalkdfjalksdfsafj',	
+				},
+				{
+					title:'aaGGGGGGGGGGGGGaaaa',
+					href:'fjsalkdfjalksdfsafj',	
+				}
+			]	
+		},
+		{
+			title:'3aaaaaaaaaaaaaaaaaaaa',
+			href:'fjsalkdfjalksdfsafj',
+			child:[
+				{
+					title:'aaaaaaaaaaaaaaaaaaaa',
+					href:'fjsalkdfjalksdfsafj',	
+				},
+				{
+					title:'aaaGGGGGGGGGGGGaaaa',
+					href:'fjsalkdfjalksdfsafj',	
+				}
+			]	
+		},
+		{
+			title:'4aaaaaaaaaaaaaaaaaaaa',
+			href:'fjsalkdfjalksdfsafj',
+			child:[
+				{
+					title:'aaaaaaaaaaaaaaaaaaaa',
+					href:'fjsalkdfjalksdfsafj',	
+				},
+				{
+					title:'aaaCCCCCCCCCCCCCaa',
+					href:'fjsalkdfjalksdfsafj',	
+				}
+			]	
+		},
+		{
+			title:'5aaaaaaaaaaaaaaaaaaaa',
+			href:'fjsalkdfjalksdfsafj',
+			child:[
+				{
+					title:'aaaaaaaaaaaaaaaaaaaa',
+					href:'fjsalkdfjalksdfsafj',	
+				},
+				{
+					title:'CCCCCCCCCCCCCa',
+					href:'fjsalkdfjalksdfsafj',	
+				}
+			]	
+		}
+	];
+	window.onload = function(){
+		var oUl = document.getElementById('box');
+		for(var i = 0; i<date.length; i++){
+			var oLi = document.createElement('li');
+			oUl.appendChild(oLi);
+			var oH3 = document.createElement('h3'); 
+			oLi.appendChild(oH3);
+			var aH = document.createElement('a');
+			aH.href = date[i].href;
+			aH.innerHTML = date[i].title;
+			oH3.appendChild(aH);
+			var oP = document.createElement('p');
+			oLi.appendChild(oP); 
+			var aChild = date[i].child;
+			for( var j = 0; j<aChild.length; j++){
+				var aH = document.createElement('a');
+				oP.appendChild(aH);
+				aH.href = aChild[j].href;
+				aH.innerHTML = aChild[j].title;
+			} 
+		}	
+	}
+</script>
+</head>
+
+<body>
+<ul id="box"></ul>
+</body>
+</html>

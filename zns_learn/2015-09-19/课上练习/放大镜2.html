@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜2</title>
+	<style>
+		*{ margin: 0; padding: 0;}
+		#box{ height:300px; width: 300px; margin-left: 200px; float: left; border: 1px solid red; position: relative;}
+		#box img{ width: 100%; height: 100%;}
+		#span{ width: 100px; height: 100px; background: yellow; position: absolute; opacity: 0.5; filter:alpha(opacity:50); display: none;}
+		#showbox { height: 400px; width: 400px; overflow: hidden; float: left; margin-left: 20px; display: none;}
+	</style>
+	<script>
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			var oSpan = document.getElementById('span');
+			var oShowBox = document.getElementById('showbox');
+			var oImg = oShowBox.getElementsByTagName('img')[0];
+			oBox.onmouseover = function(){
+				oSpan.style.display = 'block';
+				oShowBox.style.display = 'block';
+			}
+			oBox.onmouseout = function(){
+				oSpan.style.display = 'none';
+				oShowBox.style.display = 'none';
+			}
+			oBox.onmousemove = function(ev){
+				var oEvent = ev || event;
+				var l = oEvent.clientX - oBox.offsetLeft - oSpan.offsetWidth/2;
+				var t = oEvent.clientY - oBox.offsetTop - oSpan.offsetHeight/2;
+				if(l<0){l=0;}
+				if(l>oBox.offsetWidth- oSpan.offsetWidth){l = oBox.offsetWidth - oSpan.offsetWidth}
+				if(t<0){t=0;}
+				if(t>oBox.offsetHeight- oSpan.offsetHeight){t = oBox.offsetHeight - oSpan.offsetHeight}
+
+				var l2 = -l/(oBox.offsetWidth - oSpan.offsetWidth)*(oImg.offsetWidth - oShowBox.offsetWidth);
+				var t2 = -t/(oBox.offsetHeight - oSpan.offsetHeight)*(oImg.offsetHeight - oShowBox.offsetHeight);
+				oImg.style.marginLeft = l2 + 'px';
+				oImg.style.marginTop = t2 + 'px';
+				oSpan.style.left = l + 'px';
+				oSpan.style.top = t + 'px';
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<span id="span"></span>
+		<img src="images/1.jpg" />
+	</div>
+	<div id="showbox">
+		<img src="images/1.jpg" />
+	</div>
+</body>
+</html>

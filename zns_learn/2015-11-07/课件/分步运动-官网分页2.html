@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	*{ list-style:none; padding:0; margin:0;}
+	ul{ width:360px; margin:100px auto;  overflow:hidden;}
+	li{ width:100px; height:100px; float:left; margin:10px; background:#CCC;}
+</style>
+<script src="move10.js"></script>
+<script>
+	window.onload=function(){
+		var oBtn=document.getElementById('btn');
+		var oU=document.getElementById('box');
+		var aLi=oU.children;
+		
+		//布局转换
+		//保存位置
+		var aPos=[];//[{top:100,left:100},{}]
+		for(var i=0;i<aLi.length;i++){
+			aPos[i]={
+				top:aLi[i].offsetTop,
+				left:aLi[i].offsetLeft
+			}
+		}
+		//调用位置
+		for(var i=0;i<aLi.length;i++){
+			aLi[i].style.top=aPos[i].top+'px';	
+			aLi[i].style.left=aPos[i].left+'px';
+			aLi[i].style.position='absolute';
+			aLi[i].style.margin=0;
+		}
+		
+		var btnPos={top:oBtn.offsetTop,left:oBtn.offsetLeft};
+		
+		oBtn.onclick=function(){
+			var i=0;
+			var timer=setInterval(function(){
+				move(aLi[i],{top:btnPos.top,left:btnPos.left,width:0,height:0,opacity:0},{easing:'ease-out'})
+				i++;
+				if(i==aLi.length){
+					clearInterval(timer);
+				}
+			},100);		
+			
+		};
+	};
+</script>
+</head>
+
+<body style="text-align:center;">
+<input type="button" value="按钮" id="btn" />
+	<ul id="box">
+		<li>0</li>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+	</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

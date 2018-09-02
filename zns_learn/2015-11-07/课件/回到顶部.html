@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	body{ height:3000px;}
+	input{ position:fixed; right:40px; bottom:40px; display:none;}
+</style>
+<script>
+	window.onload=function(){
+		var oInp=document.getElementsByTagName('input')[0];
+		window.onscroll=function(){
+			var sT=document.documentElement.scrollTop||document.body.scrollTop;
+			oInp.style.display='block';	
+			if(sT==0){
+				oInp.style.display='none';	
+			}
+			
+		};	
+		oInp.onclick=function(){
+			document.documentElement.scrollTop=document.body.scrollTop=0;
+		};
+	}
+</script>
+</head>
+
+<body>
+	<input type="button" value="回到顶部">
+</body>
+</html>
+
+
+
+
+
+
+
+
+

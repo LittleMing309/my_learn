@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	
+	if(window.navigator.userAgent.toLowerCase().indexOf('firefox')!=-1){	
+		document.addEventListener('DOMMouseScroll',function(ev){
+			//-3上
+			//3下
+			//alert(ev.detail);
+			var oEvent=ev||event;
+			if(oEvent.detail){
+				if(oEvent.detail>0){
+					alert('下')
+				}else{
+					alert('上')	
+				}
+			}else{
+				if(oEvent.wheelDelta>0){
+					alert('上')	
+				}else{
+					alert('下')		
+				}
+			}
+			
+			
+		},false);
+	}
+	document.onmousewheel=function(ev){
+		
+		//alert(oEvent.wheelDelta)
+		//120 上
+		//-120 下
+		var oEvent=ev||event;
+		if(oEvent.detail){
+			if(oEvent.detail>0){
+				alert('下')
+			}else{
+				alert('上')	
+			}
+		}else{
+			if(oEvent.wheelDelta>0){
+				alert('上')	
+			}else{
+				alert('下')		
+			}
+		}
+	};
+	
+</script>
+</head>
+
+<body>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,149 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>智能课堂 —— 微博ajax接口测试 - www.zhinengshe.com</title>
+<link href="style/weibo.css" rel="stylesheet" type="text/css" />
+<script src="../ajax.js"></script>
+<script>
+function toDou(iNum){
+	return iNum<10?'0'+iNum:''+iNum;
+}
+function getCurTime(time){
+	var oDate = new Date(time);
+	return oDate.getFullYear()+'年'+toDou(oDate.getMonth()+1)+'月'+toDou(oDate.getDate())+'日 '+toDou(oDate.getHours())+':'+toDou(oDate.getMinutes())+':'+toDou(oDate.getSeconds());
+}
+window.onload=function(){
+	var oTxt = document.getElementById('tijiaoText');
+	var oSendBtn = document.getElementById('send_btn');
+	var oMsgBox = document.getElementById('msg_box');
+	var oPageBox = document.getElementById('page_box');
+	var oNoCon = document.getElementById('noCon');
+	
+	
+	var URL = 'weibo.php';
+	
+	//添加留言
+	oSendBtn.onclick=function(){
+		if(oTxt.value==''){
+			return;
+		}else{
+			ajax({
+				url:URL,
+				data:{
+					act:'add',
+					content:oTxt.value
+				},
+				success:function(res){
+					var json = eval('('+res+')');
+					if(!json.error){
+						var oDiv = document.createElement('div');
+						oDiv.className='reply';
+						oDiv.innerHTML='<p class="replyContent">'+oTxt.value+'</p>'+
+               			'<p class="operation">'+
+                    	'<span class="replyTime">'+getCurTime(json.time*1000)+'</span>'+
+                    	'<span class="handle">'+
+                    	'<a href="javascript:;" class="top">0</a>'+
+                        '<a href="javascript:;" class="down_icon">0</a>'+
+                        '<a href="javascript:;" class="cut">删除</a>'+
+                    	'</span>'+
+                		'</p>';
+						oMsgBox.appendChild(oDiv);
+					}else{
+						alert('留言失败');
+					}
+				},
+				error:function(){
+					alert('失败了');
+				}
+			});
+		}
+	};
+	
+	//获取页数
+	function getPageCount(){
+		ajax({
+			url:URL,
+			data:{
+				act:'get_page_count'
+			},
+			success:function(res){
+				var json = eval('('+res+')');
+				for(var i=0;i<json.count;i++){
+					var oA = document.createElement('a');
+					oA.href='javascript:;';
+					oA.innerHTML=i+1;
+					if(i==0){
+						oA.className='active';
+					}
+					oPageBox.appendChild(oA);
+				}
+			},
+			error:function(){
+				alert('失败');
+			}
+		});
+	}
+	getPageCount();
+	
+	//获取某一页数据
+	function getPage(n){
+		ajax({
+			url:URL,
+			data:{
+				act:'get',
+				page:n
+			},
+			success:function(res){
+				var arr = eval('('+res+')');
+				if(arr.length>0){
+					for(var i=0;i<arr.length;i++){
+						
+					}
+				}else{
+					oNoCon.style.display='block';
+				}
+			},
+			error:function(){
+				alert('失败');
+			}
+		});
+	}
+	getPage(1);
+	
+};
+</script>
+</head>
+
+<body>
+<div class="znsArea">
+<!--留言-->
+     <div class="takeComment">
+        <textarea name="textarea" class="takeTextField" id="tijiaoText"></textarea>
+        <div class="takeSbmComment">
+            <input type="button" class="inputs" value="" id="send_btn" />
+            <span>(可按 Enter 回复)</span>
+        </div>
+    </div>
+<!--已留-->
+    <div class="commentOn">
+        <div id="noCon" class="noContent" style="display:none;">暂无留言</div>
+        <div id="msg_box" class="messList">
+        	<!--<div class="reply">
+                <p class="replyContent">卫士，新款卫士将推出总共14种车身式样。其中， XS旅行款车型售价为32295英镑(约33.6万元)。</p>
+                <p class="operation">
+                    <span class="replyTime">2011-09-08 16:37:60</span>
+                    <span class="handle">
+                    	<a href="javascript:;" class="top">0</a>
+                        <a href="javascript:;" class="down_icon">0</a>
+                        <a href="javascript:;" class="cut">删除</a>
+                    </span>
+                </p>
+            </div>-->
+        </div>
+        <div id="page_box" class="page">
+        </div>
+    </div>
+</div>
+</body>
+</html>

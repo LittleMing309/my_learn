@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery</title>
+	<style type="text/css">
+		div{width:200px;height:200px; background:red; }
+	</style>
+	<script src="jquery-1.7.2.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('input').click(function(){
+				$('div').animate({width:500,height:500});
+			})
+		})
+	</script>
+</head>
+<body>
+	<input type="button" value="aaa" />
+	<div></div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+body, h1, h2, h3, h4, p, ul, ol, dl, dd, form
+{ margin: 0; padding: 0; }
+a { text-decoration: none; }
+i, em { font-style:normal; }
+b, h1, h2, h3, h4, strong { font-weight:normal; }
+li { list-style: none; }
+a img { display: block; border: none; }
+select, textarea, input { outline: none; }
+input { border:none 0; }
+input::-ms-clear {display: none; }
+
+.left { display: inline; float: left; }
+.right { display: inline; float: right; }
+.clear:after { display: block; content:''; clear: both; }
+.clear { zoom:1; }
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	var nMin=999999999;
+	var index = 0;
+	var arr = [20,40,10,-90,56,98,-999,99];
+	
+	for(var i=0; i<arr.length;i++){
+		if(nMin>arr[i]){
+			nMin = arr[i];
+			index=i;
+		}
+	}
+	alert(nMin)
+	alert(index)
+</script>
+</head>
+
+<body>
+</body>
+</html>

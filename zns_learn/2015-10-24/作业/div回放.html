@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>div回放</title>
+	<style>
+		#btn{ position: absolute ; top: 20px; right: 20px; }
+		#div1{ height: 100px; width: 100px; background: red; position: absolute;}
+	</style>
+	<script>
+		window.onload = function(){
+			var oBox = document.getElementById('div1');
+			var oBtn = document.getElementById('btn');
+			var arr = [];
+			oBtn.onclick = function(){
+				var time = setInterval(function(){
+					var pos = arr.pop();
+					if(!pos){
+						clearInterval(time);
+						return;
+					};
+					oBox.style.left = pos.x + 'px';
+					oBox.style.top = pos.y + 'px';
+				},30);
+			};
+			oBox.onmousedown=function(ev){
+				var oE=ev||event;
+				var disX=	oE.clientX-oBox.offsetLeft;
+				var disY=	oE.clientY-oBox.offsetTop;
+				arr.push({x:oBox.offsetLeft,y:oBox.offsetTop});
+				document.onmousemove=function(ev){
+					var oE=ev||event;
+					var l = oE.clientX-disX;
+					var t = oE.clientY-disY;
+					oBox.style.left=l+'px';
+					oBox.style.top=t+'px';
+					arr.push({x:l,y:t})
+				};
+				document.onmouseup=function(){
+						document.onmousemove=null;
+						document.onmouseup=null;
+						oBox.releaseCapture&&oBox.releaseCapture();
+				};
+				oBox.setCapture&&oBox.setCapture();
+				return false;
+			};
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="btn" value="回放" />
+	<div id="div1"></div>
+</body>
+</html>

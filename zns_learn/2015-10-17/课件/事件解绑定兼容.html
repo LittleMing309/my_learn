@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	function show(){
+			alert(this);
+	};
+	
+	function show2(){
+			alert(222)	
+	};
+	//添加事件绑定
+	function addEvent(obj,sEv,fn){
+		if(obj.addEventListener){
+			obj.addEventListener(sEv,fn,false);
+		}else{
+			obj.attachEvent('on'+sEv,fn);
+		}
+	}
+	//事件解绑定
+	function removeEvent(obj,sEv,fn){
+		if(obj.removeEventListener){
+			obj.removeEventListener(sEv,fn,false);
+		}else{
+			obj.detachEvent('on'+sEv,fn);
+		}
+	}
+	
+	window.onload=function(){
+		var oInp=document.getElementsByTagName('input')[0];
+		addEvent(oInp,'click',show);
+		addEvent(oInp,'click',show2);
+	};
+	
+	
+</script>
+</head>
+
+<body>
+	<input type="button" value="111" />
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

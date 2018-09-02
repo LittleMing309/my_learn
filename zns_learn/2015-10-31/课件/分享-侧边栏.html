@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	div{ width:0px; height:300px; background:#CCC; position:absolute; top:50%; margin-top:-150px; right:0;}
+	h3{ width:1em; background:yellow; position:absolute; left:-1em; top:50%; margin-top:-30px;}
+</style>
+<script src="move.js"></script>
+<script>
+	window.onload=function(){
+		var oBox=document.getElementById('box');
+		oBox.onmouseover=function(){
+			move(this,'width',200,500);
+		};
+		oBox.onmouseout=function(){
+			move(this,'width',0,500);
+		};
+		
+		
+	};
+	
+	
+</script>
+</head>
+
+<body>
+	<div id="box">
+		<h3>分享到</h3>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>固定位置兼容版</title>
+	<style type="text/css">
+		body{ height: 3000px;}
+		div{ height: 300px; width: 300px; background:red; position: fixed; _position:absolute; bottom:0;  right: 0;}
+	</style>
+	<script>
+		if(window.navigator.userAgent.indexOf('MSIE 6.0') !=-1){
+			window.onscroll = function(){
+				var oBox = document.getElementById('box');
+				var sH = document.documentElement.scrollTop || document.body.scrollTop;
+				var cH = document.documentElement.clientHeight;
+				var oH = oBox.offsetHeight;
+				
+				oBox.style.top = sH+cH-oH + 'px';
+
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>iphone图片查看器</title>
+	<style type="text/css">
+		*{ margin:0; padding: 0;}
+		ul{ list-style: none;}
+		body{ background: #333;}
+		#iphone{ width: 900px; height: 600px; background: url(images/bg.jpg); position: absolute; left: 50%; top: 50%; margin:-300px 0 0 -450px;}
+		#wrap { width: 238px; height: 360px; position: absolute; top: 121px; left: 326px; overflow:hidden; }
+		#iphone ul { width: 960px; height: 361px; cursor: pointer; position: absolute; top: 0px; left: 0px; }
+		#iphone li { float: left; width:240px; height:360px; overflow:hidden; }
+	</style>
+	<script type="text/javascript" scr="move.js"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oWrap = document.getElementById('wrap');
+			var oUl = oWrap.children[0];
+			var aLi = oUl.children;
+			var iNow = 0;
+			oUl.onmousedown = function(ev){
+				var oEvent = ev || event;
+				var disX = oEvent.clientX - oUl.offsetLeft;
+				var oldX =  oEvent.clientX;
+				document.onmousemove = function(ev){
+					var oEvent = ev || event;
+					oUl.style.left = oEvent.clientX - disX + 'px';
+				}
+				document.onmouseup = function(ev){
+					var oEvent = ev || event;
+					document.onmouseout = null;
+					document.onmousemove = null;
+					var dis = Math.abs(oEvent.clientX - oldX);
+					if(dis > 20){
+						if(oEvent.clientX > oldX){
+							iNow--;
+							oUl.style.left = -iNow*aLi[0].offsetWidth + 'px';
+						}else{
+							iNow++;
+							oUl.style.left = -iNow*aLi[0].offsetWidth + 'px';
+						}
+					}else{
+						oUl.style.left = -iNow*aLi[0].offsetWidth + 'px';
+					}
+					oUl.releaseCapture&&oUl.releaseCapture();
+				}
+				oUl.setCapture&&setCapture();
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="iphone">
+		<div id="wrap">
+			<ul>
+				<li style="background:url(images/pic1.png);" title="智能社"></li>
+				<li style="background:url(images/pic2.png);" title="智能社"></li>
+				<li style="background:url(images/pic3.png);" title="智能社"></li>
+				<li style="background:url(images/pic4.png);" title="智能社"></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

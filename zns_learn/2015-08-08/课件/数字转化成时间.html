@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+
+</head>
+
+<body>
+	<p></p>
+	<script>
+		function toDou(num){
+			if(num<10){
+				return '0'+parseInt(num);
+			}else{
+				return ''+parseInt(num);
+			}
+		}
+	
+		var time = 368;
+		var oP  =document.getElementsByTagName('p')[0];
+		var str = toDou(time/60)+':'+toDou(time%60);
+		oP.innerHTML =str;
+	</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	div{ width:300px; height:300px; background:red;}
+</style>
+<script>
+	window.onload = function(){
+		var oDiv= document.getElementsByTagName('div');
+		oDiv[0].onclick =abc;
+		function abc(){	
+			var i = 0;
+			var time = setInterval(function(){
+				i++;
+				if(i%2){
+					oDiv[0].style.background ='yellow';	
+				}else{
+					oDiv[0].style.background ='red';		
+				}
+				if(i==6){
+					clearInterval(time);	
+				}
+			},100);	
+		}
+	}
+	
+	
+</script>
+</head>
+
+<body>
+	<div></div>
+</body>
+</html>

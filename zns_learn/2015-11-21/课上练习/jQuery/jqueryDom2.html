@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jqueryDom</title>
+	<style type="text/css">
+		div{ height: 300px; width: 300px; border:1px solid red;}
+		span{ font-size: 18px; font-weight: bold;}
+	</style>
+	<script type="text/javascript" src="jquery-1.7.2.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//$('<h2>我是h2</h2>').insertBefore('div');    添加到元素的前面
+			$('<h2>我是h2</h2>').insertAfter('div');     //添加到元素的后面
+		});
+	</script>
+</head>
+<body>
+	<span>我是span</span>
+	<div></div>
+</body>
+</html>	

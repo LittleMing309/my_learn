@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>圆_1</title>
+	<style type="text/css">
+		*{ margin:0; padding:0;}
+		#box{ width: 300px; height: 300px; border:1px solid #111; border-radius: 50%; position: absolute; top: 100px; left: 300px;}
+		#box span{ width: 50px; height: 50px; background: red; border-radius: 50%; position: absolute; top: 0; left: 50%; margin-left: -25px; margin-top: -25px;}
+	</style>
+	<script type="text/javascript">
+		function d2a(d){		//角度 =》弧度
+			return d*Math.PI/180;
+		}
+		function a2d(a){		//弧度 =》角度
+			return a*180/Math.PI;
+		}
+		window.onload =function(){
+			var oBox = document.getElementById('box');
+			var R = oBox.offsetWidth/2;
+			var a = 0;
+			var N = 10;
+			for(var i = 0; i<N; i++){
+				var oS = document.createElement('span');
+				oBox.appendChild(oS);
+			}
+			var aS = oBox.children;
+			var bOk = true;
+			oBox.onclick = function(){
+				for(var i = 0; i<aS.length;i++){
+					if(bOk){
+						move(aS[i],i*360/N);
+					}else{
+						move(aS[i],0);
+					}
+				}
+				bOk=!bOk;
+			}
+			function move(obj,iTarget){
+				var start = obj.a || 0;
+				var dis = iTarget - start;
+				var count = Math.floor(1000/30);
+				var n = 0;
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function(){
+					n++;
+					var c = 1-n/count;
+					var cur = start+dis*(1-Math.pow(c,3));
+					obj.a = cur;
+					var x = R+Math.sin(d2a(cur))*R;
+					var y = R-Math.cos(d2a(cur))*R;
+					obj.style.left = x+'px';
+					obj.style.top = y+'px';
+					if(n==count){
+						clearInterval(obj.timer);
+					}
+				},30);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>固定到左下角</title>
+	<style>
+		#box{ height: 200px; width: 200px; position: fixed; _position:absolute; bottom:0; left:0;  background: red;}
+		body{ height: 2000px;}
+	</style>
+	<script>
+		if(window.navigator.userAgent.indexOf('MSIE 6.0') != -1){
+			window.onscroll = function(){
+				var oDiv = document.getElementById('box');
+				var sH = document.documentElement.scrollTop || document.body.scrollTop;
+				var cH = document.documentElement.clientHeight;
+				var oH = oDiv.offsetHeight;
+				oDiv.style.top = sH+cH-oH+'px';	
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>

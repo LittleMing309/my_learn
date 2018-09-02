@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+ 	*{ padding:0; margin:0; list-style:none}
+	#box{ width:800px; border:1px solid red; margin:100px auto; height:358px; position:relative;}
+	#box ul{ position:absolute; top:50%; left:0; margin-top:-90px;}
+	#box li{ width:260px; height:179px; float:left; padding:0 10px; position:relative;}
+	#box img{ width:260px; height:179px;}
+	span{ font-size:50px; color:red; position:absolute; top:50%; left:50%;}
+</style>
+<script>
+	window.onload=function(){
+		var oBox=document.getElementById('box');
+		var oUl=oBox.children[0];
+		var aLi=oUl.children;
+		var aImg=oUl.getElementsByTagName('img');
+		oUl.style.width=aLi[0].offsetWidth*aLi.length+'px';
+		var divC=oBox.offsetWidth/2;
+		
+		//span 只是为了看下距离
+		for(var i=0; i<aLi.length;i++){
+			var oSpan=document.createElement('span');
+			oSpan.innerHTML=1;
+			aLi[i].appendChild(oSpan);
+		}
+		
+		var aSpan=document.getElementsByTagName('span');
+		oUl.onmousedown=function(ev){
+			var ev=ev||event;
+			var dis=ev.clientX-oUl.offsetLeft;
+			document.onmousemove=function(ev){
+				var ev=ev||event;
+				oUl.style.left=ev.clientX-dis+'px';
+				 setSize();
+			};
+			document.onmouseup=function(){
+				document.onmousemove=null;
+				document.onmouseup=null;
+			};
+			return false;
+		}
+		setSize();
+		function setSize(){
+			for(var i =0;i<aLi.length;i++){
+				var l=Math.abs(aLi[i].offsetLeft+oUl.offsetLeft+aLi[i].offsetWidth/2-divC);
+				var scale=1-l/500;
+				if(scale<0.5)scale=0.5;
+				aImg[i].style.width=520*scale+'px';
+				aImg[i].style.height=358*scale+'px';
+				aImg[i].style.marginTop=-(aImg[i].offsetHeight-179)/2+'px';
+				aImg[i].style.marginLeft=-(aImg[i].offsetWidth-260)/2+'px';
+				aLi[i].style.zIndex=10000*scale;
+				
+				aSpan[i].innerHTML=scale;
+			}	
+		}
+	};
+</script>
+</head>
+
+<body>
+	<div id="box">
+		<ul>
+			<li><img src="img5/1.jpg" /></li>
+			<li><img src="img5/2.jpg" /></li>
+			<li><img src="img5/3.jpg" /></li>
+			<li><img src="img5/4.jpg" /></li>
+			<li><img src="img5/5.jpg" /></li>
+			<li><img src="img5/6.jpg" /></li>
+			<li><img src="img5/7.jpg" /></li>
+			<li><img src="img5/8.jpg" /></li>
+		</ul>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

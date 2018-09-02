@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	*{ padding:0; margin:0; list-style:none;}
+	div{ width:900px; margin:0 auto; overflow:hidden; height:300px;}
+	ul{ width:900px; position:relative;}
+	li{ width:840px; position:absolute; top:0;}
+	span{ width:20px; height:100%; position:absolute; left:0; top:0; background:#F66; color:#FFF;}
+</style>
+<script src="move10.js"></script>
+<script>
+	//只改变li的left
+	window.onload=function(){
+		var aLi=document.getElementsByTagName('li');
+		for(var i=0; i<aLi.length;i++){
+			(function(index){
+				aLi[index].onmouseover=function(){
+					for(var i=0;i<aLi.length;i++){
+						if(i<=index){
+							//0 20 40 60
+							//aLi[i].style.left=20*i+'px';
+							move(aLi[i],{left:20*i});
+						}else{
+							//aLi[i].style.left=840+20*(i-1)+'px';	
+							move(aLi[i],{left:840+20*(i-1)});
+						}
+					}
+				};
+			})(i);	
+		}
+	};
+</script>
+</head>
+
+<body>
+	<div>
+		<ul>
+			<li style="left:0;"><span>第1张</span><img src="img6/0.jpg" /></li>
+			<li style="left:20px;"><span>第2张</span><img src="img6/1.jpg" /></li>
+			<li style="left:40px;"><span>第3张</span><img src="img6/2.jpg" /></li>
+			<li style="left:60px;"><span>第4张</span><img src="img6/3.jpg" /></li>
+		</ul>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

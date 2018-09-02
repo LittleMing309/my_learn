@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<meta name="description" content="智能社是一家专注于web前端开发技术的公司，目前主要提供JavaScript培训和HTML5培训两项服务，同时还推出了大量javascript基础知识教程，智能课堂为你带来全新的学习方法和快乐的学习体验。" />
+<title>智能社— http://www.zhinengshe.com</title>
+<style>
+</style>
+<script>
+//有序 	19867
+//无序 	30
+var arr = [];
+function sort_add(n){
+	if(!find(n,0,arr.length-1)){
+		arr.push(n);
+		arr.sort(function(n1,n2){
+			return n1-n2;
+		});
+	}
+}
+function sort_find(n,s,e){
+	if(s>e){
+		return false;
+	}else if(s==e){
+		if(arr[s]==n){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	var c = Math.floor((s+e)/2);
+	if(arr[c]==n){
+		return true;
+	}else{
+		if(n<arr[c]){
+			return find2(n,0,c);
+		}else{
+			return find2(n,c+1,e);
+		}
+	}
+}
+
+function unsort_add(n){
+	if(!unsort_find(n)){
+		arr.push(n);
+	}
+}
+function unsort_find(n){
+	for(var i=0;i<arr.length;i++){
+		if(arr[i]==n){
+			return true;
+		}
+	}
+	return false;
+}
+
+var N = 10000;
+var s = new Date().getTime();
+for(var i=0;i<N;i++){
+	var n = parseInt(Math.random()*N);
+	//sort_add(n);
+	unsort_add(n);
+}
+document.write(new Date().getTime()-s);
+
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>折叠菜单</title>
+	<style>
+		*{ margin:0; padding: 0;}
+		body { margin:30px 150px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
+		li{ list-style: none;}
+		.nav { width: 240px; font-size: 12px; background: #8e9eb1; overflow: hidden; border: 1px solid #8e9eb1; }
+		.nav li { width: 240px; line-height: 24px; float: left; }
+		.nav h2 { width: 240px; float: left; cursor: pointer; border-bottom: 1px #666 solid; }
+		.nav .active { background: url(images/nav_link.gif) repeat-x; }
+		.nav h2 span { padding-left: 30px; font-size: 12px; color: #fff; font-weight: normal; background: url(images/nav.gif) no-repeat 10px center; }
+		.nav ul { width: 240px; height:0px; overflow:hidden; }
+		.nav ul li { width: 240px; background: url(images/menu.gif) repeat-x; }
+		.nav ul li a { display: block; width: 200px; float: left; padding-left: 40px; background: url(images/nav2.gif) no-repeat 20px center; color:#6b7f97; text-decoration: none; }
+		.nav ul li a:hover { text-decoration: underline; }
+	</style>
+	<script src="move10.js"></script>
+	<script>
+		window.onload = function(){
+			var oUl = document.getElementById('nav');
+			var aH2 = oUl.getElementsByTagName('h2');
+			var aUl = oUl.getElementsByTagName('ul');
+
+			for(var i = 0 ; i<aH2.length;i++){
+				(function(index){
+					aH2[i].onclick = function(){
+						if(this.className == ''){
+							for(var i = 0; i<aH2.length;i++){
+								aH2[i].className = '';
+								move(aUl[i], {height: 0});
+							}
+							var aLi=aUl[index].children;
+							move(aUl[index],{'height':aLi[0].offsetHeight*aLi.length},{'easing':'ease-in'});
+						}else{
+							this.className='';
+							move(aUl[index], {height: 0});
+						}
+					}
+				})(i);
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul id="nav" class="nav">
+		<li>
+			<h2><span>智能首页</span></h2>
+			<ul>
+				<li><a href="#">网站介绍</a></li>
+	            <li><a href="#">精品套餐</a></li>
+	            <li><a href="#">智能特色</a></li>
+	            <li><a href="#">免费试听</a></li>
+	            <li><a href="#">网站介绍</a></li>
+	            <li><a href="#">精品套餐</a></li>
+	            <li><a href="#">智能特色</a></li>
+	            <li><a href="#">免费试听</a></li>
+			</ul>
+		</li>
+		<li>
+			<h2><span>智能首页</span></h2>
+			<ul>
+				<li><a href="#">网站介绍</a></li>
+            	<li><a href="#">精品套餐</a></li>
+			</ul>
+		</li>
+		<li>
+			<h2><span>智能首页</span></h2>
+			<ul>
+				<li><a href="#">免费试听</a></li>
+	            <li><a href="#">网站介绍</a></li>
+	            <li><a href="#">精品套餐</a></li>
+	            <li><a href="#">智能特色</a></li>
+	            <li><a href="#">免费试听</a></li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>

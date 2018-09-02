@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	window.onload=function(){
+		var oDiv=document.getElementsByTagName('div')[0];
+		oDiv.onmousedown=function(ev){
+			var oEvent=ev||event;
+			var disX=oEvent.clientX-oDiv.offsetLeft;
+			var disY=oEvent.clientY-oDiv.offsetTop;
+			document.onmousemove=function(ev){
+				var oEvent=ev||event;
+				var l = oEvent.clientX-disX;
+				var t = oEvent.clientY-disY;
+				oDiv.style.left=l+'px';
+				oDiv.style.top=t+'px';
+			};
+			document.onmouseup=function(){
+				document.onmousemove=null;
+				document.onmouseup=null;
+				oDiv.releaseCapture&&oDiv.releaseCapture();
+			};
+			oDiv.setCapture&&oDiv.setCapture();
+			return false;
+		};
+	};
+</script>
+</head>
+
+<body>
+	sadhklasdhklashjdkljasdkl
+	<div style="width:100px; height:100px; background:red; position:absolute;"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

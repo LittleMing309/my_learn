@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<meta name="description" content="智能社是一家专注于web前端开发技术的公司，目前主要提供JavaScript培训和HTML5培训两项服务，同时还推出了大量javascript基础知识教程，智能课堂为你带来全新的学习方法和快乐的学习体验。" />
+<title>智能社— http://www.zhinengshe.com</title>
+<style>
+*{margin:0; padding:0; list-style:none;}
+ul{overflow:hidden; width:328px; margin:100px auto; background:#ccc; position:relative; top:0; left:0;}
+ul li{float:left; width:80px; height:40px; border:1px solid #000; line-height:40px; text-align:center; position:relative; z-index:2;}
+#box{position:absolute; top:0; left:0; background:yellow; z-index:1;}
+</style>
+<script src="move.js"></script>
+<script>
+window.onload=function(){
+	var oUl = document.getElementsByTagName('ul')[0];
+	var aLi = oUl.children;
+	var oBox = aLi[aLi.length-1];
+	var iNow = 0;
+	for(var i=0;i<aLi.length-1;i++){
+		(function(index){
+			aLi[i].onmouseover=function(){
+				//oBox.style.left = this.offsetLeft+'px';
+				move(oBox,this.offsetLeft);
+			};
+			aLi[i].onmouseout=function(){
+				move(oBox,iNow*aLi[0].offsetWidth);
+				//oBox.style.left = 0+'px';
+			};
+			aLi[i].onclick=function(){
+				iNow = index;
+			};
+		})(i);
+	}
+};
+</script>
+</head>
+
+<body>
+<ul>
+	<li>首页</li>
+	<li>关于我们</li>
+	<li>产品介绍</li>
+	<li>联系我们</li>
+	<li id="box"></li>
+</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	div{ width:200px; height:200px; background:red; 
+	}
+</style>
+<script>
+	function toW(a,b){
+		var o = document.getElementsByTagName('div');
+		o[0].style[a] = b;
+	}
+</script>
+</head>
+
+<body>
+	<input type="button" value="变宽" onclick="toW('width','300px')" />
+	<input type="button" value="变高" onclick="toW('height','300px')" />
+	<input type="button" value="变色" onclick="toW('background','blue')" />
+	<input type="button" value="隐藏" onclick="toW('display','none')"  />
+	<input type="button" value="显示" onclick="toW('display','block')" />
+	<input type="button" value="向右跑" onclick="toW('margin-left','300px')" />
+	<div></div>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+

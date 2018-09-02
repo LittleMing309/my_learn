@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script src="ready.js"></script>
+<style>
+	div{ width:100px; height:100px; background:red; float:left; margin:10px;}
+</style>
+<script>
+	domReady(function(){
+		document.onclick=function(ev){
+			var oEvent=ev||event;
+			var obj=oEvent.srcElement || oEvent.target;
+			//alert(obj.tagName);
+			if(obj.tagName=='DIV'){
+				obj.style.background='yellow';	
+			}
+			
+		};
+	});
+</script>
+</head>
+
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

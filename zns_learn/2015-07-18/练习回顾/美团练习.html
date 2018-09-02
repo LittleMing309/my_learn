@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	*{ padding:0; margin:0;}
+	.box{ width:300px; margin:0 auto;}
+	.box h3{ height:30px; border:1px solid red; line-height:30px; text-align:center;}
+	ul,ol{ list-style:none; border:1px solid blue; display:none;}
+</style>
+<script>
+	function show(id,tag){
+		var oBox = document.getElementById(id);
+		oBox.onmouseover = function(){
+			var oUl = this.getElementsByTagName(tag)[0];
+			oUl.style.display='block';
+		}
+		oBox.onmouseout = function(){
+			var oUl = this.getElementsByTagName(tag)[0];
+			oUl.style.display='none';
+		}
+	}
+	window.onload = function(){
+		show('box1','ol');	
+		show('box2','ul');	
+		show('box3','ul');	
+		show('box4','ul');
+	}
+</script>
+</head>
+
+<body>
+	<div class="box" id="box1">
+		<h3>我是商家</h3>
+		<ol>
+			<li>卖家中心</li>
+			<li>卖家中心</li>
+			<li>卖家中心</li>
+			<li>卖家中心</li>
+		</ol>
+	</div>
+	<div class="box" id="box2">
+		<h3>我是商家</h3>
+		<ul>
+			<li>卖家中心</li>
+			<li>卖家中心</li>
+			<li>卖家中心</li>
+			<li>卖家中心</li>
+		</ul>
+	</div>
+	<div class="box" id="box3">
+		<h3>我是商家</h3>
+		<ul>
+			<li>卖家中心</li>
+			<li>卖家中心</li>
+			<li>卖家中心</li>
+			<li>卖家中心</li>
+		</ul>
+	</div>
+	<div class="box" id="box4">
+		<h3>我是商家</h3>
+		<ul>
+			<li>卖家中心</li>
+			<li>卖家中心</li>
+			<li>卖家中心</li>
+			<li>卖家中心</li>
+		</ul>
+	</div>
+</body>
+</html>

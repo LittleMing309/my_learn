@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	div{ width:100px; height:100px; background:red; position:absolute;}
+	.div2{ background:blue; top:300px; left:300px;}
+</style>
+<script>
+function rad(m,n){
+	return parseInt(Math.random()*(m-n)+n);
+}
+
+window.onload=function(){
+	var aDiv=document.getElementsByTagName('div');
+	for(var i=0;i<aDiv.length;i++){
+		aDiv[i].style.left=rad(0,800)+'px';
+		aDiv[i].style.top=rad(0,600)+'px';
+		aDiv[i].style.background='rgb('+rad(0,255)+','+rad(0,255)+','+rad(0,255)+')';
+		darg(aDiv[i]);
+	}
+	
+};
+
+	function darg(obj){
+		obj.onmousedown=function(ev){
+			var oEvent=ev||event;
+			var disX=	oEvent.clientX-obj.offsetLeft;
+			var disY=	oEvent.clientY-obj.offsetTop;
+			document.onmousemove=function(ev){
+					var oEvent=ev||event;
+					var l = oEvent.clientX-disX;
+					var t = oEvent.clientY-disY;
+					obj.style.left=l+'px';
+					obj.style.top=t+'px';
+			};
+			document.onmouseup=function(){
+					document.onmousemove=null;
+					document.onmouseup=null;
+					obj.releaseCapture&&	obj.releaseCapture();
+			};
+			obj.setCapture&&	obj.setCapture();
+			return false;
+		}
+	}
+</script>
+</head>
+
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>getpos</title>
+	<style type="text/css">
+		.div1{height: 300px; width: 300px;  margin-left: 200px; position: relative; background: blue;}
+		.div2{ height: 200px; width: 200px; margin-left: 100px; background: yellow;}
+		#div3{ height: 100px; width: 100px; margin: 100px; background: red; position: relative;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oDiv = document.getElementById('div3');
+			function getPos(obj){
+				var pos = {left:0,top:0};
+				while(obj){
+					pos.left += obj.offsetLeft;
+					pos.top += obj.offsetTop;
+					obj = obj.offsetParent;
+				}
+				return pos;
+			}
+			alert(getPos(oDiv).left);
+			alert(getPos(oDiv).top)
+		}
+	</script>
+</head>
+<body>
+	<div class="div1">
+		<div class="div2">
+			<div id="div3"></div>
+		</div>
+	</div>
+</body>
+</html>

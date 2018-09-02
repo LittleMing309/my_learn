@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<meta name="description" content="智能社是一家专注于web前端开发技术的公司，目前主要提供JavaScript培训和HTML5培训两项服务，同时还推出了大量javascript基础知识教程，智能课堂为你带来全新的学习方法和快乐的学习体验。" />
+<title>智能社— http://www.zhinengshe.com</title>
+<style>
+</style>
+<script>
+//有序 	19867 		9
+//无序 	30 			40
+//二叉树 7 			5
+var arr = [];
+var root = null;
+
+function bt_add(node,n){
+	if(root==null){
+		root = {
+			value:n,
+			l:null,
+			r:null
+		};
+	}else{
+		if(node.value==n){
+			return;
+		}else{
+			if(n<node.value){
+				if(node.l==null){
+					node.l = {
+						value:n,
+						l:null,
+						r:null
+					};
+				}else{
+					return bt_add(node.l,n);
+				}
+			}else{
+				if(node.r==null){
+					node.r = {
+						value:n,
+						l:null,
+						r:null
+					};
+				}else{
+					return bt_add(node.r,n);
+				}
+			}
+		}
+	}
+}
+function bt_find(node,n){
+	if(node==null){
+		return false;
+	}else{
+		if(node.value==n){
+			return true;
+		}else{
+			if(n<node.value){
+				return bt_find(node.l,n);
+			}else{
+				return bt_find(node.r,n);
+			}
+		}
+	}
+}
+function sort_add(n){
+	if(!find(n,0,arr.length-1)){
+		arr.push(n);
+		arr.sort(function(n1,n2){
+			return n1-n2;
+		});
+	}
+}
+function sort_find(n,s,e){
+	if(s>e){
+		return false;
+	}else if(s==e){
+		if(arr[s]==n){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	var c = Math.floor((s+e)/2);
+	if(arr[c]==n){
+		return true;
+	}else{
+		if(n<arr[c]){
+			return sort_find(n,0,c);
+		}else{
+			return sort_find(n,c+1,e);
+		}
+	}
+}
+
+function unsort_add(n){
+	if(!unsort_find(n)){
+		arr.push(n);
+	}
+}
+function unsort_find(n){
+	for(var i=0;i<arr.length;i++){
+		if(arr[i]==n){
+			return true;
+		}
+	}
+	return false;
+}
+
+var N = 10000;
+for(var i=0;i<N;i++){
+	var n = parseInt(Math.random()*N);
+	//sort_add(n);
+	//unsort_add(n);
+	bt_add(root,n);
+}
+var s = new Date().getTime();
+
+for(var i=0;i<N;i++){
+	var n = parseInt(Math.random()*N);
+	//sort_find(n,0,arr.length-1);
+	//unsort_find(n);
+	bt_find(root,n);
+}
+document.write(new Date().getTime()-s);
+
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

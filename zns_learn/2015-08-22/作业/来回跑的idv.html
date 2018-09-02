@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+	#box{ height:100px; width:100px; position:absolute; top:40px; left:0; background:red;}
+</style>
+<script>
+	function getStyle(obj,name){
+		return obj.currentStyle?obj.currentStyle[name]:getComputedStyle(obj,false)[name];	
+	}
+	function toMove(obj,attr,dir,tanget,endFn){
+		dir = parseInt(getStyle(obj,attr)) < tanget ? dir : -dir;
+		clearInterval(obj.timer);
+		obj.timer = setInterval(function (){
+			var speed = parseInt(getStyle(obj,attr)) + dir;	
+			if( speed > tanget && dir > 0 || speed < tanget && dir < 0){
+				speed = tanget;
+			}
+			obj.style[attr] = speed + 'px';
+			if( speed == tanget){
+				clearInterval(obj.timer);
+				endFn&&endFn();
+			}
+		},30);
+	}
+	window.onload = function(){
+		var oBtn = document.getElementById('btn');
+		var oBox = document.getElementById('box');
+		oBtn.onclick = function(){
+			if(parseInt(getStyle(this,'left')) == 0){
+			toMove(oBox,'left',15,800,function(){
+				toMove(oBox,'left',15,0)
+				return 	parseInt(getStyle(this,'left'));
+			})}
+		}
+	} 
+</script>
+</head>
+
+<body>
+<input type="button" id="btn" value="跑！" />
+<div id="box"></div>
+</body>
+</html>

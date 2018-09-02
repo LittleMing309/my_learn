@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	div{ width:200px; height:200px; background:red; float:left; margin:10px;}
+</style>
+<script>
+	window.onload = function(){
+		var aDiv =document.getElementsByTagName('div');
+		for( var i=0; i<aDiv.length;i++){
+			aDiv[i].onmouseover = function(){
+				for(var j=0; j<aDiv.length;j++){
+					aDiv[j].style.background = 'red';
+				}
+				this.style.background = 'yellow';	
+			}
+		}
+	}
+</script>
+</head>
+
+<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+</body>
+</html>
+
+
+
+
+
+
+
+

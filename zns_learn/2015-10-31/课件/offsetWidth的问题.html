@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	div{ width:300px; height:100px; background:red;  margin:0 auto; border:1px solid blue;}
+</style>
+<script>
+	window.onload=function(){
+		var oBtn=document.getElementById('btn');
+		var oDiv=document.getElementsByTagName('div')[0];
+		var timer=null;
+		oBtn.onclick=function(){
+			clearInterval(timer);
+			timer=setInterval(function(){
+				oDiv.style.width=oDiv.offsetWidth-3+'px';
+				console.log(oDiv.offsetLeft);
+				if(oDiv.offsetWidth<=100){
+					clearInterval(timer);
+				}
+			},30);
+		};
+		
+		
+	};
+</script>
+</head>
+
+<body>
+	<input type="button" value="运动" id="btn" />
+	<div></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

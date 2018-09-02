@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+
+	function toDou(num){
+			if(num<10){
+				return '0'+num;
+			}else{
+				return ''+num;	
+			}
+		}
+
+	window.onload = function(){
+		var aImg = document.getElementsByTagName('img');
+		
+		function time(){
+			var date = new Date();
+			var h = date.getHours();
+			var m = date.getMinutes();
+			var s = date.getSeconds();
+			return toDou(h)+toDou(m)+toDou(s);
+		}
+		//alert(str[0])
+		
+		function go(){
+			var str = time();
+			for(var i=0; i<aImg.length;i++){
+				aImg[i].src = 'img/'+str.charAt(i)+'.png';
+			}	
+		}
+		go()
+		setInterval(go,1000);
+	}
+</script>
+</head>
+
+<body style="background:#000; color:#FFF; font-size:50px;">
+	<img src="img/0.png" />
+	<img src="img/0.png" />
+	:
+	<img src="img/0.png" />
+	<img src="img/0.png" />
+	:
+	<img src="img/0.png" />
+	<img src="img/0.png" />
+</body>
+</html>

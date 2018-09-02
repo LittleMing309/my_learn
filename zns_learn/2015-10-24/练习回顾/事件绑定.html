@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	function addEvent(obj,ev,fn){
+		if(obj.addEventListener){
+			obj.addEventListener(ev,fn,false);
+		}else{
+			obj.attachEvent('on'+ev,fn);
+		}
+	}
+	
+	window.onload=function(){
+		var oInp=document.getElementsByTagName('input');
+		function show1(){
+			alert(1);	
+		}
+		function show2(){
+			alert(2);	
+		}	
+		addEvent(oInp[0],'click',show1);
+		addEvent(oInp[0],'click',show2);
+	}
+</script>
+</head>
+
+<body>
+	<input type="button" value="1" />
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

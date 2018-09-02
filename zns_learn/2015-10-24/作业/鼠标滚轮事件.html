@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标滚轮事件</title>
+	<style type="text/css">
+		div{ height: 200px; width: 200px; background: red;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+
+			var oDiv = document.getElementById('div1');
+
+			mouseWheel(oDiv,function(bDown){
+				if(bDown){
+					oDiv.style.height = oDiv.offsetHeight + 10 + 'px';
+				}else{
+					oDiv.style.height = oDiv.offsetHeight - 10 + 'px';
+				}
+			});
+
+			function mouseWheel(obj,fn){
+				function wheel(ev){
+					var oEvent = ev || event;
+					var bDown = true;
+					if(oEvent.detail){
+						if(oEvent.detail > 0){
+							bDown = true;
+						}else{
+							bDown = false;
+						}
+					}else{
+						if(oEvent.wheelDelta > 0){
+							bDown = false;
+						}else{
+							bDown = true;
+						}
+					};
+					fn&&fn(bDown);
+				};
+				if(window.navigator.userAgent.toLowerCase().indexOf('firefox') != -1){
+					document.addEventListener('DOMMouseScroll',wheel,false);
+				};
+				document.onmousewheel = wheel;
+			};
+		}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

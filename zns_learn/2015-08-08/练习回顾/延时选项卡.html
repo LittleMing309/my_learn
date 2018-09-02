@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	*{ padding:0; margin:0;}
+	ul{ list-style:none;}
+	div{ width:300px; margin:0 auto;}
+	li{ width:300px; height:300px; border:1px solid red; text-align:center; font-size:50px; display:none;}
+	.show{ display:block;}
+	.active{ background:red; color:yellow;}
+</style>
+<script>
+	window.onload=  function(){
+		var aInp = document.getElementsByTagName('input');
+		var aBox = document.getElementsByTagName('li');
+		var time=null;
+		for(var i=0; i<aInp.length;i++){
+			aInp[i].abc=i;
+			aInp[i].onmouseover=function(){
+				var _this = this;
+				 time= setTimeout(function(){
+						for(var i=0;i<aInp.length;i++){
+							aInp[i].className='';
+							aBox[i].className='';
+						}
+						_this.className='active';	
+						aBox[_this.abc].className='show';
+				},300)
+			}
+			aInp[i].onmouseout=function(){
+				clearTimeout(time);
+			}
+		}
+	}
+</script>
+</head>
+
+<body>
+	<div>
+		<input type="button" value="电影" class="active" />
+		<input type="button" value="电视剧" />
+		<input type="button" value="动漫" />
+		<ul>
+			<li class="show">电影</li>
+			<li>电视剧</li>
+			<li>动漫</li>
+		</ul>
+	</div>
+</body>
+</html>

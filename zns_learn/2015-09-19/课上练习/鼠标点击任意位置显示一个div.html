@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标点击任意位置显示一个div</title>
+	<style type="text/css">
+		div{ height: 100px; width: 100px;  background: red; position: absolute;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oDiv = document.getElementsByTagName('div')[0];
+			document.onclick = function (ev){
+				var oEvent = ev || event;
+				oDiv.style.top = oEvent.clientY + 'px';
+				oDiv.style.left = oEvent.clientX + 'px';
+			}
+		}
+	</script>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery</title>
+	<style type="text/css">
+		div{width:200px;height:200px; background:red; display: none}
+	</style>
+	<script src="jquery-1.7.2.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('input').mouseover(function(){
+				$('div').show();
+			});
+			$('input').mouseout(function(){
+				$('div').hide();
+			});
+		});
+	</script>
+</head>
+<body>
+	<input type="button" value="aaa" />
+	<div></div>
+</body>
+</html>

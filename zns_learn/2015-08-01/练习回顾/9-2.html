@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	window.onload= function(){
+		var aInp = document.getElementsByTagName('input');
+		var sel = document.getElementsByTagName('select')[0];
+		aInp[2].onclick = function(){
+			var val1  = aInp[0].value;
+			var val2  = aInp[1].value;
+			var selVal = sel.value;
+			
+			//alert(typeof(val1+selVal+val2))
+			var newStr = eval(val1+selVal+val2);
+			alert(newStr);	
+		}
+	}
+</script>
+</head>
+
+<body>
+	<input type="text" />
+	<select>
+		<option>+</option>
+		<option>-</option>
+		<option>*</option>
+		<option>/</option>
+	</select>
+	<input type="text" />
+	<input type="button" value="结果=" />
+</body>
+</html>

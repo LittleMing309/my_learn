@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	
+	function wheel(ev){
+			var oEvent=ev||event;
+			if(oEvent.detail){
+				if(oEvent.detail>0){
+					alert('下')
+				}else{
+					alert('上')	
+				}
+			}else{
+				if(oEvent.wheelDelta>0){
+					alert('上')	
+				}else{
+					alert('下')		
+				}
+			}
+		}	
+	
+	if(window.navigator.userAgent.toLowerCase().indexOf('firefox')!=-1){	
+		document.addEventListener('DOMMouseScroll',wheel,false);
+	}
+	document.onmousewheel=wheel;	
+</script>
+</head>
+
+<body>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

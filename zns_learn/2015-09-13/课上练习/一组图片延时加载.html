@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>一组图片延时加载</title>
+	<style type="text/css">
+		img{ height: 300px; width: 300px; border:1px solid red;}
+	</style>
+	<script type="text/javascript">
+		window.onload = window.onscroll = function(){
+			var aImg = document.getElementsByTagName('img');
+			var sH = document.documentElement.scrollTop || document.body.scrollTop;
+			var cH = document.documentElement.clientHeight;
+			for( var i = 0 ; i<aImg.length ; i++){
+				var oT = aImg[i];
+				if(oT.offsetTop < sH + cH){
+					oT.src = oT.getAttribute('_src');
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<img _src="img/1.jpg" />
+	<img _src="img/2.jpg" />
+	<img _src="img/3.jpg" />
+	<img _src="img/4.jpg" />
+	<img _src="img/5.jpg" />
+	<img _src="img/6.jpg" />
+	<img _src="img/7.jpg" />
+	<img _src="img/1.jpg" />
+	<img _src="img/2.jpg" />
+	<img _src="img/3.jpg" />
+	<img _src="img/4.jpg" />
+	<img _src="img/5.jpg" />
+	<img _src="img/6.jpg" />
+	<img _src="img/7.jpg" />
+	<img _src="img/1.jpg" />
+	<img _src="img/2.jpg" />
+	<img _src="img/3.jpg" />
+	<img _src="img/4.jpg" />
+	<img _src="img/5.jpg" />
+	<img _src="img/6.jpg" />
+	<img _src="img/7.jpg" />
+	<img _src="img/1.jpg" />
+	<img _src="img/2.jpg" />
+	<img _src="img/3.jpg" />
+	<img _src="img/4.jpg" />
+	<img _src="img/5.jpg" />
+	<img _src="img/6.jpg" />
+	<img _src="img/7.jpg" />
+</body>
+</html>

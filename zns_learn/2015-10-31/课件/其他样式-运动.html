@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	div{ width:100px; height:100px; background:red; position:absolute; top:50px; left:0; border:1px solid yellow;}
+</style>
+<script>
+	window.onload=function(){
+		var oBtn=document.getElementById('btn');
+		var oDiv=document.getElementsByTagName('div')[0];
+		var timer=null;
+		oBtn.onclick=function(){
+			move(oDiv,'borderLeftWidth',50,3000);
+		}
+		
+		//获取结果样式
+		function getStyle(obj,name){
+			return obj.currentStyle?obj.currentStyle[name]:getComputedStyle(obj,false)[name];
+		}
+		
+		function move(obj,name,target,time){
+				var start=parseInt(getStyle(obj,name));
+				var dis = target-start;
+		
+				var count=Math.floor(time/30);
+				var n=0;
+			
+				clearInterval(timer);
+				timer=setInterval(function(){
+					n++;
+					//start+dis*n/count+'px';
+					//起始位置+改变距离*(运动次数/运动总数)
+					obj.style[name]=start+dis*n/count+'px';
+					//console.log(count);
+					if(n==count){
+						clearInterval(timer);
+					}
+				},30);
+		}
+		
+	};
+</script>
+</head>
+
+<body>
+	<input type="button" value="运动" id="btn" />
+	<div style="left:100px;"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

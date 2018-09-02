@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	p{ color:red;}
+</style>
+<script>
+	function rnd(n,m){
+		return parseInt(Math.random()*(m-n)+n);
+	}
+
+	function findArr(arr,n){
+		for(var i=0; i<arr.length;i++){
+			if(arr[i] == n){
+				return true;
+			}
+		}
+		return false;
+	}
+	window.onload = function(){
+		var oBox = document.getElementById('redBox');
+		var oBtn = document.getElementById('btn1');
+		oBtn.onclick = function(){
+			var arr = [];
+			while(arr.length < 6){
+				var nRnd = rnd(1,34);
+				if(!findArr(arr,nRnd)){
+					arr.push(nRnd)
+					//oBox.innerHTML += nRnd+',';
+				}
+			// 篮球的随机数 1-17
+			}
+			alert(arr);	
+		}
+	}
+</script>
+</head>
+
+<body>
+	<p id="redBox"></p>
+	<input type="button" id="btn1" value="弹出随机数" />
+</body>
+</html>

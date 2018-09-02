@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	*{ padding:0; margin:0;}
+	ul{ width:366px; margin:0 auto;}
+	li{ width:100px; height:50px; font-size:50px; text-align:center; line-height:50px; border:1px solid #000; float:left; list-style:none; margin:10px; cursor:pointer;}
+	li span{ font-size:30px; color:red;}
+	li a{ font-size:14px; color:#333; text-decoration:none;}
+	.showbox{ width:300px; height:300px; border:1px solid red; position:absolute; top:50%; left:50%; margin-left:-150px; margin-top:-150px; display:none;}
+	
+</style>
+<script>
+	window.onload=function(){
+		var aLi=document.getElementsByTagName('li');
+		var oShowBox=document.getElementById('showbox');
+		var oSubBtn=document.getElementById('subBtn');
+		var txt1=document.getElementById('txt1');
+		var txt2=document.getElementById('txt2');
+			for(var i=0; i<aLi.length; i++){
+				aLi[i].onclick=function(){
+					var _this=this;
+					oShowBox.style.display='block';
+					oSubBtn.onclick=function(){
+						if(!txt1.value || !txt2.value){
+							alert('您输入的数据有误')
+							return false;
+						}
+						_this.innerHTML='';
+						var aBox=document.createElement('a');
+						var x=document.createElement('span');
+						x.innerHTML='X';
+						x.onclick=function(){
+							_this.innerHTML='+';
+						}
+						aBox.innerHTML=	txt1.value;
+						aBox.href=	txt2.value;
+						_this.appendChild(aBox);
+						_this.appendChild(x);
+						oShowBox.style.display='none';
+						//_this.onclick=null;
+					}
+				}
+			}
+	}
+</script>
+</head>
+
+<body>
+	<ul>
+		<li>+</li>
+		<li>+</li>
+		<li>+</li>
+		<li>+</li>
+		<li>+</li>
+		<li>+</li>
+	</ul>
+	<div class="showbox" id="showbox">
+		网站名称：<input type="text" id="txt1" /><br /><br />
+		网址：<input type="text" id="txt2" /><br /><br />
+		<input type="button" value="提交" id="subBtn" />
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

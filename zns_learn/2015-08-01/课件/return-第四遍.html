@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+	<div id="div1" style="width:100px; height:100px;"></div>
+	<script>
+		function show(obj){
+			alert(1);	
+			return obj;
+		}
+		var oDiv = document.getElementById('div1');
+		show(oDiv).style.background = 'red';
+	</script>
+</body>
+</html>

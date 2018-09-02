@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+	<script>
+		var 小明 = {'age':16,'job':'前端开发','family':[
+			{'name':'小花','age':18,'type':'姐姐'},
+			{'name':'小朵','age':20,'type':'姐姐'}
+		]}
+		
+		for( var i in 小明){
+			if(i=='family'){
+				var arr = 小明[i];
+				for(var j=0; j<arr.length;j++){
+					alert('小明的'+arr[j].type+'叫'+arr[j].name+'年龄是'+arr[j].age);
+				}	
+			}else{
+				alert('小明的'+i+'是'+小明[i]);	
+			}
+		}
+		
+		
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

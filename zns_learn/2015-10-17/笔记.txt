@@ -1,0 +1,182 @@
+﻿dom操作
+
+	创建一个标签：
+		var div=document.createElement('div')
+
+	添加一个标签：
+		document.body.appendChild(div)
+
+	瀑布流
+
+	放大镜
+		sDiv
+		sImg
+		bDiv
+		bImg
+---------------------------------------
+获取元素的绝对位置：
+	getPos()
+
+图片预加载：
+	创建一个img元素
+	new Image() 
+	img.onload="";
+	img.src='';
+
+图片加载错误 error
+
+--------------------------------
+onfocus()
+
+onblur()
+
+-----------------------------------
+事件冒泡：
+	子级加上事件之后，父级也会有
+
+	取消冒泡：oEvent.cancelBubble=true;
+
+改变窗口大小：
+	onresize
+
+提示文字：
+	创建一个span标签 并且添加到input的位置
+
+获取焦点时，让它隐藏 ，
+
+失去焦点判断是否有值
+====================================
+键盘事件：
+	onkeydown 当键盘按下的时候
+	onkeyup   当键盘抬起的时候
+
+	document.onkeydown=function(ev){
+		var oEvent=ev||event;
+		alert(oEvent.keyCode)
+	}
+
+	用定时器解决卡顿问题
+
+	练习：不卡顿的div
+
+-----------------------------------
+多个键码不可同时使用
+例如:oEvent.keyCode==17 && oEvent.keyCode==67; ×
+
+组合功能键码：
+oEvent.ctrlKey ctrl键
+
+oEvent.altKey   alt键
+
+oEvent.shiftKey shift键
+
+练习：只允许输入数字的输入框
+
+	  48-57 数字键码
+	  		可以删除  删除键：8
+
+-------------------------------------
+拖拽：
+	 onmousedown
+	 	鼠标位置
+	 	记录 鼠标相对于左边框的距离
+
+	 onmousemove
+	 	l=改变鼠标的位置 - 记录的距离
+
+	 onmouseup
+	 	清除事件
+--------------------------------------
+选中文字bug：
+	解决方式：
+		return false 高级浏览器
+
+	IE浏览器下独有：
+		oDiv.setCapture()  设置捕获
+
+		oDiv.releaseCapture() 释放捕获
+
+1. 带框拖拽
+2. 限制范围拖拽
+3. 磁性吸附拖拽
+
+-------------------------------------------
+js特点：
+	同一个对象，加相同事件，它只能执行一个函数！
+
+事件绑定：把事件绑起来一起做！
+
+封装事件绑定：
+	function addEvent(obj,sEv,fn){
+		if(obj.addEventListener){
+			obj.addEventListener(sEv,fn,false);  高版本
+		}else{
+			obj.attachEvent('on'+sEv,fn);   低版本ie
+		}	
+	}
+
+//事件解绑定
+function removeEvent(obj,sEv,fn){
+	if(obj.removeEventListener){
+		obj.removeEventListener(sEv,fn,false);    高版本
+	}else{
+		obj.detachEvent('on'+sEv,fn);     低版本ie
+	}
+}
+
+高级浏览器：
+	对象.addEventListener(事件名,函数,false);
+
+	IE
+	对象.attachEvent(加on的事件名,函数);
+
+事件解绑定：不能解绑定匿名函数！
+
+-----------------------------
+this有问题的位置：
+	1. 定时器
+	2. 多套一层的函数
+	3. 事件绑定里面	
+		attchEvent() this有问题
+	4. 行间事件里面，不能再函数中直接调用this
+			（可以用传参解决）
+-------------------------------------
+拖拽：
+	onmousedown
+		获取到 鼠标位置相对于div的左边的距离
+
+	onmousemove
+		l = 鼠标位置-获取到的相对距离
+
+	onmouseup
+		清除move、up事件
+
+---------------------------------------
+	newObj = obj.cloneNode(); 浅克隆
+
+	newDiv=oDiv.cloneNode(true); 深克隆
+
+
+练习：半透明的拖拽！
+      九宫格拖拽
+----------------------------------------
+
+练习：
+	模拟select控件
+	只允许输入英文的文本框
+	自定义右键菜单
+	完美拖拽
+	当前输入框高亮显示——focus、blur
+	用按钮控制Div的移动
+	用键盘控制Div的移动
+	*div回放	  — move存坐标、点击回放，pop
+	多级右键菜单（模仿windows）
+
+
+
+
+
+
+
+
+

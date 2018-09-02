@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	.ospan{ position:absolute; color:#CCC;}
+</style>
+<script>
+	window.onload=function(){
+		var oInp=document.getElementsByTagName('input')[0]	;
+		var oSpan=document.createElement('span');
+		oSpan.innerHTML='酒窖';
+		oSpan.className='ospan';
+		oSpan.style.left=oInp.offsetLeft+'px';
+		oSpan.style.top=oInp.offsetTop+'px';
+		document.body.appendChild(oSpan);
+		oInp.onfocus=function(){
+			oSpan.style.display='none';
+		}
+		oInp.onblur=function(){
+			if(oInp.value==''){
+				oSpan.style.display='block';
+			}
+		}
+		oSpan.onclick=function(){
+			oInp.focus();
+			//oSpan.style.display='none';
+		}
+	}
+</script>
+</head>
+
+<body>
+		<input type="text"  />
+		<input type="button" value="提交" />
+</body>
+</html>
+
+

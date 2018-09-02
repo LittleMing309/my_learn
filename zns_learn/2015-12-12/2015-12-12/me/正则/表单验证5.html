@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单验证5</title>
+	<script type="text/javascript" src="formCheck.js"></script>
+	<style type="text/css">
+		.ok{border-color: green;}
+		.err{border-color: red;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			formCheck('form1');
+		}
+	</script>
+</head>
+<body>
+	<form id="form1" action="http://www.baidu.com/">
+		电话<input type="text" name="tele" /><br />
+		邮箱<input type="text" name="email" /><br />
+		年龄<input type="text" name="age" /><br />
+	    <input type="submit" />
+	</form>
+</body>
+</html>

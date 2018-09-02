@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原型扩展系统方法</title>
+	<script type="text/javascript">
+		Array.prototype.indexOf = function(item){
+			for(var i = 0; i<this.length; i++){
+				if(this[i] == item){
+					return i
+				}
+			}
+			return -1;
+		}
+		var arr = [1,2,3,4,5];
+		var arr2 = new Array('abc','def');
+		alert(arr.indexOf(4));
+		alert(arr2.indexOf('abc'));
+	</script>
+</head>
+<body>
+	
+</body>

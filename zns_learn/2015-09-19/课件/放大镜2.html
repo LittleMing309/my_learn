@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	body{ margin:0;}
+	#box{ width:200px; float:left; margin-left:200px; position:relative;}
+	#box img{ width:100%; display:block;}
+	.shandow{ width:80px; height:80px; background:yellow; position:absolute; opacity:0.5; display:none;}
+	#showbox{ width:300px; height:300px;  float:left; overflow:hidden; display:none;}
+	#showbox img{ margin-left:-200px;}
+</style>
+<script>
+	window.onload=function(){
+		var 	oBox=document.getElementById('box');
+		var 	oSpan=document.getElementById('shadow');
+		var 	oShowbox=document.getElementById('showbox');
+		var 	oImg=oShowbox.getElementsByTagName('img')[0];
+		oBox.onmouseover=function(){
+			oSpan.style.display='block';
+			oShowbox.style.display='block';
+		};
+		oBox.onmouseout=function(){
+			oSpan.style.display='none';
+			oShowbox.style.display='none';
+		};
+		oBox.onmousemove=function(ev){
+			var oEvent=ev||event;
+			var l = oEvent.clientX-oBox.offsetLeft-oSpan.offsetWidth/2;
+			var t = oEvent.clientY-oBox.offsetTop-oSpan.offsetHeight/2;
+			
+			if(l<0){l=0}
+			if(l>oBox.offsetWidth-oSpan.offsetWidth){l=oBox.offsetWidth-oSpan.offsetWidth}
+			if(t<0){t=0}
+			if(t>oBox.offsetHeight-oSpan.offsetHeight){t=oBox.offsetHeight-oSpan.offsetHeight}
+			
+			var l2=-l/(oBox.offsetWidth-oSpan.offsetWidth)*(oImg.offsetWidth-oShowbox.offsetWidth);
+			var t2=-t/(oBox.offsetHeight-oSpan.offsetHeight)*(oImg.offsetHeight-oShowbox.offsetHeight);
+			
+			oImg.style.marginLeft=l2+'px';
+			oImg.style.marginTop=t2+'px';
+			
+			oSpan.style.left=l+'px';
+			oSpan.style.top=t+'px';
+		}
+		
+	}
+</script>
+</head>
+
+<body>
+	<div id="box">
+		<span class="shandow" id="shadow"></span>
+		<img src="img/1.jpg" />
+	</div>
+	<div id="showbox"><img src="img/1.jpg" /></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

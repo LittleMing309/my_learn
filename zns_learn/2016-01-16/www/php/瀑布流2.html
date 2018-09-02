@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<meta name="description" content="智能社是一家专注于web前端开发技术的公司，目前主要提供JavaScript培训和HTML5培训两项服务，同时还推出了大量javascript基础知识教程，智能课堂为你带来全新的学习方法和快乐的学习体验。" />
+<title>智能社— http://www.zhinengshe.com</title>
+<style>
+*{margin:0; padding:0; list-style:none;}
+#box{overflow:hidden; width:966px; margin:10px auto;}
+ul{float:left; width:300px; border:1px solid #000; margin:0 10px;}
+ul li{margin:10px 0; width:100%; }
+ul li img{width:100%;}
+</style>
+<script src="ajax.js"></script>
+<script>
+window.onload=function(){
+	var oBox = document.getElementById('box');
+	var aUl = oBox.children;
+	var iNow = 1;
+	getFlow(iNow);
+	
+	function getFlow(n){
+		ajax({
+			url:'flow.php',
+			data:{
+				page:n
+			},
+			success:function(str){
+				var arr = eval('('+str+')');
+				for(var i=0;i<arr.length;i++){
+					var oLi = document.createElement('li');
+					oLi.innerHTML = '<img src="img/'+arr[i]+'" />';
+					var oImg = oLi.children[0];
+					(function(oLi){
+						oImg.onload=function(){
+							var arr2 = [];
+							for(var j=0;j<aUl.length;j++){
+								arr2.push(aUl[j]);
+							}
+							arr2.sort(function(u1,u2){
+								return u1.scrollHeight-u2.scrollHeight;
+							});
+							arr2[0].appendChild(oLi);
+						};
+					})(oLi);
+				}
+			},
+			error:function(){}
+		});
+	}
+	window.onscroll=function(){
+		var scrollT = document.documentElement.scrollTop||document.body.scrollTop;
+		if((scrollT+document.documentElement.clientHeight)>=document.body.scrollHeight){
+			iNow++;
+			getFlow(iNow);
+		}
+	};
+};
+</script>
+</head>
+
+<body>
+<div id="box">
+	<ul></ul>
+	<ul></ul>
+	<ul></ul>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

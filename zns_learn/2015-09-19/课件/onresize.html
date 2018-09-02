@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	div{ height:300px; background:#CCC;}
+</style>
+<script>
+	window.onload=function(){
+		var oDiv=document.getElementsByTagName('div')[0];
+		window.onresize=function(){
+			var cW=document.documentElement.clientWidth;
+			if(cW > 400 && cW<800){
+				oDiv.style.background='green';
+			}else if(cW < 400){
+				oDiv.style.background='red';	
+			}else{
+				oDiv.style.background='';	
+			}
+			
+		}	
+	}
+</script>
+</head>
+
+<body>
+	<div></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

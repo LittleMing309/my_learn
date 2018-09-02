@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>div依次显示</title>
+	<style type="text/css">
+		*{ margin:0; padding: 0;}
+		div{ height: 100px; width: 100px; background: red; margin:10px; float: left; display: inline; opacity: 0;}
+	</style>
+	<script type="text/javascript" src="jquery-1.7.2.js"></script>
+	<script type="text/javascript"> 
+		$(function(){
+			var i =0;
+			var timer = setInterval(function(){
+				i++;
+				$('div').eq(i-1).stop().animate({'opacity':1});
+				if(i==$('div').length){
+					clearInterval(timer);
+				}
+			},100);
+		});
+	</script>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

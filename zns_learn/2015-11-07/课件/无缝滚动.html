@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	*{ padding:0; margin:0; list-style:none;}
+	#box{ width:612px; height:200px; margin: 100px auto; border:1px solid red; position:relative; overflow:hidden;}
+	ul{ position:absolute; left:0; top:0;}
+	ul li{ float:left; padding:0 10px;}
+</style>
+<script>
+	window.onload=function(){
+		var oBox=document.getElementById('box');
+		var oUl=oBox.children[0];
+		var aLi=oUl.children;
+		oUl.innerHTML+=oUl.innerHTML;
+		oUl.style.width=oUl.offsetWidth*2+'px';
+		var n=0;
+		setInterval(function(){
+			n--;
+			if(n<=-oUl.offsetWidth/2){
+				n=0;	
+			}
+			oUl.style.left=n+'px';
+		});
+	};
+</script>
+</head>
+
+<body>
+	<div id="box">
+		<ul>
+			<li><img src="img2/0.jpg" /></li>
+			<li><img src="img2/1.jpg" /></li>
+			<li><img src="img2/2.jpg" /></li>
+			<li><img src="img2/3.jpg" /></li>
+		</ul>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

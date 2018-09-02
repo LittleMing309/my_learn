@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>方法继承9</title>
+	<script type="text/javascript">
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+		};
+		Person.prototype.showName = function(){
+			return this.name;
+		};
+		Person.prototype.showAge = function(){
+			return this.age;
+		};
+		function Worker(name,age,job){
+			Person.apply(this,arguments);
+			this.job = job;
+		};
+		for(var name in Person.prototype){
+			Worker.prototype[name] = Person.prototype[name];
+		}
+		// 瑕疵 ： 子类 instanceof 父类   =>   false
+		Worker.prototype.showJob = function(){
+			return this.job;
+		}
+		var p1 = new Person('小明',18);
+		var w1 = new Worker('小红',19,'前端');
+		alert(w1.showJob());
+		alert(w1 instanceof Person);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

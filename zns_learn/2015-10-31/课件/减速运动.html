@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	div{ width:100px; height:100px; background:red; position:absolute; top:50px; left:0;}
+</style>
+<script src="move7.js"></script>
+<script>
+	window.onload=function(){
+		var oBtn=document.getElementById('btn');
+		var oDiv=document.getElementsByTagName('div')[0];
+
+		oBtn.onclick=function(){
+			move(oDiv,{'left':500},1000);
+		}
+		
+	};
+</script>
+</head>
+
+<body>
+	<input type="button" value="运动" id="btn" />
+	<div></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

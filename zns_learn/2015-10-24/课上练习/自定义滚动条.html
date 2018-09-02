@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义滚动条</title>
+	<style type="text/css">
+		.box{ height: 300px; width: 600px; border:1px solid red; overflow: hidden;}
+		.contbox{ width: 580px; float: left;}
+		.scrollbox{ height: 100%; width: 20px; background: #CCC; float: right; position: relative;}
+		.scrollbox span{ height: 20px; width: 20px; background: yellow; position: absolute;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			var oConbox = document.getElementById('conbox');
+			var oScrollbox = document.getElementById('scrollbox');
+			var oBtn = document.getElementById('btn');
+			oBtn.onmousedown = function(ev){
+				var oEvent = ev || event;
+				var disY = oEvent.clientY - oBtn.offsetTop;
+				document.onmousemove = function(ev){
+					var oEvent = ev || event;
+					var t = oEvent.clientY - disY;
+					if(t < 0){ t = 0}
+					if(t > oBox.offsetHeight - oBtn.offsetHeight){ t = oBox.offsetHeight - oBtn.offsetHeight};  
+				    // 滚动条占整体高度的百分比 = 可视区高度占内容区高度的百分比
+					var scale = t / (scrollbox.offsetHeight - oBtn.offsetHeight);
+					var oT = -(conbox.offsetHeight - oBox.offsetHeight)*scale;
+					conbox.style.marginTop = oT + 'px';
+					oBtn.style.top = t + 'px';
+
+				};
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					document.onmouseup = null;
+					oBtn.releaseCapture&&oBtn.releaseCapture();
+				};
+				oBtn.setCapture&&oBtn.setCapture();
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="box" id="box">
+		<div class="contbox" id="conbox">
+			this有问题的位置：
+	1. 定时器
+	2. 多套一层的函数
+	3. 事件绑定里面	
+		attchEvent() this有问题
+	4. 行间事件里面，不能再函数中直接调用this
+			（可以用传参解决）
+-------------------------------------
+拖拽：
+	onmousedown
+		获取到 鼠标位置相对于div的左边的距离
+
+	onmousemove
+		l = 鼠标位置-获取到的相对距离
+
+	onmouseup
+		清除move、up事件this有问题的位置：
+	1. 定时器
+	2. 多套一层的函数
+	3. 事件绑定里面	
+		attchEvent() this有问题
+	4. 行间事件里面，不能再函数中直接调用this
+			（可以用传参解决）
+-------------------------------------
+拖拽：
+	onmousedown
+		获取到 鼠标位置相对于div的左边的距离
+
+	onmousemove
+		l = 鼠标位置-获取到的相对距离
+
+	onmouseup
+		清除move、up事件this有问题的位置：
+	1. 定时器
+	2. 多套一层的函数
+	3. 事件绑定里面	
+		attchEvent() this有问题
+	4. 行间事件里面，不能再函数中直接调用this
+			（可以用传参解决）
+-------------------------------------
+拖拽：
+	onmousedown
+		获取到 鼠标位置相对于div的左边的距离
+
+	onmousemove
+		l = 鼠标位置-获取到的相对距离
+
+	onmouseup
+	1. 定时器
+	2. 多套一层的函数
+	3. 事件绑定里面	
+		attchEvent() this有问题
+	4. 行间事件里面，不能再函数中直接调用this
+			（可以用传参解决）
+-------------------------------------
+拖拽：
+	onmousedown
+		获取到 鼠标位置相对于div的左边的距离
+
+	onmousemove
+		l = 鼠标位置-获取到的相对距离
+
+	onmouseup
+		清除move、up事件this有问题的位置：
+	1. 定时器
+	2. 多套一层的函数
+	3. 事件绑定里面	
+		attchEvent() this有问题
+	4. 行间事件里面，不能再函数中直接调用this
+			（可以用传参解决）
+-------------------------------------
+拖拽：
+	onmousedown
+		获取到 鼠标位置相对于div的左边的距离
+
+	onmousemove
+		l = 鼠标位置-获取到的相对距离
+
+	onmouseup
+		清除move、up事件this有问题的位置：
+	1. 定时器
+	2. 多套一层的函数
+	3. 事件绑定里面	
+		attchEvent() this有问题
+	4. 行间事件里面，不能再函数中直接调用this
+			（可以用传参解决）
+-------------------------------------
+拖拽：
+	onmousedown
+		获取到 鼠标位置相对于div的左边的距离
+
+	onmousemove
+		l = 鼠标位置-获取到的相对距离
+
+	onmouseup
+		清除move、up事件
+		清除move、up事件
+		</div>
+		<div class="scrollbox" id="scrollbox">
+			<span id="btn"></span>
+		</div>
+	</div>
+</body>
+</html>

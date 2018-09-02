@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度下拉</title>
+	<script type="text/javascript">
+		//MVC	C最后写
+		//M
+		function getBDDate(word,fn){
+			jsonp({
+				url:'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+				data:{
+					wd:word
+				},success:function(json){
+					fn(json);
+				}
+			});
+		}
+		//C
+
+		//V
+		getBDDate('a',function(result){
+			console.log(result);
+		})
+	</script>
+</head>
+<body>
+	<input type="text" id="txt" />
+	<ul id="ul1">
+		
+	</ul>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{ margin:0; padding: 0; list-style: none;}
+		#box{ width: 220px; height: 220px; border: 1px solid black; position: absolute; top: 50%; left: 50%; margin-left: -151px; margin-top: -151px; padding: 40px;}
+		#box li{ font-size: 20px; line-height: 40px; }
+		#box li input{ height: 40px; margin-left: 10px; width: 50px;}
+	</style>
+	<script src="jquery-1.7.2.js"></script>
+	<script>
+		/*============================JS版本=============================*/
+		/*window.onload = function(){
+			var oBox = document.getElementById('box');
+			var oUl = oBox.children[0];
+			var aLi = oUl.getElementsByTagName('li');
+			for(var i =0; i<aLi.length;i++){
+				var aBtn1 = aLi[i].getElementsByTagName('input')[0];
+				var aBtn2 = aLi[i].getElementsByTagName('input')[1];
+				aBtn1.onclick = function(){
+					var oPar = this.parentNode;
+					if(oPar==aLi[0]){
+						alert('已经是第一个了');
+						return false;
+					}
+					var prev = oPar.previousElementSibling || oPar.previousSibling;
+					oUl.insertBefore(oPar,prev);
+				};
+				aBtn2.onclick = function(){
+					var oPar = this.parentNode;
+					if(oPar==aLi[aLi.length-1]){
+						alert('已经是最后一个了');
+						return false;
+					}
+					var next = oPar.nextElementSibling || oPar.nextSibling;
+					var next2 = next.nextElementSibling || next.nextSibling;;
+					oUl.insertBefore(oPar,next2);
+				}
+			}
+		}*/
+
+		/*=============================JQ版本===================================*/
+
+		$(function(){
+			$('#box ul li').each(function(i,element){
+				var aBtn1 = $('#box ul li input');
+				alert(aBtn1.val());
+			});
+		});
+
+	</script>
+</head>
+<body>
+	<div id="box">
+		<ul>
+			<li>我是1<input type="button" value="上移1" /><input type="button" value="下移" /></li>
+			<li>我是2<input type="button" value="上移2" /><input type="button" value="下移" /></li>
+			<li>我是3<input type="button" value="上移3" /><input type="button" value="下移" /></li>
+			<li>我是4<input type="button" value="上移4" /><input type="button" value="下移" /></li>
+			<li>我是5<input type="button" value="上移5" /><input type="button" value="下移" /></li>
+		</ul>
+	</div>
+</body>
+</html>

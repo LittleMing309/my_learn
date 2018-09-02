@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	window.onload= function(){
+		var 	oBody = document.body;
+		alert(firstChild(oBody).innerHTML)
+	}
+	
+	function firstChild(obj){
+		return obj.firstElementChild || obj.firstChild;
+	}
+</script>
+</head>
+
+<body>	
+	<div>11111</div>
+	<div>2222</div>
+	<div>33333</div>
+	<div>44444</div>
+	<div>55555</div>
+</body>
+</html>

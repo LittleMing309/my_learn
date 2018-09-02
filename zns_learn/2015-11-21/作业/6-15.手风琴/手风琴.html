@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>手风琴</title>
+	<style>
+		* {margin:0; padding:0; list-style:none;}
+		#ul1 {width:900px; height:305px; position:relative; margin:50px auto;  overflow: hidden;}
+		#ul1 li {width:840px; height:305px; position:absolute;}
+		#ul1 li span {position:absolute; left:0; top:0; width:18px; text-align:center; height:303px; border:1px solid black;}
+	</style>
+	<script src="jquery-1.7.2.js"></script>
+	<script>
+		$(function(){
+			$('#ul1 li').each(function(i,element){
+				$('#ul1 li').mouseover(function(){
+					if(i<=$(this).index()){
+						$('#ul1 li').eq(i).stop().animate({left: i*20});
+					}else{
+						$('#ul1 li').eq(i).stop().animate({left: 840+(i-1)*20});
+					}
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<ul id="ul1">
+		<li style="left:0;"><span style="background:#0C9;">第0块</span><img src="images/0.jpg" /></li>
+		<li style="left:840px;"><span style="background:#C09;">第1块</span><img src="images/1.jpg" /></li>
+		<li style="left:860px;"><span style="background:#90C;">第2块</span><img src="images/2.jpg" /></li>
+		<li style="left:880px;"><span style="background:#C90;">第3块</span><img src="images/3.jpg" /></li>
+	</ul>
+</body>
+</html>

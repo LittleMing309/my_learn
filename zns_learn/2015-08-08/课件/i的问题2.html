@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	window.onload = function(){
+		var aInp = document.getElementsByTagName('input');
+		for(var i=0; i<aInp.length;i++){
+		 	(function(num){
+				aInp[num].onclick =function(){;
+					alert(num);
+				}
+			})(i);
+		}	
+		
+		
+		
+		/*<!--function abc(0){
+			aInp[0].onclick =function(){;
+				alert(0);
+			}
+		}
+		function abc(1){
+			aInp[1].onclick =function(){;
+				alert(1);
+			}
+		}
+		function abc(2){
+			aInp[2].onclick =function(){;
+				alert(2);
+			}
+		}-->*/
+	}
+</script>
+</head>
+
+<body>
+	<input type="button" value="按钮1" />
+	<input type="button" value="按钮2"  />
+	<input type="button" value="按钮3" />
+</body>
+</html>

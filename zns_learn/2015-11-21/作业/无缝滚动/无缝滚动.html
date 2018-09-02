@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>无缝滚动</title>
+	<style>
+		*{ padding:0; margin:0; list-style:none;}
+		#box{ width:612px; height:200px; margin: 100px auto; border:1px solid red; position:relative; overflow:hidden;}
+		#box span{ width: 50%; top:0; height: 100%; background: #CCC; position: absolute; opacity: 0;  z-index:2; }
+		#prev{ left: 0;}
+		#next{ right: 0;}
+		ul{ position:absolute; left:0; top:0;}
+		ul li{ float:left; padding:0 10px;}
+	</style>
+	<script src="jquery-1.7.2.js"></script>
+	<script>
+		$(function(){
+			$('#box ul li').clone(true).appendTo('#box ul');
+			$('#box ul').css('width',$('#box ul li').length*$('#box ul li').innerWidth());
+			var timer = null;
+			var n = 0; 
+			toRight()
+			function toRight(){
+				clearInterval(timer);
+				timer = setInterval(function(){
+					n++;
+					if(n>=0){
+						n=-$('#box ul').innerWidth()/2;
+					}
+					$('#box ul').css('left',n);
+				});
+			}
+			function toLeft(){
+				clearInterval(timer);
+				timer = setInterval(function(){
+					n--;
+					if(n<=-$('#box ul').innerWidth()/2){
+						n=0;
+					}
+					$('#box ul').css('left',n);
+				})
+			}
+			$('#prev').mouseover(function(){
+				toLeft();
+			});
+			$('#next').mouseover(function(){
+				toRight();
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="box">
+		<span id="prev"></span>
+		<span id="next"></span>
+		<ul>
+			<li><img src="img2/0.jpg" /></li>
+			<li><img src="img2/1.jpg" /></li>
+			<li><img src="img2/2.jpg" /></li>
+			<li><img src="img2/3.jpg" /></li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+	<p class="abc"></p>
+	<script>
+	var oP= document.getElementsByTagName('p')[0];
+	function time(){
+				var date = new Date();
+				var year = date.getFullYear();
+				var month = date.getMonth()+1;
+				var _date = date.getDate();
+				var h = date.getHours();
+				var m = date.getMinutes();
+				var s = date.getSeconds();
+				oP.innerHTML =year+'年'+month+'月'+_date+'日'+h+'时'+m+'分'+s+'秒';
+	}
+	time();
+	setInterval(time,1000);
+	</script>
+
+</body>
+</html>

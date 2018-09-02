@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+* {margin:0; padding:0; list-style:none;}
+
+#ul1 {width:900px; height:305px; position:relative; margin:50px auto; overflow:hidden;}
+#ul1 li {width:840px; height:305px; position:absolute;}
+#ul1 li span {position:absolute; left:0; top:0; width:18px; text-align:center; height:303px; border:1px solid black;}
+</style>
+<script src="move10.js"></script>
+<script>
+window.onload=function ()
+{
+	var oUl=document.getElementById('ul1');
+	var aLi=oUl.children;
+	
+	for(var i=0;i<aLi.length;i++)
+	{
+		(function (index){
+			aLi[i].onmouseover=function ()
+			{
+				for(var i=0;i<aLi.length;i++)
+				{
+					if(i<=index)
+					{
+						//0, 20, 40
+						//i*20
+						//aLi[i].style.left=i*20+'px';
+						move(aLi[i], {left: i*20});
+					}
+					else
+					{
+						//840, 860, 880
+						//840+(i-1)*20
+						//aLi[i].style.left=840+(i-1)*20+'px';
+						move(aLi[i], {left: 840+(i-1)*20});
+					}
+				}
+			};
+		})(i);
+	}
+};
+</script>
+</head>
+
+<body>
+<ul id="ul1">
+	<li style="left:0;"><span style="background:#0C9;">第0块</span><img src="images/0.jpg" /></li>
+	<li style="left:840px;"><span style="background:#C09;">第1块</span><img src="images/1.jpg" /></li>
+	<li style="left:860px;"><span style="background:#90C;">第2块</span><img src="images/2.jpg" /></li>
+	<li style="left:880px;"><span style="background:#C90;">第3块</span><img src="images/3.jpg" /></li>
+</ul>
+</body>
+</html>

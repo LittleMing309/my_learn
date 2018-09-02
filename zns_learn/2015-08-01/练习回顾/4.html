@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	window.onload = function(){
+		var aInp  = document.getElementsByTagName('input');
+			aInp[2].onclick = function(){
+				var val1 = 	parseInt(aInp[0].value);
+				var val2 = 	Number(aInp[1].value);
+				if(val1 > val2){
+					alert(val1)
+				}else if(val1 < val2){
+					alert(val2)	
+				}else{
+					alert('相等');
+				}
+			}
+	}
+</script>
+</head>
+
+<body>
+	<input type="text" />
+	<input type="text" />
+	<input type="button" value="谁大" />
+</body>
+</html>
+
+
+
+
+
+
+
+
+

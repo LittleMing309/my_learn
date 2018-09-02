@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	window.onload =function(){
+		var 	oSel = document.getElementById('sel1');
+		var aOp = oSel.options;
+		
+		//alert(oSel.selectedIndex)
+		alert(aOp[oSel.selectedIndex].value)
+		alert(aOp[oSel.selectedIndex].text)
+	}
+</script>
+</head>
+
+<body>
+	<select id="sel1">
+		<option value="1">北京</option>
+		<option value="上海" selected>上海</option>
+		<option value="3">国资</option>
+	</select>
+</body>
+</html>
+
+
+
+
+
+
+
+

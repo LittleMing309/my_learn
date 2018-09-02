@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	ul{ list-style:none; padding:0; margin:0; border:1px solid red; width:200px; display:none; position:absolute;}
+</style>
+<script>
+	document.oncontextmenu=function(ev){
+		var oEvent=ev||event;
+		var oUl=document.getElementsByTagName('ul')[0];
+		oUl.style.display='block';
+		oUl.style.left=oEvent.clientX+'px';
+		oUl.style.top=oEvent.clientY+'px';
+		return false;
+	}
+</script>
+</head>
+
+<body>
+	<ul>
+		<li onclick="window.location.reload()">刷新</li>
+		<li onclick="window.open('http://www.zhinengshe.com')">智能社</li>
+		<li>刷新</li>
+		<li>刷新</li>
+	</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

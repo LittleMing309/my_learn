@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jqueryclass操作</title>
+	<style type="text/css">
+		.on{ height: 100px; width: 100px; background: red;}
+		.active{ border:4px solid black; margin-top: 30px;}
+	</style>
+	<script src="jquery-1.7.2.js"></script>
+	<script>
+		$(function(){
+			$('input').click(function(){
+				$('div').removeClass('active');
+			});
+		});
+	</script>
+</head>
+<body>
+	<input type="button" value="class" />
+	<div class="on active"></div>
+</body>
+</html>

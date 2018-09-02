@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery</title>
+	<style type="text/css">
+		div{width:200px;height:200px; background:red; opacity:0; filter:alpha(opacity:0);}
+	</style>
+	<script src="jquery-1.7.2.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('input').toggle(function(){
+				$('div').stop().animate({opacity:1});
+			},function(){
+				$('div').stop().animate({opacity:0});
+			})
+		})
+	</script>
+</head>
+<body>
+	<input type="button" value="aaa" />
+	<div></div>
+</body>
+</html>

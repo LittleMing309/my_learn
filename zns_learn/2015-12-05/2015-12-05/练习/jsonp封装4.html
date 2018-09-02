@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jsonp封装4</title>
+	<script type="text/javascript">
+		function jsonp(url,data,success){
+			data.cb = 'show'+Math.random();
+			data.cb = data.cb.replace('.','');
+			var arr = [];
+			var str = '';
+			for(var name in data){
+				arr.push( name + '=' + encodeURIComponent(data[name]));
+			}
+			var str = arr.join('&');
+			window[data.cb] = success;
+			var oS = document.createElement('script');
+			var oH = document.getElementsByTagName('head')[0];
+			oS.src = url + '?' + str;
+			oH.appendChild(oS);
+		};
+		window.onload = function(){
+			var oTxt = document.getElementById('txt');
+			oTxt.onkeyup = function(){
+				jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',{
+					wd:this.value
+				},function (json){
+					var oUl = document.getElementById('ul1');
+					oUl.innerHTML = '';
+					for(var i = 0; i<json.s.length; i++){
+						var oLi = document.createElement('li');
+						oLi.innerHTML = json.s[i];
+						oUl.appendChild(oLi);
+					}
+				});
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="txt" />
+	<ul id="ul1">
+		
+	</ul>
+</body>
+</html>

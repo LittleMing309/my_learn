@@ -1,0 +1,104 @@
+﻿window.open 直接打开 有问题 
+
+	必须要加到对象上 触发事件打开 才可以
+
+window.open('http://www.baidu.com','_self') 打开网址,打开方式
+
+window.close(); 直接关闭 不兼容
+
+	firefox 不允许你直接关闭 不是脚本打开的页面
+		必须让页面是通过脚本打开的才能关闭
+			先 window.open
+---------------------------------------------
+
+alert(1); 弹出
+
+confirm('确定？'); 确定 取消 返回 真假
+
+prompt('介绍','输入默认值'); 输入提交 
+
+----------------------------------------------
+window.onload   窗口加载完毕时
+
+window.onscroll 窗口滚动时
+
+window.onresize 改变窗口大小
+
+滚动高度：
+	document.documentElement.scrollTop  ff ie
+	document.body.scrollTop             chrome
+滚动条滚动距离：
+	var sH=document.documentElement.scrollTop || document.body.scrollTop;
+
+浏览器可视区高度：
+	document.documentElement.clientHeight
+浏览器可视区宽度：
+	document.documentElement.clientWidth
+
+元素本身的信息：
+	offsetHeight 自身高度 盒子的高度！
+	offsetWidth  自身宽度 盒子的宽度！
+
+		盒子的大小=width/height+border+padding;
+页面整体高度：
+
+document.documentElement.scrollHeight
+------------------------------------------------
+document.title='title标签下的内容'
+
+------------------------------------------------
+
+window.location 网址
+
+window.location.href  网址 （获取、设置）
+
+window.location.href='http://www.zhinengshe.com';
+
+window.location.search ？以后的值
+
+window.location.hash   # 以后的值
+
+
+window.location.protocol 超文本协议
+
+window.location.host     域名
+
+window.location.pathname 路径
+
+-------------------------------------------------
+图片延迟加载：
+	1. 加快下载速度
+	2. 省带宽/流量
+
+	手机端-优势更大
+
+	<img _src="1.jpg" />
+
+
+-------------------------------------------------
+<img _src="1.jpg" />
+
+oDiv.getAttribute('abc')       获取自定义属性
+
+oDiv.setAttribute('abc','123') 设置自定义属性
+
+oDiv.removeAttribute('abc')    删除自定义属性
+
+属性 设置与获取 必须用相同的方式 不能混用
+  
+------------------------------------------------
+瀑布流：
+	1.  找到最低的那个元素 添加子元素
+
+	数组 能不能排序 - sort = arr[0] 最小
+
+================================================
+练习：
+	1.瀑布流2
+
+	2.图片延迟加载
+
+	3.上移下移
+
+	4.运行代码 window.open
+

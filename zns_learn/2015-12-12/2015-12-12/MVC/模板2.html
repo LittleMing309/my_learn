@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<meta name="description" content="智能社是一家专注于web前端开发技术的公司，目前主要提供JavaScript培训和HTML5培训两项服务，同时还推出了大量javascript基础知识教程，智能课堂为你带来全新的学习方法和快乐的学习体验。" />
+<title>智能社— http://www.zhinengshe.com</title>
+<style>
+#temp_div{display:none;}
+</style>
+<script>
+function template(oTmp,data){
+	var obj = oTmp.cloneNode(true);
+	obj.removeAttribute('id');
+	var re = /\{\$\w+\}/g;
+	obj.innerHTML = obj.innerHTML.replace(re,function(s){
+		s = s.substring(2,s.length-1);
+		return data[s];
+	});
+	return obj;
+}
+window.onload=function(){
+	var oName = document.getElementsByTagName('input')[0];
+	var oAge = document.getElementsByTagName('input')[1];
+	var oBtn = document.getElementsByTagName('input')[2];
+	var oTmp = document.getElementById('temp_div');
+	oBtn.onclick=function(){
+		var data = {name:oName.value,age:oAge.value};
+		var oDiv = template(oTmp,data);
+		document.body.appendChild(oDiv);
+	};
+};
+</script>
+</head>
+
+<body>
+<input type="text" name="name" />
+<input type="text" name="age" />
+<input type="button" value="按钮" />
+<div id="temp_div">我叫<strong>{$name}</strong>,今年<strong style="color:red;">{$age}</strong>岁</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

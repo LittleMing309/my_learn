@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	#loadbar{ width:500px; height:30px; border:1px solid red; margin:0  auto;}
+	#loadbar div{ background:blue; height:30px; width:50%;}
+</style>
+<script>
+	var oImg=new Image(); //<img />
+	
+	oImg.src='http://www.zhinengshe.com/works/3525/img/72.jpg';
+	oImg.onload=function(){
+		alert('加载完毕')	
+	}
+	oImg.onerror=function(){
+		alert('加载失败')	
+	}
+	
+</script>
+</head>
+
+<body>
+	<div id="loadbar">
+		<div></div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

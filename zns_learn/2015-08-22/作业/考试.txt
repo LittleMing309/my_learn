@@ -1,0 +1,426 @@
+梁莘明  
+
+1. 通过id获取获取出来1个，  通过class获取获取一堆，  通过tagname获取 获取一堆。
+
+2. 给父级加个绝对定位； position:absolute; top:50%; left:50%; margin:- 定位对象高度的一半, - 定位对象宽度的一半 ;
+
+3. . 和 [] 点只能操作原有的属性 ， 中括号可以接收参数                        -------js中操作属性的方法，以及特点
+
+4.变量与字符串的区别？
+  
+  字符串必须加引号，变量不用加引号
+
+5. 常见变量类型
+
+   对象  字符串    数字   布尔值   undefined    函数 function(){} 有争议
+
+6.null => object   undefined => undefined    NaN => number       null == undefined   ==> true    NaN ==NaN  ==> false 
+
+ var str = '123abc'
+
+ 隐式转换
+
+ alert(typrof str++)    number
+ 
+ alert(str);    NaN
+
+
+7.字符串如何转化成数字？
+
+ parseInt()；
+
+ parseFlow()；
+
+
+8.
+
+ 真：非0数字， 非空字符串    非空对象  true    函数
+
+ 假： 数字0    空字符串      null      false   undefined    NaN
+
+
+9.
+  function show(){
+  
+    alert('showing')
+
+    return function(){
+	
+	 alert(‘test’);
+
+     }
+	
+  }
+
+ alert(show()()); 怎么弹？
+
+  
+ 先弹showing， 再弹test 最后弹undefined
+
+
+10.
+ 
+  function show(a){
+
+     alert(a);
+
+     var s = a();    加了括号就执行 所以弹a
+
+     return function(){
+ 
+        alert(s);    因为函数a没有返回值 所以这里是undefined
+    
+     }
+
+  }
+
+  
+  function a(){
+
+     alert('a'); 
+	
+  }
+
+
+
+ 问：alert(show(a)());
+
+ 答： 先弹 function a(){ alert('a');}  第二弹 a    第三弹 undefined   第四弹undefined
+
+
+
+
+15 求和 sum（1,2,3,4,5）
+
+   function sum(){
+      
+     var res = 0;  
+   
+     for(var i = 0; i< arguments.length ;i++){
+	
+        res += arguments[i] ;
+
+     }
+
+       return res;      
+
+   }
+
+  sum(1,2,3,4,5)
+
+
+16  截取扩展名
+
+
+ var img = '16.jpg';
+
+ var str = img.lastIndexOf('.')+1;
+
+ var str2 = img.substring(str); 
+
+ alert(str2);
+
+
+17.字符串转数组 ，数组转字符串
+
+   字符串转数组：
+
+		var str = 'abcd';
+                
+		var arr = str.split('');
+
+  数组转字符串：
+
+		var arr = ['a','b','c','d'];
+
+		var str = arr.join('');					
+
+
+18，字符串反转
+
+   ‘Welcome to ZhiNengShe!’  ->  ‘ZhiNengShe to Welcome!’
+
+	
+	var str = 'Welcome to ZhiNengShe!';
+
+	var str2 = str.substring(0,str.indexOf('!'));
+
+	var arr = str2.split(' ');
+
+	var arr2 = arr.reverse();
+
+	var str3 = arr2.join(' ');
+
+
+
+
+19。操作字符串的常用方法，操作数组的常用方法
+
+
+  字符串：1. substring();   截取字符串 
+
+          2. lastIndexOf()    获取最后一个字符串的下彪  
+        
+          3.indexOf()         获取第一个字符串的下标
+
+          4.split() 分割字符串  字符串转成数组
+ 
+          5.toUpperCase() 转成大写  / toLowerCase() 转成小写
+
+          6.slice()     字符串截取 
+
+  数组：  1.join(); 数组转字符串
+
+          2.push()     从后添加
+
+          3.unshift()     从前添加 
+
+          4.pop()         从后删除
+
+          5.shift()       从前删除
+
+          6.splice()      可添加  替换  删除   返回值是被删除的东西
+
+          7.concat()      数组连接  连接多个数组时用逗号隔开
+
+          8.reverse()     数组翻转
+
+
+20.写一个排序方法，从大到小
+
+  
+
+
+
+
+
+
+22.获取本月第一天是周几？本月一共有多少天？
+
+   	var oDate = new Date;
+	oDate.setMonth(oDate.getMonth()+1);
+	oDate.setDate(0);
+	alert(oDate.getDate());
+	oDate.setMonth(oDate.getMonth());
+	oDate.setDate(1);
+	alert(oDate.getDay());
+
+
+
+
+26.以下break和continue运行的结果分别是多少？
+	var num=0;
+	for(var i=0; i<10; i++){
+   	  if(i%4==0){
+          break;/continue
+    	   }
+	num++;
+	}
+	alert(num);
+
+
+   当时break时弹出0；是continue时弹出7
+
+
+
+
+27.
+
+var count=12;
+
+function toDo(a,b){
+
+   function toDo2(){
+
+       alert(count+a+b);
+
+       return count+a;
+
+   }
+
+   return toDo2();
+
+}
+
+alert(toDo(5,8));
+
+
+先弹出25，再弹出17。
+
+
+
+
+28.
+
+var a = 5;
+
+setTimeout(function(){
+
+   alert(a);
+
+   a=666;
+
+},1000);
+
+a = 66;
+
+
+一秒钟之后弹出66，只弹一次。
+
+
+
+
+29.截取字符串zhinengshe的she？
+
+	var str = 'zhinengshe';
+
+	var str2 = str.indexOf('s');
+
+	var str3 = str.substring(str2);
+
+
+
+30.实现 welcome to zhinengshe 字符串首字母大写？
+
+	var str = 'welcome to zhinengshe'
+;
+	var arr = str.split(' ');
+
+	var arr2 = [];
+
+	for( var i = 0; i<arr.length; i++){
+
+		var str2 = arr[i].charAt(0).toUpperCase()+arr[i].substring(1);
+
+		arr2.push(str2);
+
+	}
+
+	alert(arr2.join(' '));
+
+
+
+
+33.数组去重
+
+
+	var arr = [1,2,3,2,2,3,3,4,5,7];
+
+	for( var i = 0; i<arr.length; i++){
+
+		for( var j = i+1; j<arr.length; j++){
+
+			if( arr[i] == arr[j]){
+
+				arr.splice(j,1);
+
+				j--;
+
+			}
+
+		}
+
+	}
+
+	alert(arr);
+
+
+34.要求实现 ‘a=1&b=2&c=3’  ->  {a:1, b:2, c:3} 代码实现？
+
+
+	
+
+
+
+
+37.写出常用的Math方法，至少7个？
+
+	1).  Math.round()      //四舍五入
+
+	2).  Math.floor()      //向下取整
+
+	3).  Math.ceil()       //向上取整
+
+	4).  Math.abs()        //取绝对值
+
+	5).  Math.sqrt()       //开平发
+
+	7).  Math.pow()        //n次方
+
+	8).  Math.min()	       // 取最小值
+
+	9).  Math.max()        // 取最大值
+
+
+
+38.删除奇数。
+
+	function removeOdd(arr){
+
+		for( var i = 0; i<arr.length; i++){
+
+			if( arr[i]%2){
+
+				arr.splice(i,1);
+
+				i--;
+
+			}
+
+		}
+
+		return arr;
+
+	}
+
+
+
+39.如何eval一个json形式的字符串？
+
+
+	var str = '{a:1,b:2,c:3}';
+	
+	var json = ( eval('('+str+')'));
+	
+	alert(json.b);
+
+
+
+
+
+40.在select里面，如何获取当前选中那项的文本值？如何把第2个option给删了？如何很好的添加一个？
+
+
+
+<select id="sel">
+    <option value="1">北京</option>
+    <option value="2" selected="selected">上海</option>
+    <option value="3">杭州</option>
+</select>
+
+
+<script>
+	var oSel = document.getElementById('sel');
+	var aOp = oSel.options;
+	alert(aOp[oSel.selectedIndex].text);     //获取当前选中那项的文本值
+	oSel.remove(1);                     //删除第二项
+	var newOp = new Option('国贸',3);       //定义一个新option
+	oSel.add(newOp);                  //把新定义的option添加到select里面
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

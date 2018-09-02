@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jqueryclass操作</title>
+	<style type="text/css">
+		.on{ height: 100px; width: 100px; background: red;}
+	</style>
+	<script src="jquery-1.7.2.js"></script>
+	<script>
+		$(function(){
+			$('input').click(function(){
+				$('div').addClass('on');
+			});
+		})
+	</script>
+</head>
+<body>
+	<input type="button" value="class" />
+	<div></div>
+</body>
+</html>

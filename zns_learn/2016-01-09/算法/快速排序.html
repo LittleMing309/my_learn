@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<meta name="description" content="智能社是一家专注于web前端开发技术的公司，目前主要提供JavaScript培训和HTML5培训两项服务，同时还推出了大量javascript基础知识教程，智能课堂为你带来全新的学习方法和快乐的学习体验。" />
+<title>智能社— http://www.zhinengshe.com</title>
+<style>
+</style>
+<script>
+var arr = [54,23,128,1,200,79,34,-1];
+function quickSort(arr){
+	if(arr.length==0){
+		return [];
+	}
+	var cIndex = Math.floor(arr.length/2);
+	var c = arr.splice(cIndex,1);
+	var left = [];
+	var right = [];
+	for(var i=0;i<arr.length;i++){
+		if(arr[i]<c[0]){
+			left.push(arr[i]);
+		}else{
+			right.push(arr[i]);
+		}
+	}
+	return quickSort(left).concat(c,quickSort(right));
+}
+document.write(quickSort(arr));
+</script>
+</head>
+
+<body>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

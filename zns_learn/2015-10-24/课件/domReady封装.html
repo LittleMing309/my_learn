@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	window.onload=function(){
+		alert('load')
+	};
+	domReady(function(){
+		alert('ready')	
+	});
+
+
+	//domready
+	function domReady(fn){
+		if(document.addEventListener){
+			document.addEventListener('DOMContentLoaded',function(){
+				fn&&fn();
+			},false);
+		}else{
+			document.onreadystatechange=function(){
+				if(document.readyState == 'complete'){
+					fn&&fn();
+				}
+			};	
+		}
+	}
+</script>
+</head>
+
+<body>
+</body>
+</html>
+
+
+
+
+
+
+

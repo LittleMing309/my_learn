@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	div{ width:100px; height:100px; background:red;}
+</style>
+<script>
+	//获取非行间样式！
+	function getStyle(obj,istyle){
+		if(obj.currentStyle){
+			return obj.currentStyle[istyle];
+		}else{
+			return getComputedStyle(obj,false)[istyle];	
+		}
+	}
+	 
+	window.onload = function(){
+		var oDiv= document.getElementsByTagName('div')[0];
+		alert(getStyle(oDiv,'height'))
+		//alert(oDiv.currentStyle.height)
+		//alert(getComputedStyle(oDiv,false).height)
+	}
+</script>
+</head>
+
+<body>
+	<div></div>
+</body>
+</html>
+
+
+
+
+
+
+
+

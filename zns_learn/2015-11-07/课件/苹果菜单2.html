@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	*{ padding:0; margin:0; list-style:none;}
+	#box{  position:absolute; bottom:0; left:0; width:100%; text-align:center;}
+	#box img{ width:64px;}
+</style>
+<script>
+	window.onload=function(){
+		var oBox=document.getElementById('box');
+		var aImg=oBox.children;
+		var aInp=document.getElementsByTagName('input');
+		document.onmousemove=function(ev){
+			var ev=ev||event;
+			var mX=ev.clientX;
+			var mY=ev.clientY;
+			for(var i=0; i<aImg.length;i++){
+				var imgL=aImg[i].offsetLeft+aImg[i].offsetWidth/2-mX;
+				var imgT=aImg[i].offsetTop+oBox.offsetTop+aImg[i].offsetHeight/2-mY;
+				var c=Math.sqrt(imgL*imgL+imgT*imgT);
+				//比例: 改变的数/固定的数
+				var scale=1-c/500;
+				if(scale<0.5)scale=0.5;
+				aImg[i].style.width=128*scale+'px';
+				aInp[i].value=scale;
+			}
+		}
+	};
+</script>
+</head>
+
+<body>
+	<input type="text" />
+	<input type="text" />
+	<input type="text" />
+	<input type="text" />
+	<input type="text" />
+	<div id="box">
+		<img src="img4/1.png" />
+		<img src="img4/2.png" />
+		<img src="img4/3.png" />
+		<img src="img4/4.png" />
+		<img src="img4/5.png" />
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

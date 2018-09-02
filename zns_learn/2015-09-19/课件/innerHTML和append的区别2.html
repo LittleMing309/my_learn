@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	window.onload=function(){
+		var oH3=document.getElementsByTagName('h3')[0];
+		var oBtn=document.getElementById('btn');
+		var oBox=document.getElementById('box');
+		oH3.onclick=function(){
+			this.style.color='red';	
+		}
+		oBtn.onclick=function(){
+			oBox.innerHTML+='<p>p标签</p>';
+		}
+	};
+</script>
+</head>
+
+<body>
+	<input type="button" value="创建" id="btn" />
+	<div id="box">
+		<h3>h3</h3>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+

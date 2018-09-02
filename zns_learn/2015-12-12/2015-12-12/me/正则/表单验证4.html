@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单验证3</title>
+	<style type="text/css">
+		.ok{border-color: green;}
+		.err{ border-color: red;}
+	</style>
+	<script type="text/javascript">
+		var reJson = {
+			tele:/^0[1-9]\d{1,2}\-[1-9]\d{6,7}$/,
+			email:/^\w+\@[0-9a-zA-Z\-]+(\.[a-zA-Z]{2,8}){1,2}$/,
+			age:/^(1[89]|[2-9][0-9]|100)$/
+		};
+		window.onload = function(){
+			var oForm = document.getElementById('form1');
+			var aInput = oForm.getElementsByTagName('*');
+			oForm.onsubmit = function(){
+				var bOk = true;
+				for(var i = 0; i<aInput.length; i++){
+					var re = reJson[aInput[i].name];
+					if(re){
+						if(!checkRe(aInput[i],re)){
+							bOk=false;
+						}
+					}
+				}
+				if(!bOk){
+					return false;
+				}
+			};
+			function checkRe(obj,re){
+				if(re.test(obj.value)){
+					obj.className = 'ok';
+					return true;
+				}else{
+					obj.className = 'err';
+					return false;
+				}
+			};
+			for(var i = 0; i<aInput.length;i++){
+				var re = reJson[aInput[i].name];
+				if(re){
+					(function(re){
+						aInput[i].onblur = function(){
+							checkRe(this,re);
+						};
+					})(re);
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<form id="form1" action="http://www.baidu.com/">
+		电话<input type="text" name="tele" /><br />
+		邮箱<input type="text" name="email" /><br />
+		年龄<input type="text" name="age" /><br />
+	    <input type="submit" />
+	</form>
+</body>
+</html>

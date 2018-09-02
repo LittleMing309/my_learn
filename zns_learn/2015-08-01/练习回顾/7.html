@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	img{ width:400px;}
+</style>
+<script>
+	window.onload = function(){
+		var oImg = document.getElementsByTagName('img')[0];
+		var 	oSel = document.getElementById('sel');
+		var arr = ['20130814105807_QvGti.thumb.600_0.jpeg','20131018213643_WxSCm.jpeg','3.jpg'];
+		
+		oSel.onchange = function(){
+			//alert()
+			oImg.src = 'img/'+arr[this.value-1];
+		}
+	}
+</script>
+</head>
+
+<body>
+	<img src="img/1.jpg" />
+	<select id="sel">
+		<option value="1">黄人1</option>
+		<option value="2">黄人2</option>
+		<option value="3">黄人3</option>
+	</select>
+</body>
+</html>
+
+
+
+
+
+
+

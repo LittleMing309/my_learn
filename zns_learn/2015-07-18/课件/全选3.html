@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	window.onload  =function(){
+		var oBox= document.getElementById('list_box');
+		var aList = oBox.getElementsByTagName('input');
+		var aInp = document.getElementsByTagName('input');
+		 var oBtn = document.getElementById('all');
+		 var count=0;
+		 oBtn.onclick=function(){
+			 if(this.checked == true){
+				for(var i=1;i<aInp.length;i++){
+					aInp[i].checked = true;
+				}
+				count=aList.length;
+			}else{
+				for(var i=1;i<aInp.length;i++){
+					aInp[i].checked = false;
+				}
+				count=0; 	
+			}
+		}
+		
+		 for(var i=0; i<aList.length;i++){
+			aList[i].onclick=function(){
+				if(this.checked==true){
+						count++;	
+				}else{
+						count--;
+				}
+				if(count==aList.length){
+					oBtn.checked = true;
+				}else{
+					oBtn.checked = false;	
+				}
+			} 
+		 }
+	}
+</script>
+</head>
+
+<body>
+	<input type="checkbox" id="all" /> 
+	<label for="all">全选</label>
+	<hr />
+	<div id="list_box">
+		<input type="checkbox"  /><br />
+		<input type="checkbox" /><br />
+		<input type="checkbox" /><br />
+		<input type="checkbox" /><br />
+		<input type="checkbox" /><br />
+		<input type="checkbox" />
+	</div>
+
+
+
+
+
+</body>
+</html>

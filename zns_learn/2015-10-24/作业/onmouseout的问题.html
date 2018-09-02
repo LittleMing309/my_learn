@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>onmouseout的问题</title>
+	<style>
+		#div1{ height: 200px; width: 150px; background: red;}
+		h2{ height: 50px; width: 100%; background: blue;}
+	</style>
+	<script>
+		window.onload = function(){
+			var oDiv = document.getElementById('div1');
+			oDiv.onmouseover = function(ev){
+				var oEvent = ev || event;
+				var to0 = oEvent.fromElement || oEvent.relatedTarget;
+				if(this.contains(to0))return;
+				alert('移入了');
+			};
+			oDiv.onmouseout = function(ev){
+				var oEvent = ev || event;
+				var to0 = oEvent.toElement || oEvent.relatedTarget;
+				if(this.contains(to0))return;
+				alert('移出了');
+			};
+		}
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<h2></h2>
+	</div>
+</body>
+</html>

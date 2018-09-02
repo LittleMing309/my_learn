@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	var arr = [20,40,10,-90,56,98,-999,99];
+	
+	//alert(findMin(arr,0))
+	function findMin(arr,iStart){
+			var iMin = arr[iStart];
+			var minIndex = iStart;
+			for(var i=iStart+1; i<arr.length; i++){
+				if(arr[i] < iMin){
+					iMin = 	arr[i];
+					minIndex = i;
+				}
+			}
+			return minIndex;
+	}
+	
+	for(var i=0; i<arr.length;i++){
+		var n = findMin(arr,i);
+		var tep;
+		tep = arr[i];
+		arr[i]=arr[n];
+		arr[n] = tep;
+	}
+	alert(arr)
+	
+	
+</script>
+</head>
+
+<body>
+</body>
+</html>

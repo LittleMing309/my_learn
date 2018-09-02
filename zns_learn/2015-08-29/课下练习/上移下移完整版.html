@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+	window.onload = function(){
+		var oUl = document.getElementById('box');
+		var aLi = document.getElementsByTagName('aLi');
+		for( var i = 0; i<aLi.length; i++){
+			var aBtn = aLi[i].getElementsByTagName('a')[0];
+			var aBtn1 = aLi[i].getElementsByTagName('a')[1];
+			aBtn.onclick = function(){
+				alert(1);	
+			}
+		}	
+	}
+</script>
+</head>
+
+<body>
+<ul id="box">
+	<li>1.lalalal
+    	<a href="#">上移</a>
+        <a href="#">下移</a>
+    </li>
+    <li>2.lalalal
+    	<a href="#">上移</a>
+        <a href="#">下移</a>
+    </li>
+    <li>3.lalalal
+    	<a href="#">上移</a>
+        <a href="#">下移</a>
+    </li>
+    <li>4.lalalal
+    	<a href="#">上移</a>
+        <a href="#">下移</a>
+    </li>
+    <li>5.lalalal
+    	<a href="#">上移</a>
+        <a href="#">下移</a>
+    </li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片滚动</title>
+	<style>
+		*{ margin:0; padding:0;}
+		li{ list-style:none;}
+		#scrollBox{ width:680px; position:relative; margin:50px auto;}
+		#prev,#next{ width:14px; height:100px; line-height:100px; border:1px solid #0CC; text-align:center; position:absolute; display:block; cursor:pointer; font-size:20px; top:20px; background:#F6F6F6;}
+		#prev{ left:7px;}
+		#next{ right:7px}
+		#box{ width:600px; margin:10px auto; overflow: hidden; position: relative; height: 160px;}
+		#box ul{ width:600px; height:160px; position: absolute; left:0; top: 0;} 
+		#box ul img{ margin-bottom:5px; padding:4px; border:#CCC 1px solid; height:120px; width:100px;}
+		#box ul li{ width:110px; float:left; margin:5px; text-align:center;}
+		#box ul li a{ font:14px; color:#000; text-align:center; text-decoration:none;}
+		#box ul li a:hover{ color:#F00; font-weight:bold;}
+	</style>
+	<script src="jquery-1.7.2.js"></script>
+	<script>
+		$(function(){
+			$('#box ul li').clone(true).appendTo('#box ul');
+			$('#box ul').css({width:$('#box ul li').outerWidth(true)*$('#box ul li').length});
+			toLeft();
+			function toLeft(){
+				setInterval(function(){
+					$('#box ul').stop().animate({left:-$('#box ul').width()/2});
+				},300)
+			};
+		});
+	</script>
+</head>
+<body>
+	<div id="scrollBox">
+		<span id="prev"><</span>
+		<span id="next">></span>
+		<div id="box">
+			<ul>
+	        	<li><a href="#"><img src="img/5.jpg"  /></a><a href="#">啦啦啦</a></li>
+	            <li><a href="#"><img src="img/1.jpg"  /></a><a href="#">啦啦啦</a></li>
+	            <li><a href="#"><img src="img/2.jpg"  /></a><a href="#">啦啦啦</a></li>
+	            <li><a href="#"><img src="img/3.jpg"  /></a><a href="#">啦啦啦</a></li>
+	            <li><a href="#"><img src="img/4.jpg"  /></a><a href="#">啦啦啦</a></li>
+	        </ul>
+		</div>
+	</div>
+</body>
+</html>

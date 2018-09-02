@@ -1,0 +1,102 @@
+事件：
+
+	onchange  当它改变的时候！
+
+
+-----------------------------------
+可以把字符串转换成 js语句！并且执行！
+			eval(); 
+
+				好用的东西 都不让用！
+
+				太强大了！ 所以不能用！
+
+				有可能被代码注入攻击
+
+-------------------------------------
+函数
+	function(){}
+
+		传参、封装、返回
+
+	生来就有返回值！
+		默认 ：undefined ！
+
+	加了括号就执行！！！
+
+	undefined ？
+
+		因为没有返回值！
+
+return 什么都能返回！
+
+		退出函数-停止函数向下走！
+
+			放到函数的最下面！
+
+-------------------------------------------
+js在赋值的时候加分号！
+
+
+if写法：
+	
+  三目：条件?语句一:语句二; 
+
+  		执行单行语句使用！
+
+只有if的时候 没有else
+
+  	a&&alert('真的');
+
+-----------------------------------------
+定时器：
+	用来定时！
+
+设置定时器：重复干一件事
+	setInterval(函数,时间); 
+
+	time = setInterval(function(){
+				i++;
+				oDiv.style.marginLeft = i+'px';	
+	},1000); 
+			1000毫秒 = 1秒
+
+清除定时器：
+	clearInterval(time);	
+	
+******在开定时器之前必须先关掉定时器！
+
+----------------------------------
+只干一件事的定时器：
+setTimeout(函数,时间)
+
+time = setTimeout(
+		function(){
+			oDiv.style.display ='block';	
+		},
+		1000
+	)
+
+clearTimeout(time);	清除定时器！
+
+------------------------------------------
+时间对象：
+	var date = new Date();
+	var year = date.getFullYear();
+	var month = date.getMonth()+1;
+	var _date = date.getDate();
+	var h = date.getHours();
+	var m = date.getMinutes();
+	var s = date.getSeconds();
+	var week = date.getDay();
+
+=======================================
+字符串
+	str[3] ×！是不对的！
+
+	str.charAt(i) 
+	在一串字符串内获取第i个字符！
+
+
+时间戳：从1970年到现在 的毫秒数！
+fTime.getTime()

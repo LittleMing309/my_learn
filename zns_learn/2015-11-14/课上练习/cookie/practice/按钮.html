@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>按钮</title>
+	<script type="text/javascript" src="cookie.js"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			var aInp = document.getElementsByTagName('input');
+			var arr = [];
+			//removeCookie('arr',-1);
+
+			for(var i =0; i<aInp.length; i++){
+				aInp[i].index = i;
+				aInp[i].onclick = function(){
+					for(var j = 0; j<aInp.length; j++){
+						if(aInp[j].checked == true){
+							arr.push(this.index);
+						}
+					}
+				addCookie('arr',arr,1);
+				}
+			}
+			alert(arr.length);
+		}
+	</script>
+</head>
+<body>
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+	<input type="checkbox" />
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原型扩展系统方法</title>
+	<script type="text/javascript">
+		var arr = ['abc','bcd','cde'];
+		arr.indexOf = function(item){
+			for(var i = 0; i<this.length; i++){
+				if(this[i]==item){
+					return i;
+				}
+			}
+			return -1;	
+		}
+		document.write(arr.indexOf('abc'));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

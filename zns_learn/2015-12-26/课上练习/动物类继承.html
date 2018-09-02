@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动物类继承</title>
+	<script type="text/javascript">
+		function Animal(crawl,FourFeet){
+			this.crawl = crawl;
+			this.FourFeet = FourFeet;
+		}
+		Animal.prototype.showCrawl = function(){
+			return this.crawl;
+		};
+		Animal.prototype.showFeet = function(){
+			return this.FourFeet;
+		};
+		function Dog(crawl,FourFeet,wang){
+			Animal.apply(this,arguments);
+			this.wang = wang;
+		}
+		Dog.prototype = new Animal();
+		Dog.prototype.constructor = Dog;
+		Dog.prototype.showWang = function(){
+			return this.wang;
+		};
+		var a1 = new Animal('爬行','四只脚');
+		var d1 = new Dog('爬行','四只脚','汪汪')
+		//	动物
+		alert(a1.showCrawl());
+		alert(a1.showFeet())
+		alert(a1.showWang)		// undefined
+		//	狗类
+		alert(d1.showCrawl());
+		alert(d1.showFeet());
+		alert(d1.showWang());
+		alert(d1 instanceof Animal);	//  true
+		alert(d1.constructor==Dog);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

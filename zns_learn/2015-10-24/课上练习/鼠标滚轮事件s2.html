@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标滚轮事件s2</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			//  firefox
+			if(window.navigator.userAgent.toLowerCase().indexOf('firefox') != -1){
+				document.addEventListener('DOMMouseScroll',function(ev){
+				//	alert(ev.detail);
+				//下  3
+				//上  -3
+				var oEvent = ev || event ;
+				if(oEvent.detail){
+					if(oEvent.detail > 0){
+						alert('下');
+					}else{
+						alert('上');
+					};
+				}else{
+					if(oEvent.wheelDelta > 0){
+						alert('下');
+					}else{
+						alert('上');
+					};
+				};
+
+				},false);
+			}
+			//  chrome  ie
+			document.onmousewheel = function(ev){
+				var oEvent = ev || event;
+				//alert(oEvent.wheelDelta);
+				//下  -120
+				//上  120
+				var oEvent=ev||event;
+				if(oEvent.detail){
+					if(oEvent.detail>0){
+						alert('下')
+					}else{
+						alert('上')	
+					}
+				}else{
+					if(oEvent.wheelDelta>0){
+						alert('上')	
+					}else{
+						alert('下')		
+					}
+				}
+			};
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	window.onload = function(){
+		var aInp  = document.getElementsByTagName('input');
+		var i = 1;
+		aInp[1].onclick = function(){
+			i++;
+			//	alert(typeof('0'+i))
+			if( i < 10){
+				aInp[0].value ='0'+i;
+						
+			}else{
+				aInp[0].value = i;	
+			}
+			
+		}
+	}
+</script>
+</head>
+
+<body>
+	<input type="text" value="01" />
+	<input type="button" value="加1" />
+</body>
+</html>

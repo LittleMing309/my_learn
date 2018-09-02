@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>继承写法</title>
+	<script type="text/javascript">
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		Person.prototype.showName = function(){
+			return this.name;
+		};
+		Person.prototype.showAge = function(){
+			return this.age;
+		};
+		var p1 = new Person('张三',18);
+		alert(p1.showName());
+		alert(p1.showAge());
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

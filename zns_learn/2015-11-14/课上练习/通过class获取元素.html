@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>通过class获取元素</title>
+	<style type="text/css">
+		*{margin:0; padding: 0;}
+		.div1{ height: 300px; width: 300px; background: red; margin:100px auto; overflow: hidden;}
+		.div2{ height: 100px; width: 100px; background: #CCC; margin:100px auto;}
+	</style>
+	<script type="text/javascript">
+		function findInArr(arr,iTem){
+			for(var i = 0; i<arr.length; i++){
+				if(arr[i]==iTem){
+					return true;
+				}
+			}
+			return false;
+		}
+		function getStyle(oParent,sClass){
+			if(oParent.getElementsByClassName){
+				return oParent.getElementsByClassName(sClass);
+			}else{
+				var result = [];
+				var aEle = document.getElementsByTagName('*');
+				for(var i = 0 ; i <aEle.length ; i++){
+					var arr = aEle[i].className.split(' ');
+					if(findInArr(arr,sClass)){
+						result.push(aEle[i]);
+					}
+				}
+				return result;
+			}
+		}
+		window.onload = function(){
+			var oDiv = getStyle(document,'div2');
+			oDiv[0].onclick = function(){
+				alert(1)
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="div1">
+		<div class="  div2 mt15"></div>
+	</div>
+</body>
+</html>

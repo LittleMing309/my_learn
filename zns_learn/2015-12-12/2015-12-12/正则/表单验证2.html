@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<meta name="description" content="智能社是一家专注于web前端开发技术的公司，目前主要提供JavaScript培训和HTML5培训两项服务，同时还推出了大量javascript基础知识教程，智能课堂为你带来全新的学习方法和快乐的学习体验。" />
+<title>智能社— http://www.zhinengshe.com</title>
+<style>
+.ok{ border-color:green;}
+.err{ border-color:red;}
+</style>
+<script>
+var reJson = {
+	age:/^(1[89])|([2-9][0-9])|(100)$/,
+	tele:/^0[1-9]\d{1,2}\-[1-9]\d{6,7}$/,
+	email:/^\w+\@[0-9a-zA-Z\-]+(\.[a-zA-Z]{2,8}){1,2}$/
+};
+window.onload=function(){
+	var oForm = document.getElementById('form1');
+	var aInput = oForm.getElementsByTagName('*');
+	oForm.onsubmit=function(){
+		var bOk = true;
+		for(var i=0;i<aInput.length;i++){
+			var re = reJson[aInput[i].name];
+			if(re){
+				if(re.test(aInput[i].value)){
+					aInput[i].className='ok';
+				}else{
+					aInput[i].className='err';
+					bOk = false;
+				}
+			}
+		}
+		if(!bOk){
+			return false;
+		}
+	};
+};
+</script>
+</head>
+
+<body>
+<form id="form1" action="http://www.baidu.com/">
+	电话<input type="text" name="tele" /><br />
+	邮箱<input type="text" name="email" /><br />
+	年龄<input type="text" name="age" /><br />
+    <input type="submit" />
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

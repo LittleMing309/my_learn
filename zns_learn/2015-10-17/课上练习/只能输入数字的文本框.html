@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>只能输入数字的文本框</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oInp = document.getElementsByTagName('input')[0];
+			document.onkeydown = function(ev){
+				var oEvent = ev || event;
+				// 48-57  8
+				if(oEvent.keyCode<=57 && oEvent.keyCode>=48 ){
+					return true;
+				}else if( oEvent.keyCode == 8){
+					return true;
+				}else{
+					alert('只能输入数字')	
+					return false;	
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text"  />
+</body>
+</html>

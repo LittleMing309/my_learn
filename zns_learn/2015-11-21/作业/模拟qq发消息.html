@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模拟qq发消息</title>
+	<style type="text/css">
+		*{ margin:0; padding: 0;}
+		#box{ height: 400px; width: 300px; border:3px solid black; margin:100px auto; }
+		#top{ height: 348px; width: 300px; border-bottom: 2px solid #CCC; overflow: hidden;}
+		#bottom{ height: 50px; width: 300px; overflow: hidden;}
+		#name{ float: left; width: 50px; text-align: center; line-height: 50px; } 
+		#txt { width: 195px; height: 48px; float: left;}
+		#btn{ height: 50px; width: 50px;}
+	</style>
+	<script type="text/javascript" src="jquery-1.7.2.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var bOk = true;
+			$('#name').click(function(){
+				if(bOk){
+					$(this).html('小红:');
+					bOk=false;
+				}else{
+					$('#name').html('小明:');
+					bOk=true;
+				}
+			});
+			$('#btn').click(function(){
+				$('<div>').html($('#name').html()+$('#txt').val()).prependTo($('#top'));
+				$('#txt').val('');
+				if($('#name').html()=='小明:'){
+					$('#top div:contains(小明)').css({width:210,marginLeft:10,'float':'left',marginTop:10,background:'pink'});
+				}else{
+					$('#top div:contains(小红)').css({width:210,marginLeft:10,'float':'right',marginTop:10,background:'#f90'});
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="box">
+		<div id="top">
+		</div>
+		<div id="bottom">
+			<div id="name">小明:</div>
+			<input type="text" id="txt" />
+			<input type="button" id="btn" value="发送" />
+		</div>
+	</div>
+</body>
+</html>

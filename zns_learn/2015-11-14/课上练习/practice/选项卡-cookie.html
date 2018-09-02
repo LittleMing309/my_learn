@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡-cookie</title>
+	<style type="text/css" >
+		*{margin:0; padding: 0;}
+		#box{ width: 300px; height: 350px; margin:200px auto; border:1px solid black;}
+		#btnl{ margin-right: 50px;}	
+		#btnr{ margin-left: 50px;}
+		.active{ background: pink;}
+		#box div{ height: 300px; width: 300px; background: #485; text-align: center; line-height: 300px; font-size:50px; display: none;}
+	</style>
+	<scrip src="cookie.js"></scrip>
+	<script>
+		window.onload = function(){
+			var oBox = document.getElementById('box');
+			var oLeft = document.getElementById('btnl');
+			var oRight = document.getElementById('btnr');
+			var aBtn = oBox.getElementsByTagName('input');
+			var aDiv = oBox.getElementsByTagName('div');
+			var iNow = getCookie('iNow')|| 0;
+			tab();
+			oLeft.onclick = function(){
+				iNow--;
+				if(iNow<0){
+					iNow=aBtn.length-1;
+				}
+				tab();
+			}
+			oRight.onclick = function(){
+				iNow++;
+				if(iNow==aBtn.length){
+					iNow=0;
+				}
+				tab();
+			}
+			for(var i = 0 ; i<aBtn.length; i++){
+				(function(index){
+					aBtn[i].onclick = function(){
+						iNow = index;
+						tab();
+					}
+				})(i);
+			}
+			function tab(){
+				addCookie('iNow',iNow,1);
+				for(var i = 0 ; i<aBtn.length;i++){
+					aBtn[i].className ='';
+					aDiv[i].style.display = '';
+				}
+				aBtn[iNow].className = 'active';
+				aDiv[iNow].style.display = 'block';
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<a href="javascript:;" id="btnl"> < </a>
+		<input class="active" type="button" value="电影" />
+		<input type="button" value="电视剧" />
+		<input type="button" value="动漫" />
+		<a href="javascript:;" id="btnr"> > </a>
+		<div style="display:block">电影</div>
+		<div>电视剧</div>
+		<div>动漫</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>domReady封装</title>
+	<script>
+		window.onload = function(){
+			alert('1');
+		};
+		domReady(function(){
+			alert('read');
+		});
+		function domReady(fn){
+			if(document.addEventListener){
+				document.addEventListener('DOMContentLoaded',function(){
+					fn&&fn();
+				},false);
+			}else{
+				document.onreadystatechange = function(){
+					if(document.readyState == 'complete'){
+						fn&&fn();
+					}
+				}
+			}
+		};
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

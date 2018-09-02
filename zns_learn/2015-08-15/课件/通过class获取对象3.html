@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	.active{ background:red;}
+</style>
+<script>
+	function getByClass(oPar,iClass){
+		if(oPar.getElementsByClassName){
+			//chrome
+			return oPar.getElementsByClassName(iClass);
+		}else{
+			//ie 6-7-8
+			var arr = [];
+			var aList = oPar.getElementsByTagName('*');
+			for(var i=0; i<aList.length;i++){
+				if(aList[i].className==iClass){
+					arr.push(aList[i]);
+				}
+			}
+			return arr;
+		}
+	}
+
+	window.onload = function(){
+		for(var i=0; i<getByClass(document,'active').length;i++){
+			getByClass(document,'active')[i].style.background='yellow';
+		}
+		
+	}
+</script>
+</head>
+
+<body>
+	<ul>
+		<li class="active">1</li>
+		<li>2</li>
+		<li class="active">3</li>
+		<li>4</li>
+	</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

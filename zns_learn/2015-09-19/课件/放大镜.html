@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	body{ margin:0;}
+	#box{ width:200px; border:1px solid red; float:left;}
+	#box img{ width:100%; display:block;}
+	.shandow{ width:80px; height:80px; background:yellow; position:absolute; opacity:0.5; display:none;}
+	#showbox{ width:300px; height:300px; border:1px solid red; float:left; overflow:hidden; display:none;}
+	#showbox img{ margin-left:-200px;}
+</style>
+<script>
+	window.onload=function(){
+		var 	box=document.getElementById('box');
+		var 	showbox=document.getElementById('showbox');
+		var 	oImg=showbox.getElementsByTagName('img')[0];
+		var 	shadow=document.getElementById('shadow');
+		
+		box.onmouseover=function(){
+			shadow.style.display='block';	
+			showbox.style.display='block';
+		}
+		box.onmouseout=function(){
+			shadow.style.display='none';	
+			showbox.style.display='none';
+		}
+		
+		box.onmousemove=function(ev){
+			var oEvent=ev||event;
+			var l =oEvent.clientX-shadow.offsetWidth/2;
+			var t =oEvent.clientY-shadow.offsetHeight/2;
+			if(l<=0)l=0;
+			if(l>=box.offsetWidth-shadow.offsetWidth)l=box.offsetWidth-shadow.offsetWidth;
+			shadow.style.left=l+'px';
+			shadow.style.top=t+'px';
+			var l2 = -(oImg.offsetWidth-showbox.offsetWidth)*l/ (box.offsetWidth - shadow.offsetWidth);
+			oImg.style.marginLeft = l2+'px';
+			//比例相等
+			//l / (div1.offsetWidth - ospan.offsetWidth) = 
+			//l2 /(oImg.offsetWidth-div2.offsetWidth)
+		}
+	}
+</script>
+</head>
+
+<body>
+	<div id="box">
+		<span class="shandow" id="shadow"></span>
+		<img src="img/1.jpg" />
+	</div>
+	<div id="showbox"><img src="img/1.jpg" /></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

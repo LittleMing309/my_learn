@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>浏览器宽度控制列数</title>
+	<style>
+		*{ margin:0; padding: 0;}
+		li{ list-style: none; width: 12.5%; height: 100px; float: left; text-align: center; font-size: 40px; line-height: 100px;}
+		.li1{ background: red;}
+		.li2{ background: #096;}
+		.li3{ background: #909;}
+		.li4{ background: #F06;}
+		.li5{ background: #99F;}
+		.li6{ background: #696;}
+		.li7{ background: #CF6;}
+		.li8{ background: #C30;}
+	</style>
+	<script>
+		window.onresize = function(){
+			var aLi = document.getElementsByTagName('li');
+			for(var i = 0; i<aLi.length; i++){
+				if(document.documentElement.scrollWidth <= 1000 && document.documentElement.scrollWidth > 600){
+					aLi[i].style.width = '25%';
+				}else if(document.documentElement.scrollWidth <=600 && document.documentElement.scrollWidth > 0){
+					aLi[i].style.width = '50%';
+				}else{
+					aLi[i].style.width = '12.5%';
+				}			}
+		}
+	</script>
+</head>
+<body>
+	<ul>
+		<li class="li1">1</li>
+		<li class="li2">2</li>
+		<li class="li3">3</li>
+		<li class="li4">4</li>
+		<li class="li5">5</li>
+		<li class="li6">6</li>
+		<li class="li7">7</li>
+		<li class="li8">8</li>
+	</ul>
+</body>
+</html>

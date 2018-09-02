@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用键盘控制div移动</title>
+	<style type="text/css">
+		#div1{ height: 100px; width: 100px; position: absolute; background: red;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oDiv = document.getElementById('div1');
+			var timer = null;
+			document.onkeydown = function(ev){
+				var oEvent = ev || event;
+				switch(oEvent.keyCode){
+					case 37 :
+					timer = setInterval(function(){
+						oDiv.style.left = oDiv.offsetLeft - 10 + 'px';
+					},30);
+					break;
+					case 38 :
+					timer = setInterval(function(){
+						oDiv.style.top = oDiv.offsetTop - 10 + 'px';
+					},30);
+					break;
+					case 39 :
+					timer = setInterval(function(){
+						oDiv.style.left = oDiv.offsetLeft + 10 + 'px';
+					},30);
+					break;
+					case 40 :
+					timer = setInterval(function(){
+						oDiv.style.top = oDiv.offsetTop + 10 + 'px';
+					},30);
+					break;
+				}
+			}
+			document.onkeyup = function(ev){
+				var oEvent = ev || event;
+				switch(oEvent.keyCode){
+					case 37 :
+					clearInterval(timer);
+					break;
+					case 38 :
+					clearInterval(timer);
+					break;
+					case 39 :
+					clearInterval(timer);
+					break;
+					case 40 :
+					clearInterval(timer);
+					break;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

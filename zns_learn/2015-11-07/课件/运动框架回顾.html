@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	function getStyle(obj,name){
+		return obj.currentStyle?obj.currentStyle[name]:getComputedStyle(obj,false)[name];
+	}
+
+	function move(obj,name,target,time){
+		var count=Math.floor(time/30);
+		var start=parseFloat(getStyle(obj,name));
+		var dis = target-start;
+		var n=0;
+		clearInterval(timer);
+		var timer=setInterval(function(){
+			n++;
+			//start+dis*n/count
+			//起始位置+运动距离*比例
+			obj.style[name]=start+dis*n/count+'px';
+			if(n==count){
+				clearInterval(timer);
+			}
+		},30);
+	}
+	window.onload=function(){
+		var oDiv=document.getElementsByTagName('div')[0];
+		move(oDiv,'width',500,1000);
+	};
+</script>
+</head>
+
+<body>
+	<div style="width:200px; height:200px; background:red; position:absolute; top:0; left:0;"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

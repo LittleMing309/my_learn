@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<meta name="description" content="智能社是一家专注于web前端开发技术的公司，目前主要提供JavaScript培训和HTML5培训两项服务，同时还推出了大量javascript基础知识教程，智能课堂为你带来全新的学习方法和快乐的学习体验。" />
+<title>智能社— http://www.zhinengshe.com</title>
+<style>
+</style>
+<script>
+var root = null;
+
+function bt_add(node,n){
+	if(root==null){
+		alert('没有根节点，把'+n+'当成根节点');
+		root = {
+			value:n,
+			l:null,
+			r:null
+		};
+	}else{
+		if(node.value==n){
+			return;
+		}else{
+			if(n<node.value){
+				alert('试图往左走');
+				if(node.l==null){
+					alert('左面有地，把'+n+'留下');
+					node.l = {
+						value:n,
+						l:null,
+						r:null
+					};
+				}else{
+					alert('左面没地，继续找');
+					return bt_add(node.l,n);
+				}
+			}else{
+				alert('试图往右走');
+				if(node.r==null){
+					alert('右面有地，把'+n+'留下');
+					node.r = {
+						value:n,
+						l:null,
+						r:null
+					};
+				}else{
+					alert('右面没地，继续找');
+					return bt_add(node.r,n);
+				}
+			}
+		}
+	}
+}
+
+
+bt_add(root,50);
+bt_add(root,43);
+bt_add(root,78);
+bt_add(root,20);
+bt_add(root,49);
+bt_add(root,61);
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

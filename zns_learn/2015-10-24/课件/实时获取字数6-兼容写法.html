@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	window.onload=function(){
+		var oTxt=document.getElementById('txt');
+		if(window.navigator.userAgent.indexOf('MSIE 9.0')!=-1){
+			var timer=null;
+			oTxt.onfocus=function(){
+				timer=setInterval(function(){
+					document.title=	oTxt.value.length;
+				},100);
+			};
+			oTxt.onblur=function(){
+				clearInterval(timer);
+			};
+		}else{
+			oTxt.oninput=oTxt.onpropertychange=function(){
+					document.title=	oTxt.value.length;	
+			};
+		}
+	};
+</script>
+</head>
+
+<body>
+	<input type="text" id="txt" />
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

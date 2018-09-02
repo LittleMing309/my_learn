@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>插件</title>
+	<style type="text/css">
+		div{ height: 200px; width: 200px; background: green;}
+	</style>
+	<script type="text/javascript" src="jquery-1.7.2.js"></script>
+	<script type="text/javascript">
+		$.fn.toRed=function(){
+			this.css('background','red');
+		};
+		$(function(){
+			$('div').toRed();
+		});
+	</script>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

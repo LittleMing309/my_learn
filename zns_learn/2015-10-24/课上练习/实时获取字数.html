@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>实时获取字数</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oInp = document.getElementById('txt');
+			if(window.navigator.userAgent.indexOf('MSIE 9.0')!=-1){
+				var timer = null;
+				oInp.onfocus = function(){
+					timer = setInterval(function(){
+						document.title = oInp.value.length;
+					},100);
+				}
+				oInp.onblur = function(){
+					clearInterval(timer);
+				};
+			}else{
+				oInp.oninput = oInp.onpropertychange = function(){
+					document.title = oInp.value.length;
+				};
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="txt" />
+</body>
+</html>

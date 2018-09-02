@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>交互get&post</title>
+	<script type="text/javascript" src="all_ajax.js"></script>
+	<script type="text/javascript">
+		document.onclick = function(){
+			ajax({
+		url:'get.php',
+		type:'get',
+		data:{
+			a:12,
+			b:5
+		},
+		success:function(str){
+			alert(str);
+		},
+		error:function(){
+			alert('失败了');
+		}
+	});
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

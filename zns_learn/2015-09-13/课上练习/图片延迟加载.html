@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+img{ border:1px solid red; float:left; margin:10px;}
+</style>
+<script>
+	window.onload = window.onscroll = function(){
+		var aImg = document.getElementsByTagName('img');
+		var sH = document.documentElement.scrollTop || document.body.scrollTop;
+		var cH = document.documentElement.clientHeight;
+		for( var i = 0; i<aImg.length; i++){
+			var oT = aImg[i];
+			if( oT.offsetTop < sH + cH){
+				oT.src = oT.getAttribute('_src');
+			}
+		}	
+	}
+</script>
+</head>
+
+<body>
+<img _src="images/1.jpg" height="350" width="350" />
+<img _src="images/1.jpg" height="350" width="350" />
+<img _src="images/1.jpg" height="350" width="350" />
+<img _src="images/1.jpg" height="350" width="350" />
+<img _src="images/1.jpg" height="350" width="350" />
+<img _src="images/1.jpg" height="350" width="350" />
+<img _src="images/1.jpg" height="350" width="350" />
+<img _src="images/1.jpg" height="350" width="350" />
+<img _src="images/1.jpg" height="350" width="350" />
+<img _src="images/1.jpg" height="350" width="350" />
+</body>
+</html>

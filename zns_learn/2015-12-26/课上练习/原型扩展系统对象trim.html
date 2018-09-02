@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原型扩展系统对象trim</title>
+	<script type="text/javascript">
+		String.prototype.trim = function(){
+			return this.replace(/^\s+|\s+$/g,'');
+		}
+		var str = '           abc                 ';
+		str = str.trim();
+		alert('|'+str+'|');
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

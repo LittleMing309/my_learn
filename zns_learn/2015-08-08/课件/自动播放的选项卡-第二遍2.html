@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+	img{ width:300px;}
+	input{ width:200px; height:50px; font-size:40px;}
+	.active{ background:yellow; color:red;}
+	.box_list{}
+	.box_list img{ display:none; margin:0 auto;}
+	#lBtn{ width:50px; height:50px; font-size:50px; text-decoration:none;}
+</style>
+<script>
+	window.onload = function(){
+			var aBtn = document.getElementsByTagName('input');
+			var lBtn = document.getElementById('lBtn');
+			var aImg = document.getElementsByTagName('img');
+			var iNow=0;
+			
+			for(var i=0; i<aBtn.length; i++){
+				aBtn[i].index=i;
+				aBtn[i].onclick=function(){
+					iNow=this.index;
+					tab(iNow);	
+				};
+			}
+			
+			lBtn.onclick=function(){
+				iNow++;
+				if(iNow==aImg.length){
+					iNow=0;
+				}
+				tab(iNow);	
+			}
+			
+			function tab(num){
+					for(var i=0; i<aBtn.length;i++){
+						aBtn[i].className='';
+						aImg[i].style.display='';
+					}
+					aImg[num].style.display ='block';
+					aBtn[num].className='active';	
+				}
+	}
+</script>
+</head>
+
+<body>
+	<div>
+		<a href="javascript:;" id="lBtn">&lt;</a>
+		<input type="button" value="学霸" class="active" />
+		<input type="button" value="学渣" />
+		<input type="button" value="学酥" />
+		<input type="button" value="学弟" />
+		<div class="box_list">
+			<img src="img/1137134773ec9f6a07o.jpg"  style="display:block;" />
+			<img src="img/11371347558c69951do.jpg"  />
+			<img src="img/112477129147bb95cdo.jpg"  />
+			<img src="img/girls_11.jpg"  />
+		</div>
+	</div>
+</body>
+</html>

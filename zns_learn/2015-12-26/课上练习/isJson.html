@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>isJson</title>
+	<script type="text/javascript">
+		function isJson(obj){
+			return obj.constructor==Object;
+		}
+		var arr = [1,2,3];
+		var oDate = new Date();
+		var json = {a:1,b:2};
+		alert(isJson(arr));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

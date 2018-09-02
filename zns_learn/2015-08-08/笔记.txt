@@ -1,0 +1,39 @@
+表单：
+
+	disabled="true"
+	不可用='是'
+	disabled="false"
+
+
+在定时器内不能用this ！！！！
+
+==================================
+局部变量 只能影响局部！
+
+全局变量 在任何地方都可以调用！
+
+事件连等：
+oBtn.onmouseup=oBtn2.onmousedown=function(){}
+
+
+onmouseup 鼠标抬起
+onmousedown 鼠标按下
+
+
+continue 只跳出一次！
+
+break    直接跳出，不执行以后的！
+
+---------------------------------
+只要加了括号 - 就执行！
+
+每个函数都必须有返回值！
+
+就算你没写 也会有！
+	undefined！
+
+
+封闭空间！
+	(function(){....})();
+
+	

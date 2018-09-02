@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+	window.onload = function(){
+		var oBtn = document.getElementById('btn');
+		oBtn.onclick=function(){
+			var num = 60;
+			var time=null;
+			this.value='（'+num+'）重新发送';
+			this.disabled=true;
+			time=setInterval(function(){
+					num--;
+					oBtn.value='（'+num+'）重新发送';
+					if(num==0){
+						oBtn.value='免费发送验证码';
+						oBtn.disabled=false;
+						clearInterval(time);
+					}
+			},1000)
+		}
+	}
+</script>
+</head>
+
+<body>
+	<input type="button" value="免费发送验证码" id="btn"  />
+</body>
+</html>

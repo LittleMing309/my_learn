@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图</title>
+	<style type="text/css">
+		*{ margin:0; padding: 0;}
+		li{ list-style: none;}
+		#box{ height: 305px; width: 840px; margin:100px auto; position: relative; left: 0; top: 0; overflow: hidden;}
+		#box ul{ position: absolute; left: 0; top: 0;}
+		#box ul li{ float: left; width: 840px; height: 305px;}
+		#box ol{ position: absolute; left: 50%; bottom: 20px; width:200px; margin-left:-100px;}
+		#box ol li{ float: left; width: 30px; height: 30px; background: #CCC; border-radius: 50%;text-indent:-999px; margin:10px; cursor:pointer;}
+		#box ol .on{ background: #f90;}
+	</style>
+	<script type="text/javascript" src="jquery-1.7.2.js"></script>
+	<script type="text/javascript" src="slider.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#box').slider();
+		});
+	</script>
+</head>
+<body>
+	<div id="box">
+		<ul>
+	    	<li><img src="img/0.jpg" /></li>
+	    	<li><img src="img/1.jpg" /></li>
+	    	<li><img src="img/2.jpg" /></li>
+	    	<li><img src="img/3.jpg" /></li>
+	    </ul>
+	    <ol>
+	    	<li class="on">0</li>
+	    	<li>1</li>
+	    	<li>2</li>
+	    	<li>3</li>
+	    </ol>
+	</div>
+</body>
+</html>

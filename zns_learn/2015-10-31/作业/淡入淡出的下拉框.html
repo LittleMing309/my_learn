@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>淡入淡出的下拉框</title>
+	<style>
+		*{ margin:0; padding: 0; list-style: none;}
+		#ul1{ width: 408px; margin:10px auto;}
+		#ul1 .item{ width: 100px; height: 30px; float: left; border: 1px solid black; line-height: 30px; text-align:center; position: relative;;}
+		#ul1 .menu{ width: 100%;  height: 0; overflow: hidden; border: 1px solid black; position: absolute; left: -1px; top: 30px; opacity: 1; fliter:alpha(opacity:100);}
+	</style>
+	<script>
+		function getStyle(obj,name){
+			return obj.currentStyle?obj.currentStyle[name]:getComputedStyle(obj,false)[name];
+		};
+
+		function move(obj,json,time,end){
+			var start = {};
+			var dis = {};
+			for(var name in json){
+				start[name] = parseFloat(getStyle(obj,name));
+				dis[name] = json[name] - start[name];
+			}
+			var count = Math.floor(time/30);
+			var n = 0;
+			clearInterval(obj.timer);
+			obj.timer = setInterval(function(){
+				n++;
+				for(var name in json){
+					var cur = start[name] + dis[name]*n/count;
+					if(name == 'opacity'){
+						obj.style.opacity = cur ;
+						obj.style.fliter = 'alpha(opacity:'+cur*100+')';
+					}else{
+						obj.style[name] = cur+'px';
+					}
+				}
+				if(n == count){
+					clearInterval(obj.timer);
+					end&&end();
+				}
+			},30);
+		};
+
+		window.onload = function(){
+			var oUl = document.getElementById('ul1');
+			var aLi = oUl.children;
+			for(var i = 0 ; i<aLi.length; i++){
+				aLi[i].onmouseover = function(){
+					var oUl2 = this.children[0];
+					var aLi2 = oUl2.children;
+					move(oUl2,{'height':aLi2.length*aLi2[0].offsetHeight,'opacity':1},400);
+					//move(oUl2, {height: aLi2[0].offsetHeight*aLi2.length, opacity: 1}, 400);
+				}
+				aLi[i].onmouseout = function(){
+					var oUl2 = this.children[0];
+					var aLi2 = oUl2.children;
+					move(oUl2,{'height':0,'opacity':0},400);
+					//move(oUl2, {height: aLi2[0].offsetHeight*aLi2.length, opacity: 1}, 400);
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul id="ul1">
+		<li class="item">
+			首页
+			<ul class="menu">
+				<li>111</li>
+	        	<li>222</li>
+	        	<li>333</li>
+	        	<li>444</li>
+			</ul>
+		</li>
+		<li class="item">
+			新闻
+			<ul class="menu">
+				<li>111</li>
+	        	<li>222</li>
+	        	<li>333</li>
+	        	<li>444</li>
+			</ul>
+		</li>
+		<li class="item">
+			资讯
+			<ul class="menu">
+				<li>111</li>
+	        	<li>222</li>
+	        	<li>333</li>
+	        	<li>444</li>
+			</ul>
+		</li>
+		<li class="item">
+			论坛
+			<ul class="menu">
+				<li>111</li>
+	        	<li>222</li>
+	        	<li>333</li>
+	        	<li>444</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>

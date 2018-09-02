@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>课上练习</title>
+	<style>
+		div{ width: 100px; height: 100px; position: absolute;}
+		#div1{ background: red; left: 0; top: 0;}
+		#div2{ background: yellow;  right: 20px; top: 20px;}
+	</style>
+	<script>
+		window.onload = function(){
+			var oDiv = document.getElementById('div1');
+			var oBox = document.getElementById('div2');
+			oDiv.onmousedown = function(ev){
+				var oEvent = ev || event;
+				var disX = oEvent.clientX - oDiv.offsetLeft;
+				var disY = oEvent.clientY - oDiv.offsetTop;
+				document.onmousemove = function(ev){
+					var oEvent = ev || event;
+					oDiv.style.left = oEvent.clientX - disX + 'px';
+					oDiv.style.top = oEvent.clientY - disY + 'px';
+
+					var l1 = oDiv.offsetLeft;
+					var r1 = oDiv.offsetLeft + oDiv.offsetWidth;
+					var t1 = oDiv.offsetTop;
+					var b1 = oDiv.offsetTop + oDiv.offsetHeight;
+
+					var l2 = oBox.offsetLeft;
+					var r2 = oBox.offsetLeft + oDiv.offsetWidth;
+					var t2 = oBox.offsetTop;
+					var b2 = oBox.offsetTop + oDiv.offsetHeight;
+
+					if( l1 < r2 && r1 > l2 && t1 < b2 && b1 > t2){
+						oBox.style.background = 'blue';
+					}else{
+						oBox.style.background = 'yellow'
+					};
+				};
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					document.onmouseup = null;
+					oDiv.releaseCapture&&oDiv.releaseCapture();
+				};
+				oDiv.setCapture&&oDiv.setCapture();
+				return false;
+			};
+			oBox.onmousedown = function(ev){
+				var oEvent = ev || event;
+				var disX = oEvent.clientX - oBox.offsetLeft;
+				var disY = oEvent.clientY - oBox.offsetTop;
+				document.onmousemove = function(ev){
+					var oEvent = ev || event;
+					oBox.style.left = oEvent.clientX - disX + 'px';
+					oBox.style.top = oEvent.clientY - disY + 'px';
+
+					var l1 = oDiv.offsetLeft;
+					var r1 = oDiv.offsetLeft + oDiv.offsetWidth;
+					var t1 = oDiv.offsetTop;
+					var b1 = oDiv.offsetTop + oDiv.offsetHeight;
+
+					var l2 = oBox.offsetLeft;
+					var r2 = oBox.offsetLeft + oDiv.offsetWidth;
+					var t2 = oBox.offsetTop;
+					var b2 = oBox.offsetTop + oDiv.offsetHeight;
+
+					if( l2 < r1 && r2 > l1 && t2 < b1 && b2 > t1){
+						oDiv.style.background = '#CCC';
+					}else{
+						oDiv.style.background = 'red'
+					};
+				};
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					document.onmouseup = null;
+					oBox.releaseCapture&&oBox.releaseCapture();
+				};
+				oBox.setCapture&&oBox.setCapture();
+				return false;
+			};
+		}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+</body>
+</html>

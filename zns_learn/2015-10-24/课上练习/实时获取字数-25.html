@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>实时获取字数</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oInp = document.getElementsByTagName('input')[0];
+			oInp.oninput = function(){
+				document.title = oInp.value.length;
+			};
+			oInp.onpropertychange = function(){
+				document.title = oInp.value.length;
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" />
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+window.onload = function(){
+	var oSel = document.getElementById('sel');
+	var aOp = oSel.options;
+	alert(aOp[oSel.selectedIndex].text);     //获取当前选中那项的文本值
+	oSel.remove(1);                     //删除第二项
+	var newOp = new Option('国贸',3);       //定义一个新option
+	oSel.add(newOp);                  //把新定义的option添加到select里面
+};
+</script>
+</head>
+
+<body>
+<select id="sel">
+	<option value="1">北京</option>
+    <option value="2" selected="selected">上海</option>
+    <option value="3">杭州</option>
+</select>
+</body>
+</html>

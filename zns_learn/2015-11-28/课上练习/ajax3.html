@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax</title>
+	<script type="text/javascript" src="ajax.js"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBtn = document.body.children[0];
+			oBtn.onclick = function(){
+				ajax('b.txt?t='+Math.random(),function(str){
+					alert(str+5);
+				},function(){
+					alert('失败');
+				});
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="按钮" />
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<meta name="description" content="智能社是一家专注于web前端开发技术的公司，目前主要提供JavaScript培训和HTML5培训两项服务，同时还推出了大量javascript基础知识教程，智能课堂为你带来全新的学习方法和快乐的学习体验。" />
+<title>智能社— http://www.zhinengshe.com</title>
+<style>
+.skin1{background:#399;}
+.skin2{background:#f33;}
+.skin3{background:#f90;}
+</style>
+<script src="cookie.js"></script>
+<script>
+window.onload=function(){
+	var oSkin1 = document.body.children[0];
+	var oSkin2 = document.body.children[1];
+	var oSkin3 = document.body.children[2];
+	var skin = getCookie('skin');
+	if(skin){
+		changeSkin(skin);
+	}
+	oSkin1.onclick=function(){
+		changeSkin('skin1');
+	};
+	oSkin2.onclick=function(){
+		changeSkin('skin2');
+	};
+	oSkin3.onclick=function(){
+		changeSkin('skin3');
+	};
+	function changeSkin(skin){
+		addCookie('skin',skin,1);
+		document.body.className=skin;
+	}
+};
+</script>
+</head>
+
+<body class="skin1">
+<input type="button" value="skin1" />
+<input type="button" value="skin2" />
+<input type="button" value="skin3" />
+</body>
+</html>
+
+
+
+
+
+
+
+
+

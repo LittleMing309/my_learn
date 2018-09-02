@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>write_ajax</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBtn = document.body.children[0];
+			oBtn.onclick = function(){
+				var oAjax = new XMLHttpRequest();
+				//var oAjax = new ActiveXObject('Microsoft.XMLHTTP');
+				alert(oAjax);
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="按钮" />
+</body>
+</html>

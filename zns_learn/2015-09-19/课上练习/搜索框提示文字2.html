@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>搜索框提示文字2</title>
+	<style>
+		.ospan{ position: absolute; color: #CCC;}
+	</style>
+	<script>
+		window.onload = function(){
+			var oInp = document.getElementsByTagName('input')[0];
+			var oSpan = document.createElement('span');
+			oSpan.innerHTML = '酒窖';
+			oSpan.className = 'ospan';
+			oSpan.style.top = oInp.offsetTop + 'px';
+			oSpan.style.left = oInp.offsetLeft + 'px';
+			document.body.appendChild(oSpan);
+			oInp.onfocus = function (){
+				oSpan.style.display = 'none';
+			}
+			oInp.onblur = function(){
+				if(oInp.value == ''){
+					oSpan.style.display = 'block';
+				}
+			}
+			oSpan.onclick = function(){
+				oInp.focus();
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" />
+	<input type="button" value="提交" />
+</body>
+</html>
