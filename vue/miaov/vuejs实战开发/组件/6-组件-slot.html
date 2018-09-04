@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+<script src="./vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h2>自定义组件</h2>
+    <custom>
+        <div>
+            我是div的内容
+        </div>
+    </custom>
+</div>
+<script>
+    Vue.component('custom', {
+        template : `
+            <div>
+                <slot>
+                    <p>我是第1个提醒</p>
+                    <p>我是第2个提醒</p>
+                    <p>我是第3个提醒</p>
+                </slot>
+            </div>        
+        `
+    });
+
+    new Vue({
+        el : '#app' 
+    })
+</script>
+</body>
+</html>

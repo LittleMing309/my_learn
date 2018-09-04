@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+<script src="./vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h3>父组件中使用了count</h3>
+    {{count}}
+    <custom-component :count="count" @increment-click="countHandle"></custom-component>
+</div>
+<script>
+// 全局组件
+Vue.component('custom-component',{
+    data(){
+        return {
+            incrementCount : this.count
+        }
+    },
+    props : {
+        count : {
+            // type : Number 定义为字母类型
+            // type : [Number,String]  定义为数字类型或者字符串类型 
+            // default : 10    设置默认值
+            // required : true 设置为必传
+            validator : function(value){    // 自定义验证
+                console.log(value);
+
+                return value > 10;      // 必须有返回值
+            }
+        }
+    },
+    template : `
+        <div>
+            <h2>我是一个自定义组件</h2>
+            <input type="button" value ="改变count的值" @click="changeCount" />
+            {{incrementCount2}}    
+        </div>
+    `,
+    computed : {
+        incrementCount2(){
+            return this.incrementCount
+        }
+    },
+    methods : {
+        changeCount(){
+            this.incrementCount++;
+            // 通知父组件，发生了改变
+            this.$emit("increment-click")
+        }
+    }
+});
+
+new Vue({
+    el : "#app",
+    data : {
+        count : 20
+    },
+    methods : {
+        countHandle(){
+            this.count++;
+        }
+    }
+});
+</script>
+</body>
+</html>

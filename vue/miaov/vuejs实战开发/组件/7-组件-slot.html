@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+<script src="./vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h2>自定义组件</h2>
+    <custom>
+        <div slot="one">
+            替换第1个提醒的内容
+        </div>
+        <div slot="three">
+            替换第3个提醒的内容
+        </div>
+        <template slot="two">
+            <div>替换第2个提醒的内容</div>
+            <span>替换第2个提醒的内容</span>
+            <div>替换第2个提醒的内容</div>
+            <span>替换第2个提醒的内容</span>
+            <div>替换第2个提醒的内容</div>
+            <span>替换第2个提醒的内容</span>
+        </template>
+        <p>替换无名的solt</p>
+        <p>替换无名的solt2</p>
+    </custom>
+</div>
+<script>
+    Vue.component('custom', {
+        template : `
+            <div>
+                <slot name="one"><p>aaaaaaaaaaaaaa</p></slot>
+                <slot name="two"><p>bbbbbbbbbbbbbb</p></slot>
+                <slot name="three"><p>cccccccccccc</p></slot>
+                <slot>无名的slot</slot>
+            </div>        
+        `
+    });
+
+    new Vue({
+        el : '#app' 
+    })
+</script>
+</body>
+</html>
