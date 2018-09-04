@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Function.prototype.call()</title>
+</head>
+<body>
+    <script>
+        var obj = {
+            a: 1
+        }
+        
+        var a = 2;
+
+        function fn(){
+            console.log(this.a)
+        }
+
+        fn();               // 2    this -> window
+        fn.call();          //2     this -> window
+        fn.call(null);      // 2    this -> window
+        fn.call(undefined)  // 2    this -> window
+        fn.call(this)       // 2    this -> window
+        fn.call(obj)        // 1    this -> obj
+    </script>
+</body>
+</html>

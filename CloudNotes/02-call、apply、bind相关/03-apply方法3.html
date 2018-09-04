@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>将数组的空元素变为undefined</title>
+</head>
+<body>
+    <script>
+        var arr = [1,,2,3,,5];
+        
+        console.log(Array.apply(null,arr))  // 1,undefined,2,3,undefined,5
+
+        arr.forEach(function(el,index){
+            console.log(index)  // 0,2,3,5
+        })
+
+        Array.apply(null,arr).forEach(function(el,index){
+            console.log(index)  // 0,1,2,3,4,5
+        })
+    </script>
+</body>
+</html>

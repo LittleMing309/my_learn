@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>利用slice方法转换类似数组的对象</title>
+</head>
+<body>
+    <script>
+        console.log(Array.prototype.slice.apply({0:1,length:1}))    // [1]  
+        console.log(Array.prototype.slice.call({0:1,length:1}))     // [1]  
+        console.log(Array.prototype.slice.apply({0:1,length:2}))    // [1,empty]
+        console.log(Array.prototype.slice.call({0:1,length:2}))     // [1,empty]
+
+        function fn(){
+            return arguments;
+        }
+
+        console.log(fn(1,2,3,4))
+        console.log(Array.prototype.slice.apply(fn(1,2,3,4)))   //  [1, 2, 3, 4]
+    </script>
+</body>
+</html>
