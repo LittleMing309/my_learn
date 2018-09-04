@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+</head>
+<body>
+<script type="text/javascript">
+// Array.from() 用于将两类对象转为真正的数组：累死数组的对象（array-like object）和可遍历的（interable）的对象（包括es6新增的数据结构Set和Map）
+
+// 例 1：
+let arrLike = {
+	'0':'a',
+	'1':'b',
+	'2':'c',
+	'length': 3
+}
+
+let arr = Array.from(arrLike)
+
+console.log(arr)
+</script>
+</body>
+</html>

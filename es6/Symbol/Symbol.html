@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+</head>
+<body>
+<script type="text/javascript">
+//凡是属性名为Symbol类型的，就是独一无二的，可以保证不会与其他属性名冲突
+// let s = Symbol();
+// console.log(typeof s)
+
+// let s = Symbol('foo');
+// console.log(s);
+// console.log(s.toString())
+
+// 如果Symbol的参数是对象，就会调用该对象的toString方法，将其转为字符串，然后才生成一个Symbol值
+let s = Symbol({
+	toString(){
+		return 'Symbol的参数是字符串格式'
+	}
+})
+
+let s2 = Symbol({
+	a: 1,
+	b: 2
+})
+console.log(s2)	// Symbol([object Object])
+console.log(s)	// Symbol(Symbol的参数是字符串格式)
+</script>
+</body>
+</html>
