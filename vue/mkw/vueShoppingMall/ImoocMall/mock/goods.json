@@ -1,0 +1,48 @@
+{
+    "status": "0",
+    "msg": "",
+    "result": [
+        {
+            "productId": "100001",
+            "productName": "音响",
+            "productPrice": 199,
+            "productImg": "1.jpg"
+        },
+        {
+            "productId": "100002",
+            "productName": "耳机",
+            "productPrice": 99,
+            "productImg": "2.jpg"
+        },
+        {
+            "productId": "100003",
+            "productName": "耳麦",
+            "productPrice": 1999,
+            "productImg": "3.jpg"
+        },
+        {
+            "productId": "100004",
+            "productName": "耳麦2",
+            "productPrice": 2999,
+            "productImg": "4.jpg"
+        },
+        {
+            "productId": "100005",
+            "productName": "插线排",
+            "productPrice": 39,
+            "productImg": "6.jpg"
+        },
+        {
+            "productId": "100006",
+            "productName": "乐视音响",
+            "productPrice": 299,
+            "productImg": "5.jpg"
+        },
+        {
+            "productId": "100007",
+            "productName": "耳机2",
+            "productPrice": 259,
+            "productImg": "7.jpg"
+        }
+    ]
+}
