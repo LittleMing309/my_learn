@@ -96,6 +96,11 @@
 .accessory-list .main .btn-area .btn {
   width: 100%;
 }
+.load-more{
+  height: 100px;
+  line-height: 100px;
+  text-align: center; 
+}
 
 @media only screen and (max-width: 991px) {
   .accessory-list.col-4 > ul > li {
