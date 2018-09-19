@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Goods = require('../models/goods');
+var user = require('../models/user');
 
 mongoose.connect('mongodb://127.0.0.1:27017/dumall');
 
@@ -71,6 +72,76 @@ router.get('/', (req, res, next)=>{
                     list: doc
                 }
             })
+        }
+    })
+});
+
+router.post('/addCart',(req, res, next)=>{
+    let userId = '100000077';
+    let productId = req.body.productId;
+    user.findOne({userId: userId}, (err, userDoc)=>{
+        if(err){
+            res.json({
+                status: '1',
+                message: err.message
+            })
+        }else{
+            // console.log('userDoc：'+userDoc);
+            if(userDoc){
+                let goodsItem = '';
+                userDoc.cartList.forEach((item)=>{
+                    if(item.productId == productId){
+                        goodsItem = item;
+                        item.productNum++;
+                    }
+                })
+                if(goodsItem){
+                    userDoc.save((err2, doc2)=>{
+                        if(err2){
+                            res.json({
+                                status: '1',
+                                message: err2.message
+                            })
+                        }else{
+                            res.json({
+                                status: '0',
+                                message: '',
+                                result: 'suc'
+                            })
+                        }
+                    })
+                }else{
+                    Goods.findOne({productId: productId}, (err1, doc)=>{
+                        if(err1){
+                            res.json({
+                                status: '1',
+                                message: err1.message
+                            })
+                        }else{
+                            if(doc){
+                                doc.productNum = 1;
+                                doc.checked = 1;
+                                console.log(doc);
+                                userDoc.cartList.push(doc);
+                                userDoc.save((err2, doc2)=>{
+                                    if(err2){
+                                        res.json({
+                                            status: '1',
+                                            message: err2.message
+                                        })
+                                    }else{
+                                        res.json({
+                                            status: '0',
+                                            message: '',
+                                            result: 'suc'
+                                        })
+                                    }
+                                })
+                            }
+                        }
+                    })
+                }
+            }
         }
     })
 })
