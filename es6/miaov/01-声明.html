@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>声明</title>
+</head>
+<body>
+<script>
+    console.log(a);
+    var a = 1;
+    var a = 11111;      // var 可以重复声明
+    console.log(a);
+    
+
+    // console.log(b);     // let 不支持预解析，报错
+    let b = 100;
+    // let b = 2222;       // let 不支持重复声明 ，报错
+    {
+        let c = 999;
+        console.log(c)
+    }
+    // console.log(c)      // let 支持块级作用域，在块级作用域外面是访问不到变量的，会报错
+    console.log(b);
+
+
+
+    
+</script>
+</body>
+</html>

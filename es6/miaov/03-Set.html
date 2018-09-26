@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Set</title>
+</head>
+<body>
+<script>
+    let set = new Set(['a','b','c']);
+    // set.add('1').add(1);
+    // set.delete(1);
+    // console.log(set.has('a'));
+    // console.log(set.has('z'));
+    // console.log(set.size);
+    // console.log(set)
+
+    set.forEach((item,index,s)=>{
+        console.log(item, index, s)
+    })
+
+    let keys = set.keys();
+    console.log(keys.next());
+    console.log(keys.next());
+    console.log(keys.next());
+    console.log(keys.next());
+
+    let values = set.values();
+    console.log(values.next());
+    console.log(values.next());
+    console.log(values.next());
+    console.log(values.next());
+
+    let entries = set.entries(); 
+    console.log(entries.next());
+    console.log(entries.next());
+    console.log(entries.next());
+    console.log(entries.next());
+</script>
+</body>
+</html>

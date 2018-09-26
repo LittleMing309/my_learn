@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>结构赋值</title>
+</head>
+<body>
+<script>
+    // var obj = {
+    //     name: 'swan',
+    //     age: 18,
+    //     a: undefined,
+    //     b: 2,
+    //     c: 0
+    // }
+
+    // let { name, age } = obj;
+    // console.log(name, age);
+
+    // let name = "";
+    // ({name} = obj);
+    // console.log(name)
+
+    // let { name: str } = obj;
+    // console.log(str)
+
+    // let {c=100} = obj;
+    // console.log(c)
+
+    // let { gender : g = "liang" } = obj;
+    // console.log(g)
+
+    // let {a, b, ...r} = obj;
+    // console.log(a, b, r)
+
+    let arr = "miaov".split("");
+
+    // let [a,b,c,,v] = arr;
+    // console.log(a,b,c,v)
+
+    // arr[0] = undefined;
+    // let [a=100] = arr;
+    // console.log(a)
+
+    let [a,b,c,...r] = arr;
+    console.log(a,b,c,r)
+</script>
+</body>
+</html>
